@@ -355,27 +355,33 @@ async function verifyLiveSite(baseUrl) {
 
 async function main() {
   const remoteUrl = normalizeRemote(process.argv[2] || "");
+  const pagesOnly = process.argv.includes("--pages-only");
   const { owner, repo } = parseRemote(remoteUrl);
   const token = getGitHubToken();
   if (!token) {
     throw new Error("GitHub 인증을 찾지 못했습니다.");
   }
 
-  for (const project of projects) assertCleanProject(project);
-  process.stdout.write("Public·빈 저장소와 push 권한을 확인하고 있습니다.\n");
-  await validateTarget(remoteUrl, owner, repo, token);
-
   const isAccountSite = repo.toLowerCase() === `${owner.toLowerCase()}.github.io`;
   const rootBase = isAccountSite ? "/" : `/${repo}/`;
-  for (const project of projects) {
-    buildProject(project, `${rootBase}${project.suffix}`);
+  if (!pagesOnly) {
+    for (const project of projects) assertCleanProject(project);
+    process.stdout.write("Public·빈 저장소와 push 권한을 확인하고 있습니다.\n");
+    await validateTarget(remoteUrl, owner, repo, token);
+
+    for (const project of projects) {
+      buildProject(project, `${rootBase}${project.suffix}`);
+    }
+
+    process.stdout.write("\n소스 브랜치를 생성하고 있습니다.\n");
+    for (const project of projects) pushSource(project, remoteUrl);
+
+    process.stdout.write("\n통합 정적 사이트를 gh-pages 브랜치에 올리고 있습니다.\n");
+    createPagesBranch(remoteUrl);
+  } else {
+    process.stdout.write("기존 gh-pages 브랜치의 Pages 설정만 재개합니다.\n");
   }
 
-  process.stdout.write("\n소스 브랜치를 생성하고 있습니다.\n");
-  for (const project of projects) pushSource(project, remoteUrl);
-
-  process.stdout.write("\n통합 정적 사이트를 gh-pages 브랜치에 올리고 있습니다.\n");
-  createPagesBranch(remoteUrl);
   await configurePages(owner, repo, token);
   const expectedUrl = isAccountSite
     ? `https://${owner}.github.io/`
