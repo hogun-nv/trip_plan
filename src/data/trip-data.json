@@ -1,0 +1,4242 @@
+{
+  "generatedFrom": "nyc-couple-trip-2026.html",
+  "generatedAt": "2026-09-01T12:22:49.717Z",
+  "images": {
+    "hero": "https://commons.wikimedia.org/wiki/Special:FilePath/Brooklyn%20Bridge%20at%20sunset%20from%20Brooklyn%20Bridge%20Park%2C%20New%20York%20City.jpg?width=1600",
+    "times": "https://commons.wikimedia.org/wiki/Special:FilePath/Times%20Square%2C%20NYC%20at%20night%20-%20August%202025.jpg?width=1400",
+    "central": "https://commons.wikimedia.org/wiki/Special:FilePath/Bow%20Bridge%2C%20Central%20Park%2C%20in%20fall.jpg?width=1400",
+    "niagara": "https://commons.wikimedia.org/wiki/Special:FilePath/NiagaraFallsPanorama.jpg?width=1600",
+    "storm": "https://commons.wikimedia.org/wiki/Special:FilePath/Storm%20King%20Art%20Center%20views%2001.jpg?width=1400",
+    "statue": "https://commons.wikimedia.org/wiki/Special:FilePath/Statue%20of%20Liberty%20overlooking%20Skyline.jpg?width=1400",
+    "met": "https://commons.wikimedia.org/wiki/Special:FilePath/Metropolitan%20Museum%20of%20Art%20%28The%20Met%29%20-%20Central%20Park%2C%20NYC.jpg?width=1400",
+    "bryant": "https://commons.wikimedia.org/wiki/Special:FilePath/Bryant%20Park%20with%20NYPL.jpg?width=1000",
+    "grandCentral": "https://commons.wikimedia.org/wiki/Special:FilePath/Grand%20Central%20Terminal%20-%20Main%20Concourse.jpg?width=1000",
+    "topRock": "https://commons.wikimedia.org/wiki/Special:FilePath/Sunset%20at%20the%20Top%20of%20the%20Rock%20%2852363829383%29.jpg?width=1000",
+    "highLine": "https://commons.wikimedia.org/wiki/Special:FilePath/High%20Line%20looking%20north%20past%2019th%20Street%20Manhattan.jpeg?width=1000",
+    "littleIsland": "https://commons.wikimedia.org/wiki/Special:FilePath/Little%20Island-NYC.jpg?width=1000",
+    "dumbo": "https://commons.wikimedia.org/wiki/Special:FilePath/BrooklynBridgefromDUMBO.JPG?width=1000",
+    "moma": "https://commons.wikimedia.org/wiki/Special:FilePath/Moma-inside.jpg?width=900",
+    "whitney": "https://commons.wikimedia.org/wiki/Special:FilePath/Whitney%20Museum%20of%20American%20Art%20-%20Front%20%2849051572713%29.jpg?width=1000",
+    "cloisters": "https://commons.wikimedia.org/wiki/Special:FilePath/The%20Cloisters%20Exterior.jpg?width=1000",
+    "memorial": "https://commons.wikimedia.org/wiki/Special:FilePath/9%2011%20Memorial%20Pool%20and%20Museum%2C%20and%20%27The%20Oculus%27%20--%20New%20York%20%28NY%29%20April%202016%20%2826569824202%29.jpg?width=1000",
+    "dia": "https://commons.wikimedia.org/wiki/Special:FilePath/Beacon%20dia.JPG?width=1000",
+    "tram": "https://commons.wikimedia.org/wiki/Special:FilePath/2024-11-18-%20Roosevelt%20Island%20Tramway-0597.jpg?width=1000",
+    "governors": "https://commons.wikimedia.org/wiki/Special:FilePath/Fort%20Jay%20Governors%20Island%20and%20Lower%20Manhattan%20skyline.jpg?width=1000",
+    "citi": "https://commons.wikimedia.org/wiki/Special:FilePath/Citi%20Field.jpg?width=1000",
+    "chelsea": "https://commons.wikimedia.org/wiki/Special:FilePath/Inside%20Chelsea%20Market%20%282665986353%29.jpg?width=1000",
+    "waveHill": "https://commons.wikimedia.org/wiki/Special:FilePath/Wave%20Hill%20entrance.jpg?width=900",
+    "keens": "https://commons.wikimedia.org/wiki/Special:FilePath/Keens%20Steakhouse%20%2854821833498%29.jpg?width=1000",
+    "oysterBar": "https://commons.wikimedia.org/wiki/Special:FilePath/Oyster%20Bar.jpg?width=1000",
+    "katz": "https://commons.wikimedia.org/wiki/Special:FilePath/Katzs.jpg?width=1000",
+    "sylvia": "https://commons.wikimedia.org/wiki/Special:FilePath/Harlem%20-%20Sylvia%27s%20Restaurant%20%2848555310372%29.jpg?width=1000",
+    "peterLuger": "https://commons.wikimedia.org/wiki/Special:FilePath/Peter%20Luger%20Steakhouse.jpg?width=1000",
+    "arthurAvenue": "https://commons.wikimedia.org/wiki/Special:FilePath/Arthur%20Avenue%20Retail%20Market%2002.jpg?width=1000",
+    "pizza": "https://commons.wikimedia.org/wiki/Special:FilePath/NYPizzaSlice.jpg?width=900",
+    "bagel": "https://commons.wikimedia.org/wiki/Special:FilePath/Lox-and-bagel-02.jpg?width=900",
+    "dimsum": "https://commons.wikimedia.org/wiki/Special:FilePath/Food%20at%20Dim%20Sum%20Palace.jpg?width=900",
+    "lobster": "https://commons.wikimedia.org/wiki/Special:FilePath/Lobster%20roll.jpg?width=900",
+    "dosa": "https://commons.wikimedia.org/wiki/Special:FilePath/Rava%20Dosa%20with%20Coconut%20Chutney.jpg?width=900",
+    "arepa": "https://commons.wikimedia.org/wiki/Special:FilePath/Colombian%20Arepas%20with%20cheese%20.jpg?width=900",
+    "wings": "https://commons.wikimedia.org/wiki/Special:FilePath/Buffalo%20wings.jpg?width=900",
+    "comfort": "https://commons.wikimedia.org/wiki/Special:FilePath/Harland%20Sanders%20Caf%C3%A9%20and%20Museum%20-%20October%202023%20-%20Sarah%20Stierch%2006.jpg?width=900",
+    "redCoach": "https://www.redcoach.com/wp-content/uploads/2018/02/Restaurant-and-Hotel-Exterior-1024x341.jpg",
+    "tenement": "https://commons.wikimedia.org/wiki/Special:FilePath/Tenement%20Museum.jpg?width=900",
+    "unisphere": "https://commons.wikimedia.org/wiki/Special:FilePath/Flushing%20Meadows%20Corona%20Park%20Unisphere.jpg?width=1000",
+    "porterhouse": "https://commons.wikimedia.org/wiki/Special:FilePath/USDA%20Prime%20Porterhouse%20Steak.jpg?width=900",
+    "madison": "https://commons.wikimedia.org/wiki/Special:FilePath/Madison%20Square%20Park.jpg?width=1000",
+    "wallStreet": "https://commons.wikimedia.org/wiki/Special:FilePath/New%20York%20Stock%20Exchange%2C%20Wall%20Street.jpg?width=900",
+    "hotelRoom": "https://commons.wikimedia.org/wiki/Special:FilePath/Mandarin%20Oriental%20New%20York%20Hudson%20River%20View%20Room.jpg?width=1000",
+    "tennessee": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Great-Smoky-Mountains_Panorama.jpg/1280px-Great-Smoky-Mountains_Panorama.jpg",
+    "sanjose": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/San_Jose_California_Skyline.jpg/1280px-San_Jose_California_Skyline.jpg"
+  },
+  "credits": {
+    "hero": "https://commons.wikimedia.org/wiki/File:Brooklyn_Bridge_at_sunset_from_Brooklyn_Bridge_Park,_New_York_City.jpg",
+    "times": "https://commons.wikimedia.org/wiki/File:Times_Square,_NYC_at_night_-_August_2025.jpg",
+    "central": "https://commons.wikimedia.org/wiki/File:Bow_Bridge,_Central_Park,_in_fall.jpg",
+    "niagara": "https://commons.wikimedia.org/wiki/File:NiagaraFallsPanorama.jpg",
+    "storm": "https://commons.wikimedia.org/wiki/File:Storm_King_Art_Center_views_01.jpg",
+    "statue": "https://commons.wikimedia.org/wiki/File:Statue_of_Liberty_overlooking_Skyline.jpg",
+    "met": "https://commons.wikimedia.org/wiki/File:Metropolitan_Museum_of_Art_(The_Met)_-_Central_Park,_NYC.jpg",
+    "bryant": "https://commons.wikimedia.org/wiki/File:Bryant_Park_with_NYPL.jpg",
+    "grandCentral": "https://commons.wikimedia.org/wiki/File:Grand_Central_Terminal_-_Main_Concourse.jpg",
+    "topRock": "https://commons.wikimedia.org/wiki/File:Sunset_at_the_Top_of_the_Rock_(52363829383).jpg",
+    "highLine": "https://commons.wikimedia.org/wiki/File:High_Line_looking_north_past_19th_Street_Manhattan.jpeg",
+    "littleIsland": "https://commons.wikimedia.org/wiki/File:Little_Island-NYC.jpg",
+    "dumbo": "https://commons.wikimedia.org/wiki/File:BrooklynBridgefromDUMBO.JPG",
+    "moma": "https://commons.wikimedia.org/wiki/File:Moma-inside.jpg",
+    "whitney": "https://commons.wikimedia.org/wiki/File:Whitney_Museum_of_American_Art_-_Front_(49051572713).jpg",
+    "cloisters": "https://commons.wikimedia.org/wiki/File:The_Cloisters_Exterior.jpg",
+    "memorial": "https://commons.wikimedia.org/wiki/File:9_11_Memorial_Pool_and_Museum,_and_%27The_Oculus%27_--_New_York_(NY)_April_2016_(26569824202).jpg",
+    "dia": "https://commons.wikimedia.org/wiki/File:Beacon_dia.JPG",
+    "tram": "https://commons.wikimedia.org/wiki/File:2024-11-18-_Roosevelt_Island_Tramway-0597.jpg",
+    "governors": "https://commons.wikimedia.org/wiki/File:Fort_Jay_Governors_Island_and_Lower_Manhattan_skyline.jpg",
+    "citi": "https://commons.wikimedia.org/wiki/File:Citi_Field.jpg",
+    "chelsea": "https://commons.wikimedia.org/wiki/File:Inside_Chelsea_Market_(2665986353).jpg",
+    "waveHill": "https://commons.wikimedia.org/wiki/File:Wave_Hill_entrance.jpg",
+    "keens": "https://commons.wikimedia.org/wiki/File:Keens_Steakhouse_(54821833498).jpg",
+    "oysterBar": "https://commons.wikimedia.org/wiki/File:Oyster_Bar.jpg",
+    "katz": "https://commons.wikimedia.org/wiki/File:Katzs.jpg",
+    "sylvia": "https://commons.wikimedia.org/wiki/File:Harlem_-_Sylvia%27s_Restaurant_(48555310372).jpg",
+    "peterLuger": "https://commons.wikimedia.org/wiki/File:Peter_Luger_Steakhouse.jpg",
+    "arthurAvenue": "https://commons.wikimedia.org/wiki/File:Arthur_Avenue_Retail_Market_02.jpg",
+    "pizza": "https://commons.wikimedia.org/wiki/File:NYPizzaSlice.jpg",
+    "bagel": "https://commons.wikimedia.org/wiki/File:Lox-and-bagel-02.jpg",
+    "dimsum": "https://commons.wikimedia.org/wiki/File:Food_at_Dim_Sum_Palace.jpg",
+    "lobster": "https://commons.wikimedia.org/wiki/File:Lobster_roll.jpg",
+    "dosa": "https://commons.wikimedia.org/wiki/File:Rava_Dosa_with_Coconut_Chutney.jpg",
+    "arepa": "https://commons.wikimedia.org/wiki/File:Colombian_Arepas_with_cheese_.jpg",
+    "wings": "https://commons.wikimedia.org/wiki/File:Buffalo_wings.jpg",
+    "comfort": "https://commons.wikimedia.org/wiki/File:Harland_Sanders_Caf%C3%A9_and_Museum_-_October_2023_-_Sarah_Stierch_06.jpg",
+    "redCoach": "https://www.redcoach.com/restaurant/restaurant-and-hotel-exterior/",
+    "tenement": "https://commons.wikimedia.org/wiki/File:Tenement_Museum.jpg",
+    "unisphere": "https://commons.wikimedia.org/wiki/File:Flushing_Meadows_Corona_Park_Unisphere.jpg",
+    "porterhouse": "https://commons.wikimedia.org/wiki/File:USDA_Prime_Porterhouse_Steak.jpg",
+    "madison": "https://commons.wikimedia.org/wiki/File:Madison_Square_Park.jpg",
+    "wallStreet": "https://commons.wikimedia.org/wiki/File:New_York_Stock_Exchange,_Wall_Street.jpg",
+    "hotelRoom": "https://commons.wikimedia.org/wiki/File:Mandarin_Oriental_New_York_Hudson_River_View_Room.jpg",
+    "tennessee": "https://commons.wikimedia.org/wiki/File:Great-Smoky-Mountains_Panorama.jpg",
+    "sanjose": "https://commons.wikimedia.org/wiki/File:San_Jose_California_Skyline.jpg"
+  },
+  "plans": [
+    {
+      "id": "classic",
+      "number": "01",
+      "short": "첫 뉴욕 클래식",
+      "title": "뉴욕의 정석, 그러나 천천히",
+      "subtitle": "랜드마크·브로드웨이·브루클린·클로이스터스를 하루 한 권역으로 묶은 가장 안정적인 첫 방문 코스.",
+      "bestFor": "첫 뉴욕 · 균형형",
+      "pace": "2.5 / 5",
+      "nature": "도심 녹지 + 강변",
+      "hotelMoves": "연박 7박",
+      "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Times%20Square%2C%20NYC%20at%20night%20-%20August%202025.jpg?width=1400",
+      "hero": "https://commons.wikimedia.org/wiki/Special:FilePath/Brooklyn%20Bridge%20at%20sunset%20from%20Brooklyn%20Bridge%20Park%2C%20New%20York%20City.jpg?width=1600",
+      "verdict": "<strong>가장 무난한 선택.</strong> 두 분 모두 뉴욕이 처음이고 나이아가라보다 뉴욕 자체를 충분히 보고 싶다면 이 안이 좋습니다. 야외가 많은 화요일과 실내 중심 수요일은 날씨에 따라 서로 바꿀 수 있습니다.",
+      "area": {
+        "name": "Bryant Park 서쪽 · Times Square South",
+        "text": "브로드웨이·MoMA·Penn Station·5번가를 걸어서 연결하면서도 UN 본부의 보안 통제 구역에서는 한 블록 이상 벗어납니다. Times Square 한가운데보다 W 40–42 St의 Bryant Park 쪽이 수면 환경이 낫습니다.",
+        "caution": "객실은 높은 층·엘리베이터와 먼 쪽을 요청하고, 9/22–25 Midtown East 이동은 지하철을 우선하세요.",
+        "photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Times%20Square%2C%20NYC%20at%20night%20-%20August%202025.jpg?width=1400"
+      },
+      "hotels": [
+        {
+          "tier": "균형 · 4성급",
+          "name": "Park Terrace Hotel",
+          "text": "Bryant Park 바로 앞. 공원 전망과 지하철 접근성이 가장 좋고 공연 전 호텔 휴식이 쉽습니다.",
+          "bullets": [
+            "Times Square 도보 약 10분",
+            "UN 본부 차량 통제권 서쪽",
+            "공원 전망 객실은 가격 상승"
+          ],
+          "site": "https://parkterracehotel.com/",
+          "map": "https://maps.google.com/?q=Park+Terrace+Hotel+New+York"
+        },
+        {
+          "tier": "실용 · 부티크",
+          "name": "LUMA Hotel Times Square",
+          "text": "W 41st의 비교적 조용한 블록. 극장가와 Bryant Park 사이여서 이번 동선에 잘 맞습니다.",
+          "bullets": [
+            "Bryant Park·극장가 중간",
+            "객실 크기는 뉴욕 기준 보통",
+            "저층 도로변 소음 확인"
+          ],
+          "site": "https://www.lumahotels.com/times-square/",
+          "map": "https://maps.google.com/?q=LUMA+Hotel+Times+Square"
+        },
+        {
+          "tier": "감성 · 극장가",
+          "name": "CIVILIAN Hotel",
+          "text": "무대 예술을 테마로 한 호텔. Broadway 중심이지만 객실은 작아 큰 캐리어가 두 개면 상위 객실이 편합니다.",
+          "bullets": [
+            "극장 대부분 도보권",
+            "루프탑·바 분위기",
+            "주말 밤 소음 가능"
+          ],
+          "site": "https://www.civilianhotel.com/",
+          "map": "https://maps.google.com/?q=CIVILIAN+Hotel+New+York"
+        }
+      ],
+      "foods": [
+        {
+          "cuisine": "Steak",
+          "name": "Keens Steakhouse",
+          "text": "1885년 뉴욕 극장가의 흔적과 클레이 파이프 컬렉션이 남은 고전.",
+          "dish": "둘이 나눌 porterhouse 또는 mutton chop",
+          "tip": "월요일 18:00 예약",
+          "site": "https://www.keens.com/"
+        },
+        {
+          "cuisine": "Pizza",
+          "name": "Juliana's Pizza",
+          "text": "DUMBO 수변 일정에 자연스럽게 붙는 브루클린식 통피자.",
+          "dish": "Margherita + 토핑 1개",
+          "tip": "11:30 이전 입장",
+          "site": "https://julianaspizza.com/"
+        },
+        {
+          "cuisine": "Seafood",
+          "name": "Grand Central Oyster Bar",
+          "text": "Grand Central의 아치 천장 아래에서 먹는 뉴욕식 oyster pan roast.",
+          "dish": "생굴 6개 + pan roast",
+          "tip": "주말 휴무, 금요일 저녁",
+          "site": "https://grandcentralterminal.com/shop/oyster-bar-restaurant/"
+        },
+        {
+          "cuisine": "Jewish NYC",
+          "name": "Russ & Daughters",
+          "text": "1914년부터 이어진 bagel·lox와 뉴욕 유대계 appetizing 문화.",
+          "dish": "Classic bagel + smoked fish plate",
+          "tip": "9/21 휴무, 다른 날 오전",
+          "site": "https://www.russanddaughterscafe.com/"
+        },
+        {
+          "cuisine": "Soul food",
+          "name": "Sylvia's",
+          "text": "Harlem에서 1962년부터 이어진 미국 남부·흑인 음식의 상징.",
+          "dish": "fried chicken + collard greens",
+          "tip": "클로이스터 뒤 늦은 점심",
+          "site": "https://sylviasrestaurant.com/"
+        },
+        {
+          "cuisine": "American comfort",
+          "name": "Jacob's Pickles",
+          "text": "Upper West Side의 큼직한 biscuit와 남부식 comfort food.",
+          "dish": "fried chicken biscuit는 두 명이 공유",
+          "tip": "일요일 17:30 예약",
+          "site": "https://www.jacobspickles.com/"
+        }
+      ],
+      "days": [
+        {
+          "date": "9/19 토 · D1",
+          "title": "미드타운에 부드럽게 착륙",
+          "subtitle": "공원과 전망대, 타임스스퀘어만 가볍게 둘러보며 시차에 적응합니다.",
+          "walk": "예상 3–4km",
+          "rest": "호텔 90분",
+          "weather": "비가 오면 NYPL·Grand Central 중심으로 조정",
+          "photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Times%20Square%2C%20NYC%20at%20night%20-%20August%202025.jpg?width=1400",
+          "credit": "https://commons.wikimedia.org/wiki/File:Times_Square,_NYC_at_night_-_August_2025.jpg",
+          "mapMode": "walking",
+          "stops": [
+            {
+              "time": "14:00",
+              "end": "15:30",
+              "title": "호텔 체크인 · 샤워 · 낮잠",
+              "kind": "REST",
+              "detail": "첫날 낮잠은 90분 이내로 마쳐야 밤잠을 방해하지 않습니다.",
+              "move": "JFK에서 택시 60–90분 또는 AirTrain+LIRR",
+              "coords": [
+                40.7542,
+                -73.9854
+              ],
+              "url": "",
+              "reserve": "9/18 밤 도착 기준 · 오전 자유시간"
+            },
+            {
+              "time": "16:00",
+              "end": "16:50",
+              "title": "Bryant Park + NY Public Library",
+              "kind": "CULTURE",
+              "detail": "잔디와 열람실을 짧게 보고 뉴욕의 속도에 적응합니다.",
+              "move": "호텔에서 도보 5–10분",
+              "coords": [
+                40.7536,
+                -73.9832
+              ],
+              "url": "https://www.nypl.org/locations/schwarzman",
+              "reserve": "무료"
+            },
+            {
+              "time": "17:25",
+              "end": "19:15",
+              "title": "Top of the Rock · 일몰",
+              "kind": "VIEW",
+              "detail": "9/19 일몰 18:58. 17:25 슬롯이면 낮·황금빛·야경을 모두 봅니다.",
+              "move": "도보 12분",
+              "coords": [
+                40.7593,
+                -73.9794
+              ],
+              "url": "https://www.rockefellercenter.com/attractions/top-of-the-rock-observation-deck/",
+              "reserve": "시간 지정 예약"
+            },
+            {
+              "time": "19:30",
+              "end": "20:15",
+              "title": "Times Square 한 바퀴",
+              "kind": "CITY",
+              "detail": "사진은 TKTS 계단과 Broadway 46–47 St에서만 찍고 오래 머물지 않습니다.",
+              "move": "도보 8분",
+              "coords": [
+                40.758,
+                -73.9855
+              ],
+              "url": "https://www.timessquarenyc.org/",
+              "reserve": "무료"
+            },
+            {
+              "time": "20:20",
+              "end": "21:10",
+              "title": "Joe's Pizza · 가벼운 저녁",
+              "kind": "FOOD",
+              "detail": "첫날은 무거운 스테이크 대신 뉴욕 슬라이스 두 조각으로 마무리합니다.",
+              "move": "도보 3분",
+              "coords": [
+                40.758,
+                -73.9857
+              ],
+              "url": "https://www.joespizzanyc.com/",
+              "reserve": "워크인"
+            }
+          ],
+          "swap": "도착이 늦거나 입국심사가 길면 전망대와 Times Square를 D5 공연일 오후로 옮기고 첫날은 바로 쉬세요."
+        },
+        {
+          "date": "9/20 일 · D2",
+          "title": "Central Park + The Met",
+          "subtitle": "호수 산책 뒤 세계 미술을 핵심관만",
+          "walk": "예상 4–6km",
+          "rest": "카페 60분",
+          "weather": "우천 시 공원 45분·Met 4시간",
+          "photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Bow%20Bridge%2C%20Central%20Park%2C%20in%20fall.jpg?width=1400",
+          "credit": "https://commons.wikimedia.org/wiki/File:Bow_Bridge,_Central_Park,_in_fall.jpg",
+          "mapMode": "walking",
+          "stops": [
+            {
+              "time": "09:00",
+              "end": "09:45",
+              "title": "Zabar's에서 bagel 아침",
+              "kind": "FOOD",
+              "detail": "lox bagel 하나와 커피를 나눠 먹고 공원으로 들어갑니다.",
+              "move": "지하철 1/2/3 또는 택시",
+              "coords": [
+                40.7849,
+                -73.9798
+              ],
+              "url": "https://www.zabars.com/",
+              "reserve": "워크인"
+            },
+            {
+              "time": "10:00",
+              "end": "12:00",
+              "title": "Bow Bridge → Bethesda Terrace",
+              "kind": "NATURE",
+              "detail": "평탄한 호숫가 위주로 걷고 The Ramble의 오르막은 생략합니다.",
+              "move": "도보 약 2.2km",
+              "coords": [
+                40.774,
+                -73.9709
+              ],
+              "url": "https://www.centralparknyc.org/",
+              "reserve": "무료"
+            },
+            {
+              "time": "12:10",
+              "end": "13:00",
+              "title": "The Met 카페 · 점심",
+              "kind": "REST",
+              "detail": "박물관 안에서 식사해 이동과 대기를 줄입니다.",
+              "move": "5th Ave 출구까지 도보 12분",
+              "coords": [
+                40.7794,
+                -73.9632
+              ],
+              "url": "https://www.metmuseum.org/plan-your-visit",
+              "reserve": "입장권 권장"
+            },
+            {
+              "time": "13:00",
+              "end": "16:30",
+              "title": "The Met 핵심 4관",
+              "kind": "CULTURE",
+              "detail": "이집트관·미국관·유럽회화·옥상/특별전 중 네 곳만 봅니다.",
+              "move": "관내 엘리베이터 활용",
+              "coords": [
+                40.7794,
+                -73.9632
+              ],
+              "url": "https://www.metmuseum.org/plan-your-visit",
+              "reserve": "일요일 10:00–17:00"
+            },
+            {
+              "time": "17:30",
+              "end": "19:00",
+              "title": "Jacob's Pickles · 이른 저녁",
+              "kind": "FOOD",
+              "detail": "큼직한 biscuit와 fried chicken을 둘이 나눕니다.",
+              "move": "M79 버스 또는 택시 20분",
+              "coords": [
+                40.7867,
+                -73.9755
+              ],
+              "url": "https://www.jacobspickles.com/",
+              "reserve": "예약 권장"
+            }
+          ],
+          "swap": "Broadway Week 마지막 날의 2-for-1 좌석이 잡히면 14:00 matinee로 바꾸고 Met을 D7과 교환할 수 있습니다."
+        },
+        {
+          "date": "9/21 월 · D3",
+          "title": "자유의 여신상과 이민자의 뉴욕",
+          "subtitle": "공식 첫 페리로 두 섬, 추모공간은 짧고 조용하게",
+          "walk": "예상 5–7km",
+          "rest": "호텔 90분",
+          "weather": "강풍·폭우면 9/11 Museum + Oculus로 전환",
+          "photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Statue%20of%20Liberty%20overlooking%20Skyline.jpg?width=1400",
+          "credit": "https://commons.wikimedia.org/wiki/File:Statue_of_Liberty_overlooking_Skyline.jpg",
+          "mapMode": "transit",
+          "stops": [
+            {
+              "time": "08:15",
+              "end": "08:45",
+              "title": "The Battery · 보안검색",
+              "kind": "TRANSIT",
+              "detail": "공식 Statue City Cruises 표만 사용합니다.",
+              "move": "지하철 1/R/W/4/5",
+              "coords": [
+                40.7033,
+                -74.017
+              ],
+              "url": "https://statuecitycruises.com/plan-your-visit-schedule",
+              "reserve": "첫 배 사전예약"
+            },
+            {
+              "time": "09:00",
+              "end": "11:10",
+              "title": "Liberty Island",
+              "kind": "LANDMARK",
+              "detail": "Pedestal은 체력과 표가 허락할 때만. 섬 둘레와 박물관만으로도 충분합니다.",
+              "move": "페리",
+              "coords": [
+                40.6892,
+                -74.0445
+              ],
+              "url": "https://www.nps.gov/stli/planyourvisit/index.htm",
+              "reserve": "Pedestal 별도"
+            },
+            {
+              "time": "11:25",
+              "end": "13:30",
+              "title": "Ellis Island Immigration Museum",
+              "kind": "CULTURE",
+              "detail": "미국 이민사를 보여주는 Great Hall과 1층 전시를 중심으로 봅니다.",
+              "move": "섬간 페리",
+              "coords": [
+                40.6995,
+                -74.0396
+              ],
+              "url": "https://www.nps.gov/elis/planyourvisit/index.htm",
+              "reserve": "일반권 포함"
+            },
+            {
+              "time": "14:15",
+              "end": "15:20",
+              "title": "9/11 Memorial + Oculus",
+              "kind": "MEMORIAL",
+              "detail": "Museum 대신 야외 Memorial과 Survivor Tree만 조용히 봅니다.",
+              "move": "Battery Park에서 도보 18분",
+              "coords": [
+                40.7115,
+                -74.0133
+              ],
+              "url": "https://www.911memorial.org/visit",
+              "reserve": "Memorial 무료"
+            },
+            {
+              "time": "16:00",
+              "end": "17:30",
+              "title": "호텔 휴식",
+              "kind": "REST",
+              "detail": "페리날은 공연을 넣지 않고 발을 쉬게 합니다.",
+              "move": "지하철 R/W",
+              "coords": [
+                40.7542,
+                -73.9854
+              ],
+              "url": "",
+              "reserve": ""
+            },
+            {
+              "time": "18:00",
+              "end": "20:00",
+              "title": "Keens Steakhouse",
+              "kind": "FOOD",
+              "detail": "porterhouse보다 뉴욕다운 mutton chop도 좋은 선택입니다.",
+              "move": "호텔에서 도보 또는 짧은 택시",
+              "coords": [
+                40.7507,
+                -73.9867
+              ],
+              "url": "https://www.keens.com/",
+              "reserve": "예약 필수"
+            }
+          ],
+          "swap": "Russ & Daughters는 이날 Yom Kippur로 휴무입니다. Lower East Side 음식은 다른 날로 두었습니다."
+        },
+        {
+          "date": "9/22 화 · D4",
+          "title": "High Line을 남쪽으로",
+          "subtitle": "Hudson Yards에서 Little Island까지 내리막 동선",
+          "walk": "예상 4–5km",
+          "rest": "카페 90분",
+          "weather": "비 오면 Hudson Yards·Chelsea Market 중심",
+          "photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Brooklyn%20Bridge%20at%20sunset%20from%20Brooklyn%20Bridge%20Park%2C%20New%20York%20City.jpg?width=1600",
+          "credit": "https://commons.wikimedia.org/wiki/File:Brooklyn_Bridge_at_sunset_from_Brooklyn_Bridge_Park,_New_York_City.jpg",
+          "mapMode": "walking",
+          "stops": [
+            {
+              "time": "10:00",
+              "end": "10:45",
+              "title": "Hudson Yards · Vessel 외관",
+              "kind": "ARCHITECTURE",
+              "detail": "외관과 Public Square만 보고 체력을 아낍니다.",
+              "move": "7번 지하철",
+              "coords": [
+                40.7538,
+                -74.0022
+              ],
+              "url": "https://www.hudsonyardsnewyork.com/discover/vessel",
+              "reserve": "내부는 선택"
+            },
+            {
+              "time": "10:50",
+              "end": "12:05",
+              "title": "High Line 북→남",
+              "kind": "NATURE",
+              "detail": "30th St에서 16th St까지만 걷고 나머지는 다음 구간으로 넘깁니다.",
+              "move": "평탄한 고가공원 약 2km",
+              "coords": [
+                40.748,
+                -74.0048
+              ],
+              "url": "https://www.thehighline.org/visit/",
+              "reserve": "무료"
+            },
+            {
+              "time": "12:10",
+              "end": "13:30",
+              "title": "Chelsea Market · Lobster Place",
+              "kind": "FOOD",
+              "detail": "lobster roll보다 생굴과 chowder를 나눠 먹으면 덜 무겁습니다.",
+              "move": "High Line에서 엘리베이터",
+              "coords": [
+                40.7423,
+                -74.0061
+              ],
+              "url": "https://www.chelseamarket.com/directory-all/the-lobster-place",
+              "reserve": "워크인"
+            },
+            {
+              "time": "13:40",
+              "end": "15:00",
+              "title": "Little Island",
+              "kind": "NATURE",
+              "detail": "강변 전망대까지 천천히 올라갔다 내려옵니다.",
+              "move": "도보 8분",
+              "coords": [
+                40.742,
+                -74.0107
+              ],
+              "url": "https://littleisland.org/",
+              "reserve": "무료"
+            },
+            {
+              "time": "16:00",
+              "end": "17:30",
+              "title": "호텔 휴식",
+              "kind": "REST",
+              "detail": "화요일은 Whitney가 휴관이므로 미술관 욕심을 내지 않습니다.",
+              "move": "택시 또는 지하철",
+              "coords": [
+                40.7542,
+                -73.9854
+              ],
+              "url": "",
+              "reserve": ""
+            },
+            {
+              "time": "18:15",
+              "end": "20:00",
+              "title": "John's of Bleecker · 통피자",
+              "kind": "FOOD",
+              "detail": "둘이 14인치 pie 한 판. 슬라이스는 팔지 않습니다.",
+              "move": "1번 지하철",
+              "coords": [
+                40.7316,
+                -74.0034
+              ],
+              "url": "https://www.johnsofbleecker.com/",
+              "reserve": "워크인·대기 가능"
+            }
+          ],
+          "swap": "화요일 Whitney 휴관을 반영한 날입니다. 비가 심하면 MoMA와 D5의 야외 시간을 맞바꾸세요."
+        },
+        {
+          "date": "9/23 수 · D5",
+          "title": "MoMA에서 Broadway까지",
+          "subtitle": "미드타운 한 권역, 공연 전 90분 휴식",
+          "walk": "예상 3–4km",
+          "rest": "호텔 90분",
+          "weather": "완전한 우천 대응일",
+          "photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Times%20Square%2C%20NYC%20at%20night%20-%20August%202025.jpg?width=1400",
+          "credit": "https://commons.wikimedia.org/wiki/File:Times_Square,_NYC_at_night_-_August_2025.jpg",
+          "mapMode": "walking",
+          "stops": [
+            {
+              "time": "10:30",
+              "end": "13:30",
+              "title": "MoMA 핵심 컬렉션",
+              "kind": "CULTURE",
+              "detail": "5층에서 시작해 4층으로 내려오면 동선이 편합니다.",
+              "move": "호텔에서 도보 또는 E/M",
+              "coords": [
+                40.7614,
+                -73.9776
+              ],
+              "url": "https://www.moma.org/visit/",
+              "reserve": "시간 지정 권장"
+            },
+            {
+              "time": "13:35",
+              "end": "14:35",
+              "title": "53rd St 가벼운 점심",
+              "kind": "FOOD",
+              "detail": "The Modern Bar Room 또는 2nd Ave Deli 중 예산에 맞춰 선택합니다.",
+              "move": "도보 2–8분",
+              "coords": [
+                40.761,
+                -73.9787
+              ],
+              "url": "https://www.themodernnyc.com/",
+              "reserve": "Bar Room 예약 권장"
+            },
+            {
+              "time": "15:00",
+              "end": "16:45",
+              "title": "호텔 휴식 · 공연 준비",
+              "kind": "REST",
+              "detail": "샤워·충전·발 휴식. Broadway 당일의 핵심 블록입니다.",
+              "move": "도보/지하철 10분",
+              "coords": [
+                40.7542,
+                -73.9854
+              ],
+              "url": "",
+              "reserve": ""
+            },
+            {
+              "time": "17:00",
+              "end": "18:20",
+              "title": "Gallaghers · 공연 전 스테이크",
+              "kind": "FOOD",
+              "detail": "큰 steak 하나와 side 두 개를 공유하고 18:20에는 계산합니다.",
+              "move": "도보 12분",
+              "coords": [
+                40.7627,
+                -73.9836
+              ],
+              "url": "https://www.gallaghersnysteakhouse.com/location/gallaghers-nyc/",
+              "reserve": "17:00 예약"
+            },
+            {
+              "time": "18:30",
+              "end": "18:55",
+              "title": "Richard Rodgers Theatre 입장",
+              "kind": "TRANSIT",
+              "detail": "화장실·프로그램 구매까지 고려해 30분 전 입장합니다.",
+              "move": "도보 8분",
+              "coords": [
+                40.7591,
+                -73.986
+              ],
+              "url": "https://hamiltonmusical.com/new-york/",
+              "reserve": "공식 티켓"
+            },
+            {
+              "time": "19:00",
+              "end": "21:40",
+              "title": "Hamilton",
+              "kind": "SHOW",
+              "detail": "미국 건국사를 hip-hop과 R&B로 보는 가장 미국적인 Broadway 체험.",
+              "move": "공연 2시간 40분",
+              "coords": [
+                40.7591,
+                -73.986
+              ],
+              "url": "https://www.broadway.org/shows/hamilton",
+              "reserve": "9/23 19:00 확인"
+            }
+          ],
+          "swap": "더 로맨틱하고 짧은 공연을 원하면 같은 주 19:00의 Maybe Happy Ending(약 100분)으로 교체하세요."
+        },
+        {
+          "date": "9/24 목 · D6",
+          "title": "Brooklyn Bridge를 건너 수변으로",
+          "subtitle": "아침 다리, DUMBO 피자, 페리 야경",
+          "walk": "예상 5–6km",
+          "rest": "카페 75분",
+          "weather": "우천 시 Transit Museum·DUMBO 실내",
+          "photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Brooklyn%20Bridge%20at%20sunset%20from%20Brooklyn%20Bridge%20Park%2C%20New%20York%20City.jpg?width=1600",
+          "credit": "https://commons.wikimedia.org/wiki/File:Brooklyn_Bridge_at_sunset_from_Brooklyn_Bridge_Park,_New_York_City.jpg",
+          "mapMode": "walking",
+          "stops": [
+            {
+              "time": "09:30",
+              "end": "10:20",
+              "title": "Brooklyn Bridge 산책",
+              "kind": "LANDMARK",
+              "detail": "Manhattan 쪽에서 Brooklyn 방향으로 걸으면 DUMBO 동선이 자연스럽습니다.",
+              "move": "City Hall 역에서 시작",
+              "coords": [
+                40.7061,
+                -73.9969
+              ],
+              "url": "https://www.nyc.gov/html/dot/html/infrastructure/brooklyn-bridge.shtml",
+              "reserve": "무료"
+            },
+            {
+              "time": "10:25",
+              "end": "11:20",
+              "title": "DUMBO · Washington Street",
+              "kind": "CITY",
+              "detail": "사진 후 Main Street Park 벤치에서 쉬어갑니다.",
+              "move": "도보 10분",
+              "coords": [
+                40.7033,
+                -73.9882
+              ],
+              "url": "https://www.brooklynbridgepark.org/",
+              "reserve": "무료"
+            },
+            {
+              "time": "11:30",
+              "end": "12:45",
+              "title": "Juliana's Pizza",
+              "kind": "FOOD",
+              "detail": "점심 피크 전 입장해 대기시간을 줄입니다.",
+              "move": "도보 6분",
+              "coords": [
+                40.7027,
+                -73.9933
+              ],
+              "url": "https://julianaspizza.com/",
+              "reserve": "워크인"
+            },
+            {
+              "time": "13:00",
+              "end": "14:30",
+              "title": "Brooklyn Heights Promenade",
+              "kind": "VIEW",
+              "detail": "평탄한 산책로에서 Lower Manhattan 전경을 봅니다.",
+              "move": "도보 18분 또는 택시",
+              "coords": [
+                40.696,
+                -73.997
+              ],
+              "url": "https://www.nycgovparks.org/parks/brooklyn-heights-promenade",
+              "reserve": "무료"
+            },
+            {
+              "time": "15:00",
+              "end": "15:20",
+              "title": "NYC Ferry로 Wall Street",
+              "kind": "TRANSIT",
+              "detail": "다시 다리를 걷지 않고 수상에서 스카이라인을 봅니다.",
+              "move": "Pier 6 → Wall St",
+              "coords": [
+                40.6931,
+                -74.0017
+              ],
+              "url": "https://www.ferry.nyc/",
+              "reserve": "앱에서 시간 확인"
+            },
+            {
+              "time": "17:30",
+              "end": "19:00",
+              "title": "The Fulton · 해산물 일몰 저녁",
+              "kind": "FOOD",
+              "detail": "Pier 17 수변. 9/24 일몰 18:49에 맞춰 창가를 요청합니다.",
+              "move": "호텔 휴식 후 지하철",
+              "coords": [
+                40.7069,
+                -74.0028
+              ],
+              "url": "https://www.thefulton.nyc/location/the-fulton/",
+              "reserve": "17:30 예약"
+            }
+          ],
+          "swap": "다리 위 자전거와 보행로 분리에 유의하고, 사진을 위해 차로에 들어가지 마세요."
+        },
+        {
+          "date": "9/25 금 · D7",
+          "title": "The Cloisters와 Fort Tryon",
+          "subtitle": "맨해튼 끝에서 중세미술·허드슨 풍경·Harlem 음식",
+          "walk": "예상 4–5km",
+          "rest": "호텔 90분",
+          "weather": "우천 시 Cloisters 비중 확대",
+          "photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Bow%20Bridge%2C%20Central%20Park%2C%20in%20fall.jpg?width=1400",
+          "credit": "https://commons.wikimedia.org/wiki/File:Bow_Bridge,_Central_Park,_in_fall.jpg",
+          "mapMode": "transit",
+          "stops": [
+            {
+              "time": "09:30",
+              "end": "10:00",
+              "title": "택시로 The Cloisters 정문",
+              "kind": "TRANSIT",
+              "detail": "A열차 190 St에서 오르막 대신 올라갈 때 택시를 써 체력을 아낍니다.",
+              "move": "Midtown에서 약 35–50분",
+              "coords": [
+                40.8649,
+                -73.9317
+              ],
+              "url": "https://www.metmuseum.org/plan-your-visit/met-cloisters",
+              "reserve": "10:00 개관"
+            },
+            {
+              "time": "10:00",
+              "end": "12:10",
+              "title": "The Met Cloisters",
+              "kind": "CULTURE",
+              "detail": "미국에서 재구성한 유럽 중세 수도원과 Unicorn Tapestries를 봅니다.",
+              "move": "관내 엘리베이터 문의",
+              "coords": [
+                40.8649,
+                -73.9317
+              ],
+              "url": "https://www.metmuseum.org/plan-your-visit/met-cloisters",
+              "reserve": "수요일 외 운영"
+            },
+            {
+              "time": "12:15",
+              "end": "13:10",
+              "title": "Fort Tryon Park 전망",
+              "kind": "NATURE",
+              "detail": "Heather Garden과 허드슨 전망까지만 짧게 걷습니다.",
+              "move": "완만한 내리막 중심",
+              "coords": [
+                40.8626,
+                -73.9318
+              ],
+              "url": "https://www.nycgovparks.org/parks/fort-tryon-park",
+              "reserve": "무료"
+            },
+            {
+              "time": "14:00",
+              "end": "15:20",
+              "title": "Sylvia's · Harlem 늦은 점심",
+              "kind": "FOOD",
+              "detail": "fried chicken·collard greens·cornbread로 미국 남부 식문화를 맛봅니다.",
+              "move": "A열차→125 St 또는 택시",
+              "coords": [
+                40.8083,
+                -73.9448
+              ],
+              "url": "https://sylviasrestaurant.com/",
+              "reserve": "예약 권장"
+            },
+            {
+              "time": "16:00",
+              "end": "17:30",
+              "title": "호텔 휴식 · 짐 정리",
+              "kind": "REST",
+              "detail": "다음 날 공항을 위해 체크아웃 준비와 온라인 체크인을 마칩니다.",
+              "move": "2/3 또는 택시",
+              "coords": [
+                40.7542,
+                -73.9854
+              ],
+              "url": "",
+              "reserve": ""
+            },
+            {
+              "time": "18:00",
+              "end": "19:30",
+              "title": "Grand Central Oyster Bar",
+              "kind": "FOOD",
+              "detail": "평일에만 가능한 oyster bar와 pan roast로 마지막 저녁을 마칩니다.",
+              "move": "지하철·UNGA 차량통제 회피",
+              "coords": [
+                40.7523,
+                -73.9772
+              ],
+              "url": "https://grandcentralterminal.com/shop/oyster-bar-restaurant/",
+              "reserve": "금요일 예약"
+            }
+          ],
+          "swap": "UNGA 때문에 Grand Central 외부 도로는 혼잡할 수 있습니다. 지하철로 들어가고 저녁 뒤 바로 호텔로 돌아가세요."
+        }
+      ]
+    },
+    {
+      "id": "art",
+      "number": "02",
+      "short": "미술·조각·미식",
+      "title": "도시 미술과 허드슨의 조각",
+      "subtitle": "Whitney·MoMA·The Met에 Dia Beacon과 Storm King을 더한 문화 밀도 최고 코스. 비 오는 날에도 조정이 쉽습니다.",
+      "bestFor": "미술 애호가",
+      "pace": "3 / 5",
+      "nature": "Hudson + Storm King",
+      "hotelMoves": "연박 7박",
+      "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Storm%20King%20Art%20Center%20views%2001.jpg?width=1400",
+      "hero": "https://commons.wikimedia.org/wiki/Special:FilePath/Storm%20King%20Art%20Center%20views%2001.jpg?width=1400",
+      "verdict": "<strong>문화와 자연의 결합이 가장 좋습니다.</strong> Dia Beacon은 월요일, Storm King은 목요일로 고정해 휴관 충돌을 피했습니다. 야외 조각공원은 무료 트램으로 핵심 존만 보고 4–6천 보 정도로 제한하세요.",
+      "area": {
+        "name": "NoMad · Chelsea 북쪽",
+        "text": "Whitney·High Line·Chelsea galleries와 Midtown 미술관 사이의 중심축입니다. Penn Station과 Port Authority 접근도 좋아 Beacon·Storm King 이동일이 편합니다.",
+        "caution": "Meatpacking 클럽 바로 옆은 주말 소음이 큽니다. 23–28 St, 6th Ave 동쪽이나 높은 층을 우선하세요.",
+        "photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Storm%20King%20Art%20Center%20views%2001.jpg?width=1400"
+      },
+      "hotels": [
+        {
+          "tier": "역사 · 감성",
+          "name": "Hotel Chelsea",
+          "text": "예술가의 역사를 품은 여행 자체가 문화 체험인 호텔. High Line·Whitney에 가깝습니다.",
+          "bullets": [
+            "23rd St 지하철 근접",
+            "주말 저층 소음 가능",
+            "인기 객실 조기 마감"
+          ],
+          "site": "https://hotelchelsea.com/",
+          "map": "https://maps.google.com/?q=Hotel+Chelsea+New+York"
+        },
+        {
+          "tier": "균형 · NoMad",
+          "name": "MADE Hotel",
+          "text": "작은 객실을 감수하면 NoMad의 음식·카페와 전방위 지하철이 편합니다.",
+          "bullets": [
+            "Empire State 도보권",
+            "루프탑·카페",
+            "수납공간 확인"
+          ],
+          "site": "https://www.madehotels.com/",
+          "map": "https://maps.google.com/?q=MADE+Hotel+New+York"
+        },
+        {
+          "tier": "고급 · 이동 편의",
+          "name": "Pendry Manhattan West",
+          "text": "Penn/Moynihan 옆이라 Hudson Valley 이동과 JFK LIRR 연결이 편한 고급 선택.",
+          "bullets": [
+            "Moynihan 도보권",
+            "High Line 북단 접근",
+            "숙박비 높은 편"
+          ],
+          "site": "https://www.pendry.com/manhattan-west/",
+          "map": "https://maps.google.com/?q=Pendry+Manhattan+West"
+        }
+      ],
+      "foods": [
+        {
+          "cuisine": "Seafood",
+          "name": "Lobster Place",
+          "text": "Whitney–High Line 사이 Chelsea Market의 캐주얼 해산물.",
+          "dish": "oyster sampler + chowder",
+          "tip": "11:30 이전",
+          "site": "https://www.chelseamarket.com/directory-all/the-lobster-place"
+        },
+        {
+          "cuisine": "Deli",
+          "name": "Katz's Delicatessen",
+          "text": "미국 유대계 이민자 음식과 뉴욕식 pastrami의 상징.",
+          "dish": "pastrami sandwich 1개 + matzo ball soup 공유",
+          "tip": "점심 피크 전",
+          "site": "https://katzsdelicatessen.com/"
+        },
+        {
+          "cuisine": "Pizza",
+          "name": "Scarr's Pizza",
+          "text": "Lower East Side 일정에 붙는 통밀 반죽 뉴욕 슬라이스.",
+          "dish": "cheese + pepperoni slice",
+          "tip": "예약 없이 유연하게",
+          "site": "https://www.scarrspizza.com/location/scarrs-pizza/"
+        },
+        {
+          "cuisine": "South Indian",
+          "name": "Semma",
+          "text": "뉴욕의 이민자 미식이 얼마나 넓은지 보여주는 남인도 레스토랑.",
+          "dish": "gunpowder dosa + curry",
+          "tip": "15일 전 09:00 ET 예약",
+          "site": "https://www.semma.nyc/"
+        },
+        {
+          "cuisine": "Hudson Valley",
+          "name": "Kitchen Sink Beacon",
+          "text": "지역 농산물을 쓰는 Beacon의 작은 미국식 레스토랑.",
+          "dish": "계절 메뉴를 현장에서 선택",
+          "tip": "Dia 날 점심/이른 저녁",
+          "site": "https://www.kitchensinkny.com/"
+        },
+        {
+          "cuisine": "Steak",
+          "name": "Keens Steakhouse",
+          "text": "Storm King 다음날 멀리 이동하지 않고 NoMad에서 마무리.",
+          "dish": "mutton chop + creamed spinach",
+          "tip": "목요일 18:30",
+          "site": "https://www.keens.com/"
+        }
+      ],
+      "days": [
+        {
+          "date": "9/19 토 · D1",
+          "title": "NoMad의 건축과 야경",
+          "subtitle": "호텔 반경 1km 안에서만",
+          "walk": "예상 2–3km",
+          "rest": "호텔 90분",
+          "weather": "비 오면 Empire State만",
+          "photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Times%20Square%2C%20NYC%20at%20night%20-%20August%202025.jpg?width=1400",
+          "credit": "https://commons.wikimedia.org/wiki/File:Times_Square,_NYC_at_night_-_August_2025.jpg",
+          "mapMode": "walking",
+          "stops": [
+            {
+              "time": "14:00",
+              "end": "15:30",
+              "title": "NoMad 호텔 체크인 · 낮잠",
+              "kind": "REST",
+              "detail": "9/19 오전 도착편에도 맞는 시작 시간입니다.",
+              "move": "JFK→Penn LIRR 또는 택시",
+              "coords": [
+                40.7447,
+                -73.9885
+              ],
+              "url": "",
+              "reserve": ""
+            },
+            {
+              "time": "16:00",
+              "end": "16:50",
+              "title": "Madison Square Park",
+              "kind": "NATURE",
+              "detail": "Flatiron 외관과 공원 벤치에서 시차를 풉니다.",
+              "move": "도보 7분",
+              "coords": [
+                40.742,
+                -73.9877
+              ],
+              "url": "https://www.madisonsquarepark.org/",
+              "reserve": "무료"
+            },
+            {
+              "time": "17:15",
+              "end": "19:10",
+              "title": "Empire State Building · 일몰",
+              "kind": "VIEW",
+              "detail": "9/19 일몰 18:58. 실내외 관람대가 있어 날씨 대응이 좋습니다.",
+              "move": "도보 9분",
+              "coords": [
+                40.7484,
+                -73.9857
+              ],
+              "url": "https://www.esbnyc.com/",
+              "reserve": "17:15 예약"
+            },
+            {
+              "time": "19:20",
+              "end": "20:10",
+              "title": "Original Shake Shack",
+              "kind": "FOOD",
+              "detail": "공원 키오스크에서 burger와 shake를 나눠 가볍게 먹습니다.",
+              "move": "도보 12분",
+              "coords": [
+                40.7414,
+                -73.9882
+              ],
+              "url": "https://shakeshack.com/location/madison-square-park",
+              "reserve": "워크인"
+            }
+          ],
+          "swap": "전날 밤 도착했다면 오전은 자유롭게 두고 16시부터 합류해도 충분합니다."
+        },
+        {
+          "date": "9/20 일 · D2",
+          "title": "Whitney에서 High Line까지",
+          "subtitle": "미국 미술을 보고 고가공원을 북상",
+          "walk": "예상 4–5km",
+          "rest": "시장 60분",
+          "weather": "우천 시 Whitney 3시간·High Line 단축",
+          "photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Brooklyn%20Bridge%20at%20sunset%20from%20Brooklyn%20Bridge%20Park%2C%20New%20York%20City.jpg?width=1600",
+          "credit": "https://commons.wikimedia.org/wiki/File:Brooklyn_Bridge_at_sunset_from_Brooklyn_Bridge_Park,_New_York_City.jpg",
+          "mapMode": "walking",
+          "stops": [
+            {
+              "time": "10:30",
+              "end": "12:45",
+              "title": "Whitney Museum",
+              "kind": "CULTURE",
+              "detail": "미국 현대미술과 야외 terrace를 중심으로 봅니다.",
+              "move": "A/C/E/1 또는 택시",
+              "coords": [
+                40.7396,
+                -74.0089
+              ],
+              "url": "https://whitney.org/visit",
+              "reserve": "일요일 운영"
+            },
+            {
+              "time": "13:00",
+              "end": "14:00",
+              "title": "Chelsea Market · Lobster Place",
+              "kind": "FOOD",
+              "detail": "해산물 점심과 시장 구경을 한 번에 해결합니다.",
+              "move": "도보 7분",
+              "coords": [
+                40.7423,
+                -74.0061
+              ],
+              "url": "https://www.chelseamarket.com/directory-all/the-lobster-place",
+              "reserve": "워크인"
+            },
+            {
+              "time": "14:10",
+              "end": "15:40",
+              "title": "High Line 16th→30th St",
+              "kind": "NATURE",
+              "detail": "북쪽으로 천천히 걸으며 설치미술과 Hudson 전망을 봅니다.",
+              "move": "평탄 약 2km",
+              "coords": [
+                40.748,
+                -74.0048
+              ],
+              "url": "https://www.thehighline.org/visit/",
+              "reserve": "무료"
+            },
+            {
+              "time": "15:45",
+              "end": "16:30",
+              "title": "Hudson Yards 카페 휴식",
+              "kind": "REST",
+              "detail": "실내에서 발을 쉬고 지하철로 호텔에 돌아갑니다.",
+              "move": "High Line 북단",
+              "coords": [
+                40.7538,
+                -74.0022
+              ],
+              "url": "https://www.hudsonyardsnewyork.com/",
+              "reserve": ""
+            },
+            {
+              "time": "18:00",
+              "end": "19:30",
+              "title": "Semma · 남인도 저녁",
+              "kind": "FOOD",
+              "detail": "고전 미술이 아닌 뉴욕의 동시대 이민자 문화를 음식으로 봅니다.",
+              "move": "택시 15분",
+              "coords": [
+                40.7356,
+                -74.0001
+              ],
+              "url": "https://www.semma.nyc/",
+              "reserve": "예약 난도 높음"
+            }
+          ],
+          "swap": "Semma 예약이 없으면 같은 West Village의 John's of Bleecker 또는 Veselka로 바꾸세요."
+        },
+        {
+          "date": "9/21 월 · D3",
+          "title": "Dia Beacon + Hudson 강변",
+          "subtitle": "열차 90분, 대형 설치미술과 평탄한 수변",
+          "walk": "예상 3–5km",
+          "rest": "열차 3시간",
+          "weather": "우천에도 Dia 중심으로 가능",
+          "photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Storm%20King%20Art%20Center%20views%2001.jpg?width=1400",
+          "credit": "https://commons.wikimedia.org/wiki/File:Storm_King_Art_Center_views_01.jpg",
+          "mapMode": "transit",
+          "stops": [
+            {
+              "time": "08:15",
+              "end": "08:30",
+              "title": "Grand Central 도착",
+              "kind": "TRANSIT",
+              "detail": "TrainTime 앱으로 off-peak 왕복표를 미리 구매합니다.",
+              "move": "호텔에서 택시/지하철",
+              "coords": [
+                40.7527,
+                -73.9772
+              ],
+              "url": "https://www.mta.info/agency/metro-north-railroad/schedules",
+              "reserve": "열차시간 재확인"
+            },
+            {
+              "time": "08:30",
+              "end": "10:00",
+              "title": "Metro-North Hudson Line",
+              "kind": "TRANSIT",
+              "detail": "강 왼쪽 좌석이면 북상하며 Hudson 전망이 좋습니다.",
+              "move": "Grand Central→Beacon",
+              "coords": [
+                41.5048,
+                -73.9845
+              ],
+              "url": "https://welcome.diaart.org/",
+              "reserve": "약 90분"
+            },
+            {
+              "time": "10:10",
+              "end": "13:00",
+              "title": "Dia Beacon",
+              "kind": "CULTURE",
+              "detail": "Nabisco 공장을 바꾼 거대한 공간에서 Serra·Judd·Martin을 봅니다.",
+              "move": "역에서 평탄 도보 8–10분",
+              "coords": [
+                41.5007,
+                -73.982
+              ],
+              "url": "https://www.diaart.org/visit/visit-our-locations-sites/dia-beacon-beacon-united-states/main/beacon",
+              "reserve": "금–월 10–17시"
+            },
+            {
+              "time": "13:15",
+              "end": "14:25",
+              "title": "Beacon Main Street 점심",
+              "kind": "FOOD",
+              "detail": "Kitchen Sink 또는 Homespun Foods 중 운영일에 맞춰 선택합니다.",
+              "move": "택시 5분 또는 Loop bus",
+              "coords": [
+                41.5042,
+                -73.9695
+              ],
+              "url": "https://www.beaconny.gov/index.php/departments/transportation/",
+              "reserve": "식당 월요일 휴무 확인"
+            },
+            {
+              "time": "14:40",
+              "end": "15:35",
+              "title": "Long Dock Park",
+              "kind": "NATURE",
+              "detail": "평탄한 riverfront에서 45분만 걷고 벤치에서 쉽니다.",
+              "move": "Main St에서 택시",
+              "coords": [
+                41.5057,
+                -73.9859
+              ],
+              "url": "https://www.scenichudson.org/explore-the-valley/scenic-hudson-parks/scenic-hudsons-long-dock-park/",
+              "reserve": "무료"
+            },
+            {
+              "time": "16:15",
+              "end": "17:45",
+              "title": "Beacon→Grand Central",
+              "kind": "TRANSIT",
+              "detail": "호텔로 돌아가 저녁은 근처에서 가볍게 합니다.",
+              "move": "Metro-North",
+              "coords": [
+                40.7527,
+                -73.9772
+              ],
+              "url": "https://www.mta.info/agency/metro-north-railroad/schedules",
+              "reserve": "실시간 확인"
+            }
+          ],
+          "swap": "Dia Beacon은 화–목 휴관이라 월요일 고정입니다. Russ & Daughters도 이날 Yom Kippur 휴무입니다."
+        },
+        {
+          "date": "9/22 화 · D4",
+          "title": "이민사와 Lower East Side",
+          "subtitle": "Tenement 투어·델리·Chinatown을 한 동네에서",
+          "walk": "예상 3–4km",
+          "rest": "카페 75분",
+          "weather": "완전한 우천 대응일",
+          "photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Statue%20of%20Liberty%20overlooking%20Skyline.jpg?width=1400",
+          "credit": "https://commons.wikimedia.org/wiki/File:Statue_of_Liberty_overlooking_Skyline.jpg",
+          "mapMode": "walking",
+          "stops": [
+            {
+              "time": "08:30",
+              "end": "09:35",
+              "title": "Russ & Daughters Cafe",
+              "kind": "FOOD",
+              "detail": "Yom Kippur 다음 날 아침, classic board를 둘이 나눕니다.",
+              "move": "F/M 또는 택시",
+              "coords": [
+                40.7195,
+                -73.9896
+              ],
+              "url": "https://www.russanddaughterscafe.com/",
+              "reserve": "워크인"
+            },
+            {
+              "time": "10:00",
+              "end": "11:30",
+              "title": "Tenement Museum",
+              "kind": "CULTURE",
+              "detail": "내부는 가이드 투어만 가능. 계단 부담이 적은 투어를 예약합니다.",
+              "move": "도보 5분",
+              "coords": [
+                40.7188,
+                -73.9901
+              ],
+              "url": "https://www.tenement.org/tours/",
+              "reserve": "60–90분 사전예약"
+            },
+            {
+              "time": "11:40",
+              "end": "12:30",
+              "title": "Katz's pastrami",
+              "kind": "FOOD",
+              "detail": "sandwich 하나와 soup를 공유하면 오후 일정이 편합니다.",
+              "move": "도보 8분",
+              "coords": [
+                40.7223,
+                -73.9875
+              ],
+              "url": "https://katzsdelicatessen.com/",
+              "reserve": "티켓 잃어버리지 않기"
+            },
+            {
+              "time": "13:00",
+              "end": "14:20",
+              "title": "Lower East Side 산책",
+              "kind": "CITY",
+              "detail": "Orchard St·Essex Market·street art 위주로 짧게 걷습니다.",
+              "move": "도보 1.5km",
+              "coords": [
+                40.718,
+                -73.988
+              ],
+              "url": "https://www.essexmarket.nyc/",
+              "reserve": ""
+            },
+            {
+              "time": "14:30",
+              "end": "15:35",
+              "title": "Nom Wah Tea Parlor",
+              "kind": "FOOD",
+              "detail": "Doyers Street의 1920년대 딤섬집에서 차와 작은 접시 두 개.",
+              "move": "도보 15분",
+              "coords": [
+                40.7144,
+                -73.9982
+              ],
+              "url": "https://www.nomwah.com/chinatown/",
+              "reserve": "2인은 워크인"
+            },
+            {
+              "time": "16:00",
+              "end": "저녁",
+              "title": "호텔 귀환 · 자유 저녁",
+              "kind": "REST",
+              "detail": "다음 날 MoMA와 공연을 위해 저녁 약속을 비웁니다.",
+              "move": "N/Q/R/W 또는 택시",
+              "coords": [
+                40.7447,
+                -73.9885
+              ],
+              "url": "",
+              "reserve": ""
+            }
+          ],
+          "swap": "Whitney와 Frick은 화요일 휴관이므로 이민사 날로 배치했습니다."
+        },
+        {
+          "date": "9/23 수 · D5",
+          "title": "MoMA + Broadway",
+          "subtitle": "현대미술과 미국 뮤지컬을 한 축으로",
+          "walk": "예상 3–4km",
+          "rest": "호텔 90분",
+          "weather": "우천 최적",
+          "photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Times%20Square%2C%20NYC%20at%20night%20-%20August%202025.jpg?width=1400",
+          "credit": "https://commons.wikimedia.org/wiki/File:Times_Square,_NYC_at_night_-_August_2025.jpg",
+          "mapMode": "walking",
+          "stops": [
+            {
+              "time": "10:30",
+              "end": "13:30",
+              "title": "MoMA",
+              "kind": "CULTURE",
+              "detail": "9/20 개막 전시와 5층 컬렉션을 먼저 봅니다.",
+              "move": "E/M 또는 도보",
+              "coords": [
+                40.7614,
+                -73.9776
+              ],
+              "url": "https://www.moma.org/visit/",
+              "reserve": "온라인 입장권"
+            },
+            {
+              "time": "13:40",
+              "end": "14:40",
+              "title": "The Modern Bar Room",
+              "kind": "FOOD",
+              "detail": "미술관 옆이라 이동이 없는 점심. 예산형은 Urbanspace 52nd로 교체합니다.",
+              "move": "도보 1분",
+              "coords": [
+                40.761,
+                -73.9787
+              ],
+              "url": "https://www.themodernnyc.com/",
+              "reserve": "예약 권장"
+            },
+            {
+              "time": "15:00",
+              "end": "16:45",
+              "title": "호텔 휴식",
+              "kind": "REST",
+              "detail": "공연 전 발을 완전히 쉬고 옷을 갈아입습니다.",
+              "move": "지하철 10분",
+              "coords": [
+                40.7447,
+                -73.9885
+              ],
+              "url": "",
+              "reserve": ""
+            },
+            {
+              "time": "17:10",
+              "end": "18:20",
+              "title": "극장가 이른 저녁",
+              "kind": "FOOD",
+              "detail": "Gallaghers 또는 Joe Allen. 18:20 계산을 예약 메모에 적습니다.",
+              "move": "택시/지하철",
+              "coords": [
+                40.7595,
+                -73.9865
+              ],
+              "url": "https://www.gallaghersnysteakhouse.com/location/gallaghers-nyc/",
+              "reserve": "17:10 예약"
+            },
+            {
+              "time": "19:00",
+              "end": "21:40",
+              "title": "Hamilton",
+              "kind": "SHOW",
+              "detail": "미국 역사와 contemporary music이 만나는 대표 작품.",
+              "move": "Richard Rodgers Theatre",
+              "coords": [
+                40.7591,
+                -73.986
+              ],
+              "url": "https://www.broadway.org/shows/hamilton",
+              "reserve": "9/23 19:00"
+            }
+          ],
+          "swap": "부부 로맨스와 짧은 러닝타임을 원하면 Maybe Happy Ending 19:00으로 바꾸는 것이 좋습니다."
+        },
+        {
+          "date": "9/24 목 · D6",
+          "title": "Storm King의 야외 조각",
+          "subtitle": "직행 버스와 무료 트램으로 500에이커를 무리 없이",
+          "walk": "예상 4–6천 보",
+          "rest": "버스 2시간 25분",
+          "weather": "비바람이면 D7 The Met과 교체",
+          "photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Storm%20King%20Art%20Center%20views%2001.jpg?width=1400",
+          "credit": "https://commons.wikimedia.org/wiki/File:Storm_King_Art_Center_views_01.jpg",
+          "mapMode": "driving",
+          "stops": [
+            {
+              "time": "10:00",
+              "end": "10:30",
+              "title": "Port Authority 집결",
+              "kind": "TRANSIT",
+              "detail": "Coach USA 패키지 승차 위치를 전날 확인합니다.",
+              "move": "NoMad에서 택시/지하철",
+              "coords": [
+                40.7569,
+                -73.9903
+              ],
+              "url": "https://web.coachusa.com/shortline/booking.asp?TRP=1&action=ProductDetail&productId=1965",
+              "reserve": "왕복+입장 패키지"
+            },
+            {
+              "time": "10:30",
+              "end": "11:40",
+              "title": "Coach USA → Storm King",
+              "kind": "TRANSIT",
+              "detail": "차 안에서 쉬고 도착 직후 트램 시간을 확인합니다.",
+              "move": "직행 버스",
+              "coords": [
+                41.425,
+                -74.0597
+              ],
+              "url": "https://stormking.org/plan-your-visit/",
+              "reserve": "화요일 제외"
+            },
+            {
+              "time": "11:45",
+              "end": "13:10",
+              "title": "South Fields + Meadows",
+              "kind": "ART & NATURE",
+              "detail": "큰 조각 6–8점만 보고 무료 접근성 트램에 탑승합니다.",
+              "move": "트램+짧은 산책",
+              "coords": [
+                41.425,
+                -74.0597
+              ],
+              "url": "https://stormking.org/accessibility/",
+              "reserve": "트램 약 30분 간격"
+            },
+            {
+              "time": "13:15",
+              "end": "14:00",
+              "title": "Outdoor Cafe",
+              "kind": "REST",
+              "detail": "sandwich·salad로 가볍게 먹고 충분히 앉아 쉽니다.",
+              "move": "공원 내부",
+              "coords": [
+                41.427,
+                -74.062
+              ],
+              "url": "https://stormking.org/",
+              "reserve": "카페 10–16시"
+            },
+            {
+              "time": "14:10",
+              "end": "15:45",
+              "title": "Museum Hill + North Woods 입구",
+              "kind": "ART & NATURE",
+              "detail": "언덕 전체를 걷지 말고 트램 정류장 주변 핵심만 봅니다.",
+              "move": "트램 2회 활용",
+              "coords": [
+                41.43,
+                -74.061
+              ],
+              "url": "https://stormking.org/wp-content/uploads/2026/03/2026_SK_Map_V1.1.pdf",
+              "reserve": ""
+            },
+            {
+              "time": "16:00",
+              "end": "17:15",
+              "title": "Storm King → NYC",
+              "kind": "TRANSIT",
+              "detail": "호텔까지 돌아온 뒤 60분 휴식.",
+              "move": "Coach USA",
+              "coords": [
+                40.7569,
+                -73.9903
+              ],
+              "url": "https://web.coachusa.com/shortline/booking.asp?TRP=1&action=ProductDetail&productId=1965",
+              "reserve": ""
+            },
+            {
+              "time": "18:45",
+              "end": "20:15",
+              "title": "Keens Steakhouse",
+              "kind": "FOOD",
+              "detail": "야외 활동 뒤 호텔 근처의 미국 고전 스테이크로 마무리.",
+              "move": "도보/택시",
+              "coords": [
+                40.7507,
+                -73.9867
+              ],
+              "url": "https://www.keens.com/",
+              "reserve": "18:45 예약"
+            }
+          ],
+          "swap": "패키지는 비환불 조건을 확인하세요. Storm King은 rain or shine이므로 강풍·폭우 예보면 미리 일정 변경을 문의합니다."
+        },
+        {
+          "date": "9/25 금 · D7",
+          "title": "The Met과 Central Park",
+          "subtitle": "고대부터 현대까지, 마지막 날은 실내 중심",
+          "walk": "예상 3–4km",
+          "rest": "카페 75분",
+          "weather": "완전한 우천 대응일",
+          "photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Metropolitan%20Museum%20of%20Art%20%28The%20Met%29%20-%20Central%20Park%2C%20NYC.jpg?width=1400",
+          "credit": "https://commons.wikimedia.org/wiki/File:Metropolitan_Museum_of_Art_(The_Met)_-_Central_Park,_NYC.jpg",
+          "mapMode": "walking",
+          "stops": [
+            {
+              "time": "10:00",
+              "end": "13:15",
+              "title": "The Met",
+              "kind": "CULTURE",
+              "detail": "Dendur 신전·미국관·유럽회화에 집중합니다.",
+              "move": "지하철+M1/2/3/4 버스 또는 택시",
+              "coords": [
+                40.7794,
+                -73.9632
+              ],
+              "url": "https://www.metmuseum.org/plan-your-visit",
+              "reserve": "금요일 21:00까지"
+            },
+            {
+              "time": "13:20",
+              "end": "14:15",
+              "title": "Museum 카페",
+              "kind": "REST",
+              "detail": "마지막 날은 별도 점심 이동을 없앱니다.",
+              "move": "관내",
+              "coords": [
+                40.7794,
+                -73.9632
+              ],
+              "url": "https://www.metmuseum.org/plan-your-visit",
+              "reserve": ""
+            },
+            {
+              "time": "14:30",
+              "end": "15:45",
+              "title": "Conservatory Water + Mall",
+              "kind": "NATURE",
+              "detail": "Central Park 동쪽의 평탄한 길만 걷습니다.",
+              "move": "도보 약 1.5km",
+              "coords": [
+                40.7713,
+                -73.9666
+              ],
+              "url": "https://www.centralparknyc.org/",
+              "reserve": "무료"
+            },
+            {
+              "time": "16:15",
+              "end": "17:45",
+              "title": "호텔 휴식 · 짐 정리",
+              "kind": "REST",
+              "detail": "다음 날 국제선 온라인 체크인을 완료합니다.",
+              "move": "택시/지하철",
+              "coords": [
+                40.7447,
+                -73.9885
+              ],
+              "url": "",
+              "reserve": ""
+            },
+            {
+              "time": "18:30",
+              "end": "20:15",
+              "title": "Semma 또는 Chelsea farewell dinner",
+              "kind": "FOOD",
+              "detail": "예약이 없으면 Cookshop·Lobster Place처럼 호텔 근처로 전환합니다.",
+              "move": "택시 10–15분",
+              "coords": [
+                40.7356,
+                -74.0001
+              ],
+              "url": "https://www.semma.nyc/",
+              "reserve": "예약 상태에 따라"
+            }
+          ],
+          "swap": "금요일 MoMA와 Whitney도 늦게 열지만, 일주일에 대형 미술관 4곳 이상이면 피로가 큽니다. 하나만 추가하세요."
+        }
+      ]
+    },
+    {
+      "id": "niagara",
+      "number": "03",
+      "short": "나이아가라 1박",
+      "title": "뉴욕과 북미의 자연 원더",
+      "subtitle": "나이아가라는 왕복 항공 1박 2일로. 미국 쪽에 숙박해 국경·짐 이동을 줄이고 귀국편과 나흘의 버퍼를 둡니다.",
+      "bestFor": "자연 WOW 우선",
+      "pace": "3 / 5",
+      "nature": "Niagara Falls",
+      "hotelMoves": "1회 · 1박",
+      "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/NiagaraFallsPanorama.jpg?width=1600",
+      "hero": "https://commons.wikimedia.org/wiki/Special:FilePath/NiagaraFallsPanorama.jpg?width=1600",
+      "verdict": "<strong>나이아가라를 꼭 보고 싶다면 유일하게 권할 방식.</strong> Amtrak은 편도 약 9시간 30분이라 1박 일정에 맞지 않습니다. 9/21–22 왕복 항공으로 다녀와 9/26 국제선 전 나흘의 회복·지연 버퍼를 확보합니다.",
+      "area": {
+        "name": "NYC는 Midtown West · Niagara는 미국 쪽 공원 도보권",
+        "text": "NYC 숙소는 LGA 이동과 Broadway가 편한 Midtown West가 좋습니다. 나이아가라는 Hyatt Place·The Giacomo처럼 State Park에 걸어갈 수 있는 미국 쪽 숙소가 BUF 공항과 국경 리스크를 줄입니다.",
+        "caution": "국내선은 국제선과 별도 발권이므로 여행자보험·변경 조건을 확인하고, 큰 짐은 NYC 호텔에 보관한 뒤 1박 가방만 가져가세요.",
+        "photo": "https://commons.wikimedia.org/wiki/Special:FilePath/NiagaraFallsPanorama.jpg?width=1600"
+      },
+      "hotels": [
+        {
+          "tier": "NYC · 균형",
+          "name": "Arlo Midtown",
+          "text": "Penn과 Port Authority 사이. LGA 국내선·JFK 국제선·Broadway에 모두 무난합니다.",
+          "bullets": [
+            "Moynihan 도보권",
+            "극장가 도보 12–18분",
+            "객실은 작은 편"
+          ],
+          "site": "https://arlohotels.com/midtown/",
+          "map": "https://maps.google.com/?q=Arlo+Midtown+New+York"
+        },
+        {
+          "tier": "NYC · 편안함",
+          "name": "Park Terrace Hotel",
+          "text": "나이아가라 전후 쉬기 좋은 Bryant Park의 안정적인 베이스.",
+          "bullets": [
+            "짐 보관 요청",
+            "공연·MoMA 접근",
+            "LGA 택시 35–70분"
+          ],
+          "site": "https://parkterracehotel.com/",
+          "map": "https://maps.google.com/?q=Park+Terrace+Hotel+New+York"
+        },
+        {
+          "tier": "Niagara · 1박",
+          "name": "The Giacomo",
+          "text": "Art Deco 분위기의 커플 친화적 미국 쪽 호텔. 폭포 조명 뒤 걸어서 귀환하기 좋습니다.",
+          "bullets": [
+            "State Park 도보권",
+            "The Red Coach Inn 대안",
+            "BUF transfer 별도"
+          ],
+          "site": "https://thegiacomo.com/",
+          "map": "https://maps.google.com/?q=The+Giacomo+Niagara+Falls+NY"
+        }
+      ],
+      "foods": [
+        {
+          "cuisine": "Niagara classic",
+          "name": "The Red Coach Inn",
+          "text": "폭포 근처 역사적인 미국식 여관 레스토랑.",
+          "dish": "seafood·prime rib 중 가벼운 entrée",
+          "tip": "조명 전 17:00",
+          "site": "https://www.redcoach.com/"
+        },
+        {
+          "cuisine": "Buffalo wings",
+          "name": "Anchor Bar / Duff's",
+          "text": "Buffalo가 원조인 미국식 chicken wings.",
+          "dish": "medium wings 10개 공유",
+          "tip": "BUF 비행시간이 맞을 때만",
+          "site": "https://anchorbar.com/"
+        },
+        {
+          "cuisine": "Steak",
+          "name": "Keens Steakhouse",
+          "text": "뉴욕 복귀 후의 메인 스테이크 저녁.",
+          "dish": "mutton chop 또는 porterhouse",
+          "tip": "9/24 또는 25",
+          "site": "https://www.keens.com/"
+        },
+        {
+          "cuisine": "Pizza",
+          "name": "Juliana's",
+          "text": "Brooklyn 회복일에 붙이는 통피자.",
+          "dish": "Margherita pie",
+          "tip": "11:30 이전",
+          "site": "https://julianaspizza.com/"
+        },
+        {
+          "cuisine": "Seafood",
+          "name": "Lobster Place",
+          "text": "MoMA·Broadway 날과 분리해 Chelsea에서 캐주얼하게.",
+          "dish": "oyster + lobster roll",
+          "tip": "점심",
+          "site": "https://www.chelseamarket.com/directory-all/the-lobster-place"
+        },
+        {
+          "cuisine": "Jewish NYC",
+          "name": "Russ & Daughters",
+          "text": "뉴욕 이민자 음식 체험.",
+          "dish": "bagel·lox",
+          "tip": "9/21 휴무라 9/23 이후",
+          "site": "https://www.russanddaughterscafe.com/"
+        }
+      ],
+      "days": [
+        {
+          "date": "9/19 토 · D1",
+          "title": "미드타운 시차 적응",
+          "subtitle": "전망대 하나와 이른 저녁",
+          "walk": "예상 2–3km",
+          "rest": "호텔 90분",
+          "weather": "비 오면 Grand Central·NYPL",
+          "photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Times%20Square%2C%20NYC%20at%20night%20-%20August%202025.jpg?width=1400",
+          "credit": "https://commons.wikimedia.org/wiki/File:Times_Square,_NYC_at_night_-_August_2025.jpg",
+          "mapMode": "walking",
+          "stops": [
+            {
+              "time": "14:00",
+              "end": "15:30",
+              "title": "Midtown West 체크인 · 낮잠",
+              "kind": "REST",
+              "detail": "나이아가라 국내선 전까지 같은 방을 유지하고 큰 짐을 둡니다.",
+              "move": "JFK→호텔",
+              "coords": [
+                40.7542,
+                -73.99
+              ],
+              "url": "",
+              "reserve": ""
+            },
+            {
+              "time": "16:00",
+              "end": "16:50",
+              "title": "Bryant Park + NYPL",
+              "kind": "CULTURE",
+              "detail": "첫날은 반경을 좁게 유지합니다.",
+              "move": "도보 10분",
+              "coords": [
+                40.7536,
+                -73.9832
+              ],
+              "url": "https://www.nypl.org/locations/schwarzman",
+              "reserve": ""
+            },
+            {
+              "time": "17:25",
+              "end": "19:10",
+              "title": "Top of the Rock",
+              "kind": "VIEW",
+              "detail": "9/19 18:58 일몰.",
+              "move": "도보 12분",
+              "coords": [
+                40.7593,
+                -73.9794
+              ],
+              "url": "https://www.rockefellercenter.com/attractions/top-of-the-rock-observation-deck/",
+              "reserve": "17:25"
+            },
+            {
+              "time": "19:30",
+              "end": "20:30",
+              "title": "가벼운 pizza dinner",
+              "kind": "FOOD",
+              "detail": "Joe's slice로 일찍 마치고 수면을 확보합니다.",
+              "move": "도보 8분",
+              "coords": [
+                40.758,
+                -73.9857
+              ],
+              "url": "https://www.joespizzanyc.com/",
+              "reserve": ""
+            }
+          ],
+          "swap": "9/19 늦은 도착이면 모든 관광을 생략하고 바로 숙면하세요."
+        },
+        {
+          "date": "9/20 일 · D2",
+          "title": "Central Park + The Met",
+          "subtitle": "자연과 미술로 뉴욕 첫인상",
+          "walk": "예상 4–5km",
+          "rest": "카페 60분",
+          "weather": "우천 시 Met 중심",
+          "photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Bow%20Bridge%2C%20Central%20Park%2C%20in%20fall.jpg?width=1400",
+          "credit": "https://commons.wikimedia.org/wiki/File:Bow_Bridge,_Central_Park,_in_fall.jpg",
+          "mapMode": "walking",
+          "stops": [
+            {
+              "time": "09:30",
+              "end": "11:30",
+              "title": "Central Park · Bow Bridge",
+              "kind": "NATURE",
+              "detail": "호수와 Bethesda Terrace만 보는 짧은 루트.",
+              "move": "지하철+도보",
+              "coords": [
+                40.7755,
+                -73.9739
+              ],
+              "url": "https://www.centralparknyc.org/",
+              "reserve": ""
+            },
+            {
+              "time": "11:45",
+              "end": "12:40",
+              "title": "The Met 카페 점심",
+              "kind": "REST",
+              "detail": "동선을 줄이기 위해 관내 식사.",
+              "move": "도보 15분",
+              "coords": [
+                40.7794,
+                -73.9632
+              ],
+              "url": "https://www.metmuseum.org/plan-your-visit",
+              "reserve": ""
+            },
+            {
+              "time": "12:45",
+              "end": "16:00",
+              "title": "The Met",
+              "kind": "CULTURE",
+              "detail": "이집트·미국·유럽회화 세 구역만.",
+              "move": "관내",
+              "coords": [
+                40.7794,
+                -73.9632
+              ],
+              "url": "https://www.metmuseum.org/plan-your-visit",
+              "reserve": ""
+            },
+            {
+              "time": "17:00",
+              "end": "18:30",
+              "title": "호텔 휴식 · 1박 가방 준비",
+              "kind": "REST",
+              "detail": "방수 신발·여벌 양말·얇은 우비를 챙깁니다.",
+              "move": "택시/지하철",
+              "coords": [
+                40.7542,
+                -73.99
+              ],
+              "url": "",
+              "reserve": ""
+            },
+            {
+              "time": "18:45",
+              "end": "19:45",
+              "title": "Midtown 가벼운 저녁",
+              "kind": "FOOD",
+              "detail": "다음 날 05시대 출발을 위해 술과 늦은 식사는 피합니다.",
+              "move": "호텔 반경",
+              "coords": [
+                40.7542,
+                -73.99
+              ],
+              "url": "",
+              "reserve": ""
+            }
+          ],
+          "swap": "Broadway Week matinee보다 수면과 짐 준비를 우선합니다. 공연은 D7에 확정 배치했습니다."
+        },
+        {
+          "date": "9/21 월 · D3",
+          "title": "Niagara · 물보라와 조명",
+          "subtitle": "LGA→BUF, Maid·Cave·트램을 미국 쪽에서",
+          "walk": "예상 4–6km",
+          "rest": "호텔 90분",
+          "weather": "운항 중단 시 전망대·Aquarium 대체",
+          "photo": "https://commons.wikimedia.org/wiki/Special:FilePath/NiagaraFallsPanorama.jpg?width=1600",
+          "credit": "https://commons.wikimedia.org/wiki/File:NiagaraFallsPanorama.jpg",
+          "mapMode": "driving",
+          "stops": [
+            {
+              "time": "05:15",
+              "end": "06:15",
+              "title": "호텔→LaGuardia",
+              "kind": "TRANSIT",
+              "detail": "07:00 전후 BUF 직항을 목표로 합니다. 정확한 편은 발권 화면 확인.",
+              "move": "택시 35–65분",
+              "coords": [
+                40.7769,
+                -73.874
+              ],
+              "url": "https://www.buffaloairport.com/flight-info/air-carriers/commercial",
+              "reserve": "국내선 별도"
+            },
+            {
+              "time": "08:30",
+              "end": "09:30",
+              "title": "BUF→Niagara Falls",
+              "kind": "TRANSIT",
+              "detail": "두 명이면 rideshare/사전 셔틀이 대중교통보다 훨씬 효율적입니다.",
+              "move": "약 40–55분",
+              "coords": [
+                43.0838,
+                -79.0742
+              ],
+              "url": "https://www.buffaloairport.com/parking-and-transportation/ground-transportation/ride-sharing",
+              "reserve": "픽업 위치 확인"
+            },
+            {
+              "time": "09:45",
+              "end": "10:10",
+              "title": "호텔 bag drop + Cave 시간표 확보",
+              "kind": "TRANSIT",
+              "detail": "Cave는 timed ticket이므로 공원 도착 직후 원하는 시간을 잡습니다.",
+              "move": "도보",
+              "coords": [
+                43.085,
+                -79.064
+              ],
+              "url": "https://www.niagarafallsstatepark.com/attractions/cave-of-the-winds/",
+              "reserve": "9:00–18:15"
+            },
+            {
+              "time": "10:30",
+              "end": "11:35",
+              "title": "Maid of the Mist",
+              "kind": "NATURE",
+              "detail": "2026 평일 09:00–17:00. 온라인 표도 승선은 선착순입니다.",
+              "move": "Observation Tower 엘리베이터",
+              "coords": [
+                43.0867,
+                -79.067
+              ],
+              "url": "https://www.maidofthemist.com/schedule-pricing/",
+              "reserve": "성인 $30.25 기준"
+            },
+            {
+              "time": "11:45",
+              "end": "13:15",
+              "title": "Prospect Point + 점심",
+              "kind": "VIEW",
+              "detail": "전망대와 간단한 park food로 이동을 줄입니다.",
+              "move": "도보 500m",
+              "coords": [
+                43.0866,
+                -79.0681
+              ],
+              "url": "https://www.niagarafallsstatepark.com/",
+              "reserve": ""
+            },
+            {
+              "time": "13:30",
+              "end": "15:15",
+              "title": "Scenic Trolley · Goat Island",
+              "kind": "NATURE",
+              "detail": "Terrapin Point·Three Sisters를 트램으로 연결해 걷기를 줄입니다.",
+              "move": "Trolley $5 기준",
+              "coords": [
+                43.0815,
+                -79.0707
+              ],
+              "url": "https://www.niagarafallsstatepark.com/attractions/trolley/",
+              "reserve": "좌석 보장 없음"
+            },
+            {
+              "time": "15:30",
+              "end": "16:45",
+              "title": "Cave of the Winds",
+              "kind": "NATURE",
+              "detail": "메인 viewing platform만으로도 충분합니다. Hurricane Deck 계단은 선택.",
+              "move": "젖어도 되는 신발",
+              "coords": [
+                43.0806,
+                -79.0729
+              ],
+              "url": "https://www.niagarafallsstatepark.com/attractions/cave-of-the-winds/",
+              "reserve": "timed ticket"
+            },
+            {
+              "time": "17:00",
+              "end": "18:15",
+              "title": "호텔 휴식 + 이른 저녁",
+              "kind": "REST",
+              "detail": "The Red Coach Inn 등 공원 도보권에서 식사.",
+              "move": "도보",
+              "coords": [
+                43.0845,
+                -79.0655
+              ],
+              "url": "https://www.redcoach.com/",
+              "reserve": "17:00 예약"
+            },
+            {
+              "time": "18:30",
+              "end": "19:30",
+              "title": "Niagara Illumination",
+              "kind": "VIEW",
+              "detail": "9/20–30 조명은 18:30부터. 1시간만 보고 호텔로 돌아갑니다.",
+              "move": "Prospect Point",
+              "coords": [
+                43.0866,
+                -79.0681
+              ],
+              "url": "https://www.niagarafallsstatepark.com/tours-events/illuminations/",
+              "reserve": "무료"
+            }
+          ],
+          "swap": "Amtrak은 NYP→Niagara가 약 9시간 30분이라 이 1박 계획에는 사용하지 않습니다."
+        },
+        {
+          "date": "9/22 화 · D4",
+          "title": "Horseshoe Falls와 뉴욕 복귀",
+          "subtitle": "캐나다 2–3시간은 서류가 완벽할 때만",
+          "walk": "예상 3–5km",
+          "rest": "공항·비행 3시간",
+          "weather": "국경 혼잡 시 미국 쪽 산책으로 대체",
+          "photo": "https://commons.wikimedia.org/wiki/Special:FilePath/NiagaraFallsPanorama.jpg?width=1600",
+          "credit": "https://commons.wikimedia.org/wiki/File:NiagaraFallsPanorama.jpg",
+          "mapMode": "walking",
+          "stops": [
+            {
+              "time": "08:30",
+              "end": "09:00",
+              "title": "체크아웃 · 1박 가방 보관",
+              "kind": "REST",
+              "detail": "큰 짐 없이 Rainbow Bridge를 왕복합니다.",
+              "move": "호텔",
+              "coords": [
+                43.0845,
+                -79.0655
+              ],
+              "url": "",
+              "reserve": ""
+            },
+            {
+              "time": "09:10",
+              "end": "09:50",
+              "title": "Rainbow Bridge 보행 국경",
+              "kind": "TRANSIT",
+              "detail": "유효 여권과 미국 재입국 서류를 반드시 확인합니다.",
+              "move": "도보·입국 대기 변동",
+              "coords": [
+                43.089,
+                -79.0678
+              ],
+              "url": "https://www.niagarafallsbridges.com/crossing-info/pedestrian-crossing-information",
+              "reserve": "대한민국 여권 육로 eTA 불필요"
+            },
+            {
+              "time": "10:00",
+              "end": "11:40",
+              "title": "Table Rock + Queen Victoria Park",
+              "kind": "VIEW",
+              "detail": "캐나다 쪽에서 Horseshoe Falls의 정면 파노라마를 봅니다.",
+              "move": "평탄한 수변 도보",
+              "coords": [
+                43.0799,
+                -79.0784
+              ],
+              "url": "https://www.niagaraparks.com/visit/attractions/table-rock-centre/",
+              "reserve": ""
+            },
+            {
+              "time": "11:50",
+              "end": "12:40",
+              "title": "캐나다 쪽 이른 점심",
+              "kind": "FOOD",
+              "detail": "국경 대기 때문에 12:40에는 이동을 시작합니다.",
+              "move": "Table Rock 인근",
+              "coords": [
+                43.081,
+                -79.077
+              ],
+              "url": "",
+              "reserve": ""
+            },
+            {
+              "time": "12:45",
+              "end": "13:45",
+              "title": "미국 재입국 · 짐 수령",
+              "kind": "TRANSIT",
+              "detail": "미국 재입국 대기는 여유 있게 잡습니다.",
+              "move": "Rainbow Bridge",
+              "coords": [
+                43.089,
+                -79.0678
+              ],
+              "url": "https://www.niagarafallsbridges.com/crossing-info/pedestrian-crossing-information",
+              "reserve": ""
+            },
+            {
+              "time": "14:00",
+              "end": "15:00",
+              "title": "Niagara→BUF",
+              "kind": "TRANSIT",
+              "detail": "늦어도 국내선 2시간 전 공항 도착.",
+              "move": "사전 셔틀/rideshare",
+              "coords": [
+                42.9405,
+                -78.7322
+              ],
+              "url": "https://www.buffaloairport.com/parking-and-transportation/ground-transportation/shuttles-vans-and-taxis",
+              "reserve": ""
+            },
+            {
+              "time": "17:00",
+              "end": "20:00",
+              "title": "BUF→NYC · 호텔 복귀",
+              "kind": "TRANSIT",
+              "detail": "저녁 직항으로 돌아와 바로 쉽니다.",
+              "move": "비행+택시",
+              "coords": [
+                40.7542,
+                -73.99
+              ],
+              "url": "https://www.buffaloairport.com/flight-info/air-carriers/commercial",
+              "reserve": "지연 가능성"
+            }
+          ],
+          "swap": "캐나다 입국은 선택사항입니다. 서류·대기가 불확실하면 미국 쪽 Whirlpool 전망 또는 Aquarium으로 바꾸고 일찍 공항으로 가세요."
+        },
+        {
+          "date": "9/23 수 · D5",
+          "title": "자유의 여신상 + Lower Manhattan",
+          "subtitle": "나이아가라 뒤에는 실내 박물관 욕심을 줄이기",
+          "walk": "예상 5–6km",
+          "rest": "호텔 90분",
+          "weather": "강풍이면 9/11 Museum",
+          "photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Statue%20of%20Liberty%20overlooking%20Skyline.jpg?width=1400",
+          "credit": "https://commons.wikimedia.org/wiki/File:Statue_of_Liberty_overlooking_Skyline.jpg",
+          "mapMode": "transit",
+          "stops": [
+            {
+              "time": "08:30",
+              "end": "09:00",
+              "title": "The Battery",
+              "kind": "TRANSIT",
+              "detail": "공식 페리 보안검색.",
+              "move": "지하철",
+              "coords": [
+                40.7033,
+                -74.017
+              ],
+              "url": "https://statuecitycruises.com/plan-your-visit-schedule",
+              "reserve": "오전 예약"
+            },
+            {
+              "time": "09:00",
+              "end": "11:00",
+              "title": "Liberty Island",
+              "kind": "LANDMARK",
+              "detail": "섬 둘레와 박물관만.",
+              "move": "페리",
+              "coords": [
+                40.6892,
+                -74.0445
+              ],
+              "url": "https://www.nps.gov/stli/",
+              "reserve": ""
+            },
+            {
+              "time": "11:15",
+              "end": "13:10",
+              "title": "Ellis Island",
+              "kind": "CULTURE",
+              "detail": "Great Hall과 이민사 핵심 전시.",
+              "move": "페리",
+              "coords": [
+                40.6995,
+                -74.0396
+              ],
+              "url": "https://www.nps.gov/elis/",
+              "reserve": ""
+            },
+            {
+              "time": "14:00",
+              "end": "15:00",
+              "title": "9/11 Memorial",
+              "kind": "MEMORIAL",
+              "detail": "야외 추모공간만 45–60분.",
+              "move": "도보",
+              "coords": [
+                40.7115,
+                -74.0133
+              ],
+              "url": "https://www.911memorial.org/visit",
+              "reserve": ""
+            },
+            {
+              "time": "16:00",
+              "end": "17:30",
+              "title": "호텔 휴식",
+              "kind": "REST",
+              "detail": "전날 항공 이동 피로 회복.",
+              "move": "지하철",
+              "coords": [
+                40.7542,
+                -73.99
+              ],
+              "url": "",
+              "reserve": ""
+            },
+            {
+              "time": "18:00",
+              "end": "19:30",
+              "title": "Keens Steakhouse",
+              "kind": "FOOD",
+              "detail": "뉴욕 메인 스테이크 저녁.",
+              "move": "도보/택시",
+              "coords": [
+                40.7507,
+                -73.9867
+              ],
+              "url": "https://www.keens.com/",
+              "reserve": "예약"
+            }
+          ],
+          "swap": "9/11 Museum까지 넣으면 감정적·체력적 밀도가 높습니다. 이 안에서는 Memorial만 권합니다."
+        },
+        {
+          "date": "9/24 목 · D6",
+          "title": "Brooklyn 회복일",
+          "subtitle": "다리·피자·페리로 느리게",
+          "walk": "예상 4–5km",
+          "rest": "수변 90분",
+          "weather": "우천 시 DUMBO 실내",
+          "photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Brooklyn%20Bridge%20at%20sunset%20from%20Brooklyn%20Bridge%20Park%2C%20New%20York%20City.jpg?width=1600",
+          "credit": "https://commons.wikimedia.org/wiki/File:Brooklyn_Bridge_at_sunset_from_Brooklyn_Bridge_Park,_New_York_City.jpg",
+          "mapMode": "walking",
+          "stops": [
+            {
+              "time": "10:00",
+              "end": "10:50",
+              "title": "Brooklyn Bridge",
+              "kind": "LANDMARK",
+              "detail": "Manhattan→Brooklyn 한 방향.",
+              "move": "도보",
+              "coords": [
+                40.7061,
+                -73.9969
+              ],
+              "url": "https://www.nyc.gov/html/dot/html/infrastructure/brooklyn-bridge.shtml",
+              "reserve": ""
+            },
+            {
+              "time": "11:00",
+              "end": "12:00",
+              "title": "DUMBO 수변",
+              "kind": "VIEW",
+              "detail": "Main Street Park 벤치 휴식.",
+              "move": "도보",
+              "coords": [
+                40.7033,
+                -73.9882
+              ],
+              "url": "https://www.brooklynbridgepark.org/",
+              "reserve": ""
+            },
+            {
+              "time": "12:05",
+              "end": "13:15",
+              "title": "Juliana's Pizza",
+              "kind": "FOOD",
+              "detail": "통피자 한 판 공유.",
+              "move": "도보",
+              "coords": [
+                40.7027,
+                -73.9933
+              ],
+              "url": "https://julianaspizza.com/",
+              "reserve": ""
+            },
+            {
+              "time": "13:30",
+              "end": "15:00",
+              "title": "Brooklyn Heights Promenade",
+              "kind": "VIEW",
+              "detail": "평탄한 산책.",
+              "move": "도보/택시",
+              "coords": [
+                40.696,
+                -73.997
+              ],
+              "url": "https://www.nycgovparks.org/parks/brooklyn-heights-promenade",
+              "reserve": ""
+            },
+            {
+              "time": "15:20",
+              "end": "15:40",
+              "title": "NYC Ferry → Wall Street",
+              "kind": "TRANSIT",
+              "detail": "수상에서 마지막 skyline.",
+              "move": "페리",
+              "coords": [
+                40.7033,
+                -74.0066
+              ],
+              "url": "https://www.ferry.nyc/",
+              "reserve": ""
+            },
+            {
+              "time": "16:30",
+              "end": "저녁",
+              "title": "호텔 자유시간",
+              "kind": "REST",
+              "detail": "나이아가라 뒤 완전한 빈 저녁.",
+              "move": "지하철",
+              "coords": [
+                40.7542,
+                -73.99
+              ],
+              "url": "",
+              "reserve": ""
+            }
+          ],
+          "swap": "피로가 남으면 Brooklyn Bridge를 건너지 말고 페리로 DUMBO에 바로 가세요."
+        },
+        {
+          "date": "9/25 금 · D7",
+          "title": "MoMA + 마지막 Broadway",
+          "subtitle": "실내 중심, 공연 전 휴식",
+          "walk": "예상 3km",
+          "rest": "호텔 2시간",
+          "weather": "우천 최적",
+          "photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Times%20Square%2C%20NYC%20at%20night%20-%20August%202025.jpg?width=1400",
+          "credit": "https://commons.wikimedia.org/wiki/File:Times_Square,_NYC_at_night_-_August_2025.jpg",
+          "mapMode": "walking",
+          "stops": [
+            {
+              "time": "10:30",
+              "end": "13:20",
+              "title": "MoMA",
+              "kind": "CULTURE",
+              "detail": "5층·4층 핵심관.",
+              "move": "도보/지하철",
+              "coords": [
+                40.7614,
+                -73.9776
+              ],
+              "url": "https://www.moma.org/visit/",
+              "reserve": "금요일 20:30까지"
+            },
+            {
+              "time": "13:30",
+              "end": "14:30",
+              "title": "Midtown 점심",
+              "kind": "FOOD",
+              "detail": "가볍게 soup·salad.",
+              "move": "도보",
+              "coords": [
+                40.7605,
+                -73.981
+              ],
+              "url": "",
+              "reserve": ""
+            },
+            {
+              "time": "15:00",
+              "end": "16:50",
+              "title": "호텔 휴식 · 짐 정리",
+              "kind": "REST",
+              "detail": "다음 날 07시대 공항 출발 준비.",
+              "move": "도보/지하철",
+              "coords": [
+                40.7542,
+                -73.99
+              ],
+              "url": "",
+              "reserve": ""
+            },
+            {
+              "time": "17:00",
+              "end": "18:20",
+              "title": "Gallaghers · 이른 저녁",
+              "kind": "FOOD",
+              "detail": "공연 전 steak를 공유.",
+              "move": "도보",
+              "coords": [
+                40.7627,
+                -73.9836
+              ],
+              "url": "https://www.gallaghersnysteakhouse.com/location/gallaghers-nyc/",
+              "reserve": "17:00"
+            },
+            {
+              "time": "19:00",
+              "end": "21:40",
+              "title": "Hamilton",
+              "kind": "SHOW",
+              "detail": "여행 마지막 밤의 미국 대표 뮤지컬.",
+              "move": "Richard Rodgers Theatre",
+              "coords": [
+                40.7591,
+                -73.986
+              ],
+              "url": "https://www.broadway.org/shows/hamilton",
+              "reserve": "9/25 19:00"
+            }
+          ],
+          "swap": "공연 뒤 22시 전에 호텔로 돌아가고, 9/26에는 관광을 넣지 않습니다."
+        }
+      ]
+    },
+    {
+      "id": "water",
+      "number": "04",
+      "short": "항구·야구·5개 보로",
+      "title": "물 위의 뉴욕과 야구의 오후",
+      "subtitle": "페리·섬·수변공원으로 걷기를 줄이고, Mets 홈경기와 Queens·Bronx의 음식까지 넣은 가장 미국적인 생활문화 코스.",
+      "bestFor": "스포츠·로컬 문화",
+      "pace": "2.5 / 5",
+      "nature": "섬 + Wave Hill",
+      "hotelMoves": "연박 7박",
+      "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Statue%20of%20Liberty%20overlooking%20Skyline.jpg?width=1400",
+      "hero": "https://commons.wikimedia.org/wiki/Special:FilePath/Statue%20of%20Liberty%20overlooking%20Skyline.jpg?width=1400",
+      "verdict": "<strong>미술관보다 도시 생활을 보고 싶을 때.</strong> 9/20 Mets–Phillies 13:40 경기는 대부분 앉아서 즐겨 체력 부담이 적습니다. 페리를 교통수단으로 써서 Manhattan·Brooklyn·Queens를 수변으로 연결합니다.",
+      "area": {
+        "name": "Tribeca · Financial District 북쪽",
+        "text": "Governors Island·NYC Ferry·Brooklyn Bridge·9/11·Seaport가 가까운 수변 베이스. 주말 업무지구는 조용하고 야경 산책이 좋습니다.",
+        "caution": "Broadway와 Upper East Side는 25–35분 걸립니다. Fulton Center·WTC에 도보 8분 이내인지 확인하세요.",
+        "photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Statue%20of%20Liberty%20overlooking%20Skyline.jpg?width=1400"
+      },
+      "hotels": [
+        {
+          "tier": "고급 · 역사",
+          "name": "The Beekman",
+          "text": "아트리움과 역사적 건축 자체가 볼거리. Fulton 교통허브와 가깝습니다.",
+          "bullets": [
+            "여러 지하철 노선",
+            "Brooklyn Bridge 접근",
+            "고급 요금대"
+          ],
+          "site": "https://www.thebeekman.com/",
+          "map": "https://maps.google.com/?q=The+Beekman+New+York"
+        },
+        {
+          "tier": "고급 · 조용함",
+          "name": "The Wall Street Hotel",
+          "text": "FiDi의 차분한 부티크 호텔. 페리와 Seaport 수변 일정에 좋습니다.",
+          "bullets": [
+            "Pier 11 도보권",
+            "주말 조용함",
+            "Midtown 이동 25분+"
+          ],
+          "site": "https://thewallsthotel.com/",
+          "map": "https://maps.google.com/?q=The+Wall+Street+Hotel"
+        },
+        {
+          "tier": "전망 · 넓은 객실",
+          "name": "Conrad New York Downtown",
+          "text": "Battery Park City 수변과 넓은 suite형 객실이 장점.",
+          "bullets": [
+            "Hudson 산책",
+            "9/11 도보권",
+            "극장가에서 멂"
+          ],
+          "site": "https://www.hilton.com/en/hotels/nyccici-conrad-new-york-downtown/",
+          "map": "https://maps.google.com/?q=Conrad+New+York+Downtown"
+        }
+      ],
+      "foods": [
+        {
+          "cuisine": "Ballpark",
+          "name": "Citi Field food",
+          "text": "hot dog·pastrami·local vendor를 야구와 함께.",
+          "dish": "한 명은 hot dog, 한 명은 pastrami 비교",
+          "tip": "모바일 주문 확인",
+          "site": "https://www.mlb.com/mets/ballpark/food"
+        },
+        {
+          "cuisine": "Queens",
+          "name": "Arepa Lady",
+          "text": "Jackson Heights의 콜롬비아 street-food 전통.",
+          "dish": "arepa de queso + choclo",
+          "tip": "경기 후 이른 저녁",
+          "site": "https://www.arepalady.com/"
+        },
+        {
+          "cuisine": "Seafood",
+          "name": "The Fulton",
+          "text": "Pier 17에서 Brooklyn Bridge를 보며 먹는 수변 해산물.",
+          "dish": "oysters + whole fish",
+          "tip": "일몰 17:30",
+          "site": "https://www.thefulton.nyc/location/the-fulton/"
+        },
+        {
+          "cuisine": "Pizza",
+          "name": "Scarr's Pizza",
+          "text": "Downtown 호텔로 돌아오기 쉬운 Lower East Side slice.",
+          "dish": "cheese + hotboi",
+          "tip": "늦은 간식",
+          "site": "https://www.scarrspizza.com/location/scarrs-pizza/"
+        },
+        {
+          "cuisine": "Bronx Italian",
+          "name": "Arthur Avenue Market",
+          "text": "Little Italy보다 생활감 있는 Bronx의 이탈리아계 시장.",
+          "dish": "Mike's Deli sandwich + pastry",
+          "tip": "Wave Hill 뒤",
+          "site": "https://arthuravenuebronx.com/"
+        },
+        {
+          "cuisine": "Brooklyn steak",
+          "name": "Peter Luger",
+          "text": "Williamsburg의 고전 스테이크하우스.",
+          "dish": "steak for two",
+          "tip": "매장 결제조건 확인",
+          "site": "https://peterluger.com/pages/locations-reservations"
+        }
+      ],
+      "days": [
+        {
+          "date": "9/19 토 · D1",
+          "title": "Downtown의 물가에서 시작",
+          "subtitle": "Battery Park와 Seaport만",
+          "walk": "예상 3km",
+          "rest": "호텔 90분",
+          "weather": "우천 시 Oculus·9/11 Museum",
+          "photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Statue%20of%20Liberty%20overlooking%20Skyline.jpg?width=1400",
+          "credit": "https://commons.wikimedia.org/wiki/File:Statue_of_Liberty_overlooking_Skyline.jpg",
+          "mapMode": "walking",
+          "stops": [
+            {
+              "time": "14:00",
+              "end": "15:30",
+              "title": "Downtown 호텔 체크인",
+              "kind": "REST",
+              "detail": "JFK에서 AirTrain+LIRR+subway 또는 택시.",
+              "move": "공항 이동",
+              "coords": [
+                40.711,
+                -74.009
+              ],
+              "url": "",
+              "reserve": ""
+            },
+            {
+              "time": "16:00",
+              "end": "17:00",
+              "title": "Battery Park City Esplanade",
+              "kind": "NATURE",
+              "detail": "평탄한 Hudson 수변 벤치에서 시차 적응.",
+              "move": "도보",
+              "coords": [
+                40.7117,
+                -74.0175
+              ],
+              "url": "https://bpca.ny.gov/places/parks/",
+              "reserve": ""
+            },
+            {
+              "time": "17:15",
+              "end": "18:10",
+              "title": "Oculus + 9/11 Memorial",
+              "kind": "MEMORIAL",
+              "detail": "Museum은 다음 날 이후 선택.",
+              "move": "도보",
+              "coords": [
+                40.7115,
+                -74.0133
+              ],
+              "url": "https://www.911memorial.org/visit",
+              "reserve": ""
+            },
+            {
+              "time": "18:30",
+              "end": "20:00",
+              "title": "The Fulton · 해산물",
+              "kind": "FOOD",
+              "detail": "Brooklyn Bridge가 보이는 창가에서 첫날 저녁.",
+              "move": "도보/택시",
+              "coords": [
+                40.7069,
+                -74.0028
+              ],
+              "url": "https://www.thefulton.nyc/location/the-fulton/",
+              "reserve": "예약"
+            }
+          ],
+          "swap": "9/19 늦은 도착이면 호텔 주변 식사만 하고 바로 쉽니다."
+        },
+        {
+          "date": "9/20 일 · D2",
+          "title": "Mets 홈경기",
+          "subtitle": "Flushing 음식과 야구를 대부분 앉아서",
+          "walk": "예상 3–4km",
+          "rest": "경기 3시간",
+          "weather": "우천·연기 시 Queens Museum",
+          "photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Times%20Square%2C%20NYC%20at%20night%20-%20August%202025.jpg?width=1400",
+          "credit": "https://commons.wikimedia.org/wiki/File:Times_Square,_NYC_at_night_-_August_2025.jpg",
+          "mapMode": "transit",
+          "stops": [
+            {
+              "time": "10:15",
+              "end": "11:30",
+              "title": "Flushing dim sum brunch",
+              "kind": "FOOD",
+              "detail": "Nan Xiang 또는 Asian Jewels에서 작은 접시 위주.",
+              "move": "7번 지하철 종점",
+              "coords": [
+                40.759,
+                -73.83
+              ],
+              "url": "https://www.nycgo.com/boroughs-neighborhoods/queens/flushing",
+              "reserve": "대기 고려"
+            },
+            {
+              "time": "11:45",
+              "end": "12:30",
+              "title": "Flushing Meadows · Unisphere",
+              "kind": "LANDMARK",
+              "detail": "경기 전 사진과 짧은 공원 산책.",
+              "move": "7번 지하철 1정거장",
+              "coords": [
+                40.7463,
+                -73.8457
+              ],
+              "url": "https://www.nycgovparks.org/parks/flushing-meadows-corona-park",
+              "reserve": ""
+            },
+            {
+              "time": "12:40",
+              "end": "13:25",
+              "title": "Citi Field 입장",
+              "kind": "TRANSIT",
+              "detail": "보안검색·team store·좌석 확인.",
+              "move": "도보 12분",
+              "coords": [
+                40.7571,
+                -73.8458
+              ],
+              "url": "https://www.mlb.com/mets/ballpark",
+              "reserve": "모바일 티켓"
+            },
+            {
+              "time": "13:40",
+              "end": "16:45",
+              "title": "Mets vs Phillies",
+              "kind": "SPORT",
+              "detail": "미국 야구장 문화와 7th-inning stretch를 경험합니다.",
+              "move": "대부분 좌석",
+              "coords": [
+                40.7571,
+                -73.8458
+              ],
+              "url": "https://www.mlb.com/mets/tickets",
+              "reserve": "9/20 13:40"
+            },
+            {
+              "time": "17:30",
+              "end": "18:45",
+              "title": "Jackson Heights · Arepa Lady",
+              "kind": "FOOD",
+              "detail": "경기 뒤 콜롬비아 arepa로 Queens의 이민자 문화를 맛봅니다.",
+              "move": "7번 지하철",
+              "coords": [
+                40.748,
+                -73.883
+              ],
+              "url": "https://www.arepalady.com/",
+              "reserve": "운영시간 확인"
+            },
+            {
+              "time": "19:00",
+              "end": "19:40",
+              "title": "호텔 귀환",
+              "kind": "TRANSIT",
+              "detail": "저녁에는 추가 관광 없이 쉽니다.",
+              "move": "E/F→Downtown",
+              "coords": [
+                40.711,
+                -74.009
+              ],
+              "url": "",
+              "reserve": ""
+            }
+          ],
+          "swap": "경기 시간·우천 연기는 MLB 앱에서 당일 확인하세요. 9/19 토 16:10 경기도 있지만 입국일에는 비추천입니다."
+        },
+        {
+          "date": "9/21 월 · D3",
+          "title": "Governors Island + 9/11",
+          "subtitle": "차 없는 섬에서 피크닉, 오후 추모공간",
+          "walk": "예상 4km",
+          "rest": "섬 3시간",
+          "weather": "폭우면 9/11 Museum 중심",
+          "photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Statue%20of%20Liberty%20overlooking%20Skyline.jpg?width=1400",
+          "credit": "https://commons.wikimedia.org/wiki/File:Statue_of_Liberty_overlooking_Skyline.jpg",
+          "mapMode": "walking",
+          "stops": [
+            {
+              "time": "09:45",
+              "end": "10:00",
+              "title": "Battery Maritime Building",
+              "kind": "TRANSIT",
+              "detail": "Manhattan ferry는 매일 운항.",
+              "move": "도보/지하철",
+              "coords": [
+                40.7014,
+                -74.0126
+              ],
+              "url": "https://www.govisland.com/plan-your-visit/ferry",
+              "reserve": "시간표 확인"
+            },
+            {
+              "time": "10:00",
+              "end": "13:30",
+              "title": "Governors Island",
+              "kind": "NATURE",
+              "detail": "Hammock Grove·The Hills·Castle Williams 중 두 곳만. 자전거 없이 평탄한 길 위주.",
+              "move": "페리+도보",
+              "coords": [
+                40.6895,
+                -74.0168
+              ],
+              "url": "https://www.govisland.com/",
+              "reserve": "무료/페리 유료"
+            },
+            {
+              "time": "12:00",
+              "end": "13:00",
+              "title": "섬 피크닉 점심",
+              "kind": "FOOD",
+              "detail": "운영 vendor가 적으면 Manhattan에서 미리 포장합니다.",
+              "move": "섬 내부",
+              "coords": [
+                40.69,
+                -74.016
+              ],
+              "url": "https://www.govisland.com/things-to-do/food-and-drink",
+              "reserve": ""
+            },
+            {
+              "time": "14:15",
+              "end": "16:15",
+              "title": "9/11 Museum",
+              "kind": "CULTURE",
+              "detail": "최소 90분. 다른 대형 박물관은 같은 날 넣지 않습니다.",
+              "move": "페리 도착 후 도보",
+              "coords": [
+                40.7115,
+                -74.0133
+              ],
+              "url": "https://www.911memorial.org/visit/museum",
+              "reserve": "월요일 운영"
+            },
+            {
+              "time": "16:30",
+              "end": "저녁",
+              "title": "호텔 휴식",
+              "kind": "REST",
+              "detail": "감정적으로 무거운 관람 뒤 빈 저녁.",
+              "move": "도보",
+              "coords": [
+                40.711,
+                -74.009
+              ],
+              "url": "",
+              "reserve": ""
+            }
+          ],
+          "swap": "Russ & Daughters는 이날 Yom Kippur 휴무이므로 식사 후보에서 제외했습니다."
+        },
+        {
+          "date": "9/22 화 · D4",
+          "title": "Roosevelt Island를 물길로",
+          "subtitle": "트램으로 들어가 페리로 나오는 일방향 루트",
+          "walk": "예상 3–4km",
+          "rest": "페리 45분",
+          "weather": "비 오면 Grand Central·MoMA",
+          "photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Brooklyn%20Bridge%20at%20sunset%20from%20Brooklyn%20Bridge%20Park%2C%20New%20York%20City.jpg?width=1600",
+          "credit": "https://commons.wikimedia.org/wiki/File:Brooklyn_Bridge_at_sunset_from_Brooklyn_Bridge_Park,_New_York_City.jpg",
+          "mapMode": "transit",
+          "stops": [
+            {
+              "time": "10:00",
+              "end": "10:05",
+              "title": "Roosevelt Island Tram",
+              "kind": "TRANSIT",
+              "detail": "OMNY로 탑승, Manhattan skyline을 봅니다.",
+              "move": "59th St→섬 약 4분",
+              "coords": [
+                40.7613,
+                -73.9641
+              ],
+              "url": "https://rioc.ny.gov/302/Tram",
+              "reserve": "OMNY"
+            },
+            {
+              "time": "10:15",
+              "end": "11:45",
+              "title": "Four Freedoms Park",
+              "kind": "NATURE",
+              "detail": "강변 남단까지 평탄하게 걷고 벤치에서 쉽니다.",
+              "move": "도보 1.7km 또는 섬버스",
+              "coords": [
+                40.7507,
+                -73.9605
+              ],
+              "url": "https://www.fdrfourfreedomspark.org/",
+              "reserve": "화요일 운영 확인"
+            },
+            {
+              "time": "12:00",
+              "end": "12:50",
+              "title": "NYC Ferry → Wall Street",
+              "kind": "TRANSIT",
+              "detail": "East River를 따라 Midtown·Brooklyn skyline을 봅니다.",
+              "move": "Astoria route",
+              "coords": [
+                40.7033,
+                -74.0066
+              ],
+              "url": "https://www.ferry.nyc/",
+              "reserve": "앱 시간표"
+            },
+            {
+              "time": "13:00",
+              "end": "14:30",
+              "title": "Seaport 점심 + Tin Building",
+              "kind": "FOOD",
+              "detail": "해산물·베이커리 중 가볍게 선택.",
+              "move": "도보 6분",
+              "coords": [
+                40.7076,
+                -74.0011
+              ],
+              "url": "https://www.tinbuilding.com/",
+              "reserve": ""
+            },
+            {
+              "time": "15:00",
+              "end": "17:00",
+              "title": "호텔 휴식",
+              "kind": "REST",
+              "detail": "UNGA 시간대의 Midtown East 차량을 피합니다.",
+              "move": "도보",
+              "coords": [
+                40.711,
+                -74.009
+              ],
+              "url": "",
+              "reserve": ""
+            },
+            {
+              "time": "18:00",
+              "end": "19:30",
+              "title": "Scarr's Pizza + LES",
+              "kind": "FOOD",
+              "detail": "slice 두 종류와 가벼운 밤 산책.",
+              "move": "J/Z/F 또는 택시",
+              "coords": [
+                40.7153,
+                -73.9916
+              ],
+              "url": "https://www.scarrspizza.com/location/scarrs-pizza/",
+              "reserve": ""
+            }
+          ],
+          "swap": "Whitney는 화요일 휴관입니다. 트램은 바람·정비로 중단될 수 있어 F train을 대안으로 둡니다."
+        },
+        {
+          "date": "9/23 수 · D5",
+          "title": "MoMA + Broadway",
+          "subtitle": "대표 미술관과 대표 뮤지컬",
+          "walk": "예상 3–4km",
+          "rest": "호텔 90분",
+          "weather": "우천 최적",
+          "photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Times%20Square%2C%20NYC%20at%20night%20-%20August%202025.jpg?width=1400",
+          "credit": "https://commons.wikimedia.org/wiki/File:Times_Square,_NYC_at_night_-_August_2025.jpg",
+          "mapMode": "transit",
+          "stops": [
+            {
+              "time": "10:30",
+              "end": "13:30",
+              "title": "MoMA",
+              "kind": "CULTURE",
+              "detail": "현대미술 핵심관.",
+              "move": "E train",
+              "coords": [
+                40.7614,
+                -73.9776
+              ],
+              "url": "https://www.moma.org/visit/",
+              "reserve": ""
+            },
+            {
+              "time": "13:40",
+              "end": "14:40",
+              "title": "Midtown 점심",
+              "kind": "FOOD",
+              "detail": "공연 전 저녁이 있어 가볍게.",
+              "move": "도보",
+              "coords": [
+                40.7605,
+                -73.981
+              ],
+              "url": "",
+              "reserve": ""
+            },
+            {
+              "time": "15:10",
+              "end": "16:45",
+              "title": "Downtown 호텔 휴식",
+              "kind": "REST",
+              "detail": "공연 옷과 충전.",
+              "move": "E/R/W",
+              "coords": [
+                40.711,
+                -74.009
+              ],
+              "url": "",
+              "reserve": ""
+            },
+            {
+              "time": "17:10",
+              "end": "18:20",
+              "title": "극장가 이른 저녁",
+              "kind": "FOOD",
+              "detail": "Gallaghers 또는 Joe Allen.",
+              "move": "지하철",
+              "coords": [
+                40.7627,
+                -73.9836
+              ],
+              "url": "https://www.gallaghersnysteakhouse.com/location/gallaghers-nyc/",
+              "reserve": "예약"
+            },
+            {
+              "time": "19:00",
+              "end": "21:40",
+              "title": "Hamilton",
+              "kind": "SHOW",
+              "detail": "미국 건국사 뮤지컬.",
+              "move": "Richard Rodgers",
+              "coords": [
+                40.7591,
+                -73.986
+              ],
+              "url": "https://www.broadway.org/shows/hamilton",
+              "reserve": "9/23 19:00"
+            }
+          ],
+          "swap": "짧고 부부 여행다운 선택은 Maybe Happy Ending 19:00입니다."
+        },
+        {
+          "date": "9/24 목 · D6",
+          "title": "Brooklyn 수변과 Williamsburg",
+          "subtitle": "DUMBO에서 페리로 북상",
+          "walk": "예상 4–5km",
+          "rest": "페리 25분",
+          "weather": "우천 시 Transit Museum",
+          "photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Brooklyn%20Bridge%20at%20sunset%20from%20Brooklyn%20Bridge%20Park%2C%20New%20York%20City.jpg?width=1600",
+          "credit": "https://commons.wikimedia.org/wiki/File:Brooklyn_Bridge_at_sunset_from_Brooklyn_Bridge_Park,_New_York_City.jpg",
+          "mapMode": "transit",
+          "stops": [
+            {
+              "time": "09:45",
+              "end": "10:35",
+              "title": "Brooklyn Bridge",
+              "kind": "LANDMARK",
+              "detail": "Manhattan→Brooklyn.",
+              "move": "도보",
+              "coords": [
+                40.7061,
+                -73.9969
+              ],
+              "url": "https://www.nyc.gov/html/dot/html/infrastructure/brooklyn-bridge.shtml",
+              "reserve": ""
+            },
+            {
+              "time": "10:45",
+              "end": "12:00",
+              "title": "DUMBO + Brooklyn Bridge Park",
+              "kind": "VIEW",
+              "detail": "수변 벤치 중심.",
+              "move": "도보",
+              "coords": [
+                40.7033,
+                -73.9882
+              ],
+              "url": "https://www.brooklynbridgepark.org/",
+              "reserve": ""
+            },
+            {
+              "time": "12:05",
+              "end": "13:15",
+              "title": "Juliana's Pizza",
+              "kind": "FOOD",
+              "detail": "통피자 공유.",
+              "move": "도보",
+              "coords": [
+                40.7027,
+                -73.9933
+              ],
+              "url": "https://julianaspizza.com/",
+              "reserve": ""
+            },
+            {
+              "time": "13:35",
+              "end": "14:05",
+              "title": "NYC Ferry → North Williamsburg",
+              "kind": "TRANSIT",
+              "detail": "East River에서 skyline 감상.",
+              "move": "페리",
+              "coords": [
+                40.7198,
+                -73.9632
+              ],
+              "url": "https://www.ferry.nyc/",
+              "reserve": ""
+            },
+            {
+              "time": "14:15",
+              "end": "16:00",
+              "title": "Williamsburg waterfront",
+              "kind": "CITY",
+              "detail": "Domino Park의 평탄한 산책로.",
+              "move": "도보",
+              "coords": [
+                40.7164,
+                -73.9674
+              ],
+              "url": "https://www.dominopark.com/",
+              "reserve": ""
+            },
+            {
+              "time": "17:30",
+              "end": "19:15",
+              "title": "Peter Luger 또는 대체 steak",
+              "kind": "FOOD",
+              "detail": "예약·결제조건이 맞지 않으면 St. Anselm으로 전환.",
+              "move": "택시/도보",
+              "coords": [
+                40.7099,
+                -73.9625
+              ],
+              "url": "https://peterluger.com/pages/locations-reservations",
+              "reserve": "예약·결제 확인"
+            }
+          ],
+          "swap": "Peter Luger는 현장 신용카드 제한 등 결제 조건을 공식 페이지에서 확인하세요."
+        },
+        {
+          "date": "9/25 금 · D7",
+          "title": "Wave Hill + Arthur Avenue",
+          "subtitle": "정원과 Bronx 이민자 음식으로 마무리",
+          "walk": "예상 3–4km",
+          "rest": "정원 2시간",
+          "weather": "폭우면 NYBG 또는 Guggenheim",
+          "photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Bow%20Bridge%2C%20Central%20Park%2C%20in%20fall.jpg?width=1400",
+          "credit": "https://commons.wikimedia.org/wiki/File:Bow_Bridge,_Central_Park,_in_fall.jpg",
+          "mapMode": "transit",
+          "stops": [
+            {
+              "time": "09:10",
+              "end": "09:45",
+              "title": "Grand Central→Riverdale",
+              "kind": "TRANSIT",
+              "detail": "Metro-North + Wave Hill shuttle 시간을 맞춥니다.",
+              "move": "Hudson Line",
+              "coords": [
+                40.9039,
+                -73.9126
+              ],
+              "url": "https://www.wavehill.org/visit/getting-here",
+              "reserve": "셔틀 확인"
+            },
+            {
+              "time": "10:00",
+              "end": "12:20",
+              "title": "Wave Hill",
+              "kind": "NATURE",
+              "detail": "Hudson·Palisades 전망의 정원. glasshouse와 전망 잔디 위주.",
+              "move": "셔틀/도보",
+              "coords": [
+                40.8977,
+                -73.912
+              ],
+              "url": "https://www.wavehill.org/",
+              "reserve": "운영시간 확인"
+            },
+            {
+              "time": "12:30",
+              "end": "13:05",
+              "title": "Wave Hill→Arthur Avenue",
+              "kind": "TRANSIT",
+              "detail": "택시로 이동해 환승을 줄입니다.",
+              "move": "약 25–35분",
+              "coords": [
+                40.8543,
+                -73.8887
+              ],
+              "url": "https://arthuravenuebronx.com/",
+              "reserve": ""
+            },
+            {
+              "time": "13:10",
+              "end": "15:00",
+              "title": "Arthur Avenue Market",
+              "kind": "FOOD",
+              "detail": "Mike's Deli sandwich·cheese·pastry를 조금씩.",
+              "move": "도보 한 블록",
+              "coords": [
+                40.8543,
+                -73.8887
+              ],
+              "url": "https://arthuravenuebronx.com/",
+              "reserve": ""
+            },
+            {
+              "time": "15:15",
+              "end": "16:00",
+              "title": "Bronx→Downtown",
+              "kind": "TRANSIT",
+              "detail": "Metro-North Fordham 또는 4/D train.",
+              "move": "약 45–60분",
+              "coords": [
+                40.711,
+                -74.009
+              ],
+              "url": "https://www.mta.info/",
+              "reserve": ""
+            },
+            {
+              "time": "16:00",
+              "end": "저녁",
+              "title": "호텔 휴식 · 짐 정리",
+              "kind": "REST",
+              "detail": "마지막 저녁은 호텔 근처에서 자유롭게.",
+              "move": "도보",
+              "coords": [
+                40.711,
+                -74.009
+              ],
+              "url": "",
+              "reserve": ""
+            }
+          ],
+          "swap": "Wave Hill shuttle·Metro-North 시간표가 맞지 않으면 택시 왕복을 예약하거나 NYBG로 바꾸세요."
+        }
+      ]
+    },
+    {
+      "id": "slow",
+      "number": "05",
+      "short": "슬로우 로맨틱",
+      "title": "허드슨의 하룻밤, 둘만의 뉴욕",
+      "subtitle": "Dia Beacon·Storm King을 1박으로 연결하고 Upper West Side·Lincoln Center를 천천히 즐기는 가장 로맨틱한 안.",
+      "bestFor": "부부 휴식 · 자연",
+      "pace": "2 / 5",
+      "nature": "Hudson Valley 1박",
+      "hotelMoves": "1회 · 1박",
+      "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Bow%20Bridge%2C%20Central%20Park%2C%20in%20fall.jpg?width=1400",
+      "hero": "https://commons.wikimedia.org/wiki/Special:FilePath/Bow%20Bridge%2C%20Central%20Park%2C%20in%20fall.jpg?width=1400",
+      "verdict": "<strong>가장 느긋하고 부부 여행답습니다.</strong> 초반에 Beacon 1박을 넣어 시차를 자연 속에서 풀고, 이후에는 Upper West Side에서 한 박물관·한 식사·한 공연만 고릅니다. 호텔 이동 1회가 괜찮을 때 추천합니다.",
+      "area": {
+        "name": "Upper West Side + Beacon 1박",
+        "text": "Central Park·Riverside Park·Lincoln Center가 가까운 주거지 분위기. 9/20 Beacon의 The Roundhouse에서 1박하고 9/21 Storm King을 본 뒤 같은 NYC 호텔로 돌아옵니다.",
+        "caution": "NYC 호텔에 큰 짐 보관과 9/21 재체크인을 미리 확인하세요. Beacon에서는 rideshare가 적어 Storm King 차량을 사전예약해야 합니다.",
+        "photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Bow%20Bridge%2C%20Central%20Park%2C%20in%20fall.jpg?width=1400"
+      },
+      "hotels": [
+        {
+          "tier": "UWS · 추천",
+          "name": "The Wallace",
+          "text": "조용한 76th St의 부티크 호텔. Central Park와 Riverside 사이여서 부부 여행에 좋습니다.",
+          "bullets": [
+            "72nd St 지하철",
+            "주거지 식당 풍부",
+            "Downtown 30분 내외"
+          ],
+          "site": "https://thewallace.com/",
+          "map": "https://maps.google.com/?q=The+Wallace+Hotel+New+York"
+        },
+        {
+          "tier": "UWS · 실용",
+          "name": "Hotel Beacon",
+          "text": "간이주방 객실이 있어 7박과 Zabar's 식재료 활용에 좋습니다.",
+          "bullets": [
+            "넓은 객실 선택",
+            "Beacon Theatre 맞은편",
+            "건물은 클래식"
+          ],
+          "site": "https://www.beaconhotel.com/",
+          "map": "https://maps.google.com/?q=Hotel+Beacon+New+York"
+        },
+        {
+          "tier": "Beacon · 1박",
+          "name": "The Roundhouse",
+          "text": "폭포와 creek이 보이는 산업유산형 호텔. Hudson Valley의 하룻밤 자체가 경험입니다.",
+          "bullets": [
+            "Main Street 끝",
+            "Storm King 차량 사전예약",
+            "river view가 아닌 creek view"
+          ],
+          "site": "https://www.roundhousebeacon.com/",
+          "map": "https://maps.google.com/?q=The+Roundhouse+Beacon+NY"
+        }
+      ],
+      "foods": [
+        {
+          "cuisine": "Upper West",
+          "name": "Zabar's",
+          "text": "뉴욕 생활감이 있는 gourmet market.",
+          "dish": "bagel·lox·coffee",
+          "tip": "공원 아침",
+          "site": "https://www.zabars.com/"
+        },
+        {
+          "cuisine": "American comfort",
+          "name": "Jacob's Pickles",
+          "text": "Southern biscuit와 comfort food.",
+          "dish": "chicken biscuit 공유",
+          "tip": "도착일 이른 저녁",
+          "site": "https://www.jacobspickles.com/"
+        },
+        {
+          "cuisine": "Beacon local",
+          "name": "Kitchen Sink",
+          "text": "Hudson Valley 농산물 중심의 작은 식당.",
+          "dish": "계절 메뉴",
+          "tip": "운영일 확인",
+          "site": "https://www.kitchensinkny.com/"
+        },
+        {
+          "cuisine": "Romantic",
+          "name": "The Roundhouse",
+          "text": "creek 전망과 함께하는 Beacon 저녁.",
+          "dish": "seasonal American dinner",
+          "tip": "18:30 창가",
+          "site": "https://www.roundhousebeacon.com/restaurant"
+        },
+        {
+          "cuisine": "Afro-Caribbean",
+          "name": "Tatiana",
+          "text": "Lincoln Center 안에서 Bronx·Caribbean·West Africa를 잇는 뉴욕 음식.",
+          "dish": "egusi dumpling 등 공유",
+          "tip": "예약 없으면 17:00 walk-in",
+          "site": "https://www.tatiananyc.com/"
+        },
+        {
+          "cuisine": "Steak",
+          "name": "Keens",
+          "text": "여행 중 한 번만 넣는 고전 steak.",
+          "dish": "mutton chop",
+          "tip": "목요일 저녁",
+          "site": "https://www.keens.com/"
+        }
+      ],
+      "days": [
+        {
+          "date": "9/19 토 · D1",
+          "title": "Upper West Side에 정착",
+          "subtitle": "Riverside sunset과 comfort food",
+          "walk": "예상 2–3km",
+          "rest": "호텔 90분",
+          "weather": "비 오면 Lincoln Center",
+          "photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Bow%20Bridge%2C%20Central%20Park%2C%20in%20fall.jpg?width=1400",
+          "credit": "https://commons.wikimedia.org/wiki/File:Bow_Bridge,_Central_Park,_in_fall.jpg",
+          "mapMode": "walking",
+          "stops": [
+            {
+              "time": "14:00",
+              "end": "15:30",
+              "title": "UWS 체크인 · 낮잠",
+              "kind": "REST",
+              "detail": "큰 짐은 9/20–21 Beacon 1박 동안 보관 가능한지 확인.",
+              "move": "JFK→호텔",
+              "coords": [
+                40.7815,
+                -73.98
+              ],
+              "url": "",
+              "reserve": ""
+            },
+            {
+              "time": "16:00",
+              "end": "16:50",
+              "title": "Zabar's 구경",
+              "kind": "FOOD",
+              "detail": "다음 날 기차 간식과 물을 삽니다.",
+              "move": "도보",
+              "coords": [
+                40.7849,
+                -73.9798
+              ],
+              "url": "https://www.zabars.com/",
+              "reserve": ""
+            },
+            {
+              "time": "17:00",
+              "end": "18:30",
+              "title": "Riverside Park sunset walk",
+              "kind": "NATURE",
+              "detail": "79th St Boat Basin 주변 평탄한 수변만.",
+              "move": "도보",
+              "coords": [
+                40.7864,
+                -73.9848
+              ],
+              "url": "https://www.nycgovparks.org/parks/riverside-park",
+              "reserve": ""
+            },
+            {
+              "time": "18:45",
+              "end": "20:00",
+              "title": "Jacob's Pickles",
+              "kind": "FOOD",
+              "detail": "큰 portion은 둘이 나눕니다.",
+              "move": "도보",
+              "coords": [
+                40.7867,
+                -73.9755
+              ],
+              "url": "https://www.jacobspickles.com/",
+              "reserve": "이른 예약"
+            }
+          ],
+          "swap": "9/19 늦은 도착이면 Riverside Park를 D4 아침으로 이동합니다."
+        },
+        {
+          "date": "9/20 일 · D2",
+          "title": "Dia Beacon에서 하룻밤",
+          "subtitle": "미술관·Main Street·강변을 한 번에",
+          "walk": "예상 3–4km",
+          "rest": "열차 3시간",
+          "weather": "우천에도 Dia 중심",
+          "photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Storm%20King%20Art%20Center%20views%2001.jpg?width=1400",
+          "credit": "https://commons.wikimedia.org/wiki/File:Storm_King_Art_Center_views_01.jpg",
+          "mapMode": "transit",
+          "stops": [
+            {
+              "time": "08:20",
+              "end": "09:50",
+              "title": "Grand Central→Beacon",
+              "kind": "TRANSIT",
+              "detail": "Hudson 왼쪽 좌석.",
+              "move": "Metro-North",
+              "coords": [
+                41.5048,
+                -73.9845
+              ],
+              "url": "https://www.mta.info/agency/metro-north-railroad/schedules",
+              "reserve": "off-peak"
+            },
+            {
+              "time": "10:00",
+              "end": "12:50",
+              "title": "Dia Beacon",
+              "kind": "CULTURE",
+              "detail": "2–3시간이 적정. 공장 공간과 large-scale art.",
+              "move": "역에서 도보 8–10분",
+              "coords": [
+                41.5007,
+                -73.982
+              ],
+              "url": "https://welcome.diaart.org/",
+              "reserve": "금–월"
+            },
+            {
+              "time": "13:10",
+              "end": "14:20",
+              "title": "Beacon Main Street lunch",
+              "kind": "FOOD",
+              "detail": "Kitchen Sink·Homespun 등 운영일 확인.",
+              "move": "택시/Loop bus",
+              "coords": [
+                41.5042,
+                -73.9695
+              ],
+              "url": "https://www.kitchensinkny.com/",
+              "reserve": ""
+            },
+            {
+              "time": "14:35",
+              "end": "15:35",
+              "title": "Long Dock Park",
+              "kind": "NATURE",
+              "detail": "평탄한 riverfront 45분.",
+              "move": "택시",
+              "coords": [
+                41.5057,
+                -73.9859
+              ],
+              "url": "https://www.scenichudson.org/explore-the-valley/scenic-hudson-parks/scenic-hudsons-long-dock-park/",
+              "reserve": ""
+            },
+            {
+              "time": "16:00",
+              "end": "17:30",
+              "title": "The Roundhouse 체크인 · 휴식",
+              "kind": "REST",
+              "detail": "creek view 객실이면 방에서 자연을 즐깁니다.",
+              "move": "택시 8분",
+              "coords": [
+                41.5012,
+                -73.9615
+              ],
+              "url": "https://www.roundhousebeacon.com/",
+              "reserve": "1박"
+            },
+            {
+              "time": "18:30",
+              "end": "20:00",
+              "title": "Roundhouse dinner",
+              "kind": "FOOD",
+              "detail": "멀리 이동하지 않는 seasonal American dinner.",
+              "move": "호텔 내부/인근",
+              "coords": [
+                41.5012,
+                -73.9615
+              ],
+              "url": "https://www.roundhousebeacon.com/restaurant",
+              "reserve": "18:30"
+            }
+          ],
+          "swap": "일요일 Dia 무료 투어는 12:00/13:30일 수 있으니 당일 공식 캘린더를 확인하세요."
+        },
+        {
+          "date": "9/21 월 · D3",
+          "title": "Storm King, 트램으로 느리게",
+          "subtitle": "체크아웃 후 사전차량으로 핵심 존만",
+          "walk": "예상 4–6천 보",
+          "rest": "차량+열차 2시간",
+          "weather": "강풍이면 Beacon 여유 후 NYC 조기복귀",
+          "photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Storm%20King%20Art%20Center%20views%2001.jpg?width=1400",
+          "credit": "https://commons.wikimedia.org/wiki/File:Storm_King_Art_Center_views_01.jpg",
+          "mapMode": "driving",
+          "stops": [
+            {
+              "time": "08:30",
+              "end": "09:15",
+              "title": "아침 · 체크아웃 · 짐 보관",
+              "kind": "REST",
+              "detail": "호텔에 짐을 맡기고 사전예약 차량 탑승.",
+              "move": "The Roundhouse",
+              "coords": [
+                41.5012,
+                -73.9615
+              ],
+              "url": "https://www.roundhousebeacon.com/",
+              "reserve": ""
+            },
+            {
+              "time": "09:20",
+              "end": "10:00",
+              "title": "Beacon→Storm King",
+              "kind": "TRANSIT",
+              "detail": "rideshare scarcity 때문에 전날 왕복 픽업을 확정합니다.",
+              "move": "차량 약 30–40분",
+              "coords": [
+                41.425,
+                -74.0597
+              ],
+              "url": "https://stormking.org/plan-your-visit/",
+              "reserve": "차량 사전예약"
+            },
+            {
+              "time": "10:00",
+              "end": "12:30",
+              "title": "Storm King · Meadows + Museum Hill",
+              "kind": "ART & NATURE",
+              "detail": "무료 트램 2회, 짧은 산책 3번만.",
+              "move": "트램+도보",
+              "coords": [
+                41.425,
+                -74.0597
+              ],
+              "url": "https://stormking.org/accessibility/",
+              "reserve": "월요일 10–18시"
+            },
+            {
+              "time": "12:35",
+              "end": "13:25",
+              "title": "Outdoor Cafe",
+              "kind": "FOOD",
+              "detail": "sandwich·salad.",
+              "move": "공원 내부",
+              "coords": [
+                41.427,
+                -74.062
+              ],
+              "url": "https://stormking.org/",
+              "reserve": ""
+            },
+            {
+              "time": "13:40",
+              "end": "14:45",
+              "title": "North Woods 입구 + 휴식",
+              "kind": "NATURE",
+              "detail": "언덕 전체가 아닌 정류장 주변만.",
+              "move": "트램",
+              "coords": [
+                41.43,
+                -74.061
+              ],
+              "url": "https://stormking.org/wp-content/uploads/2026/03/2026_SK_Map_V1.1.pdf",
+              "reserve": ""
+            },
+            {
+              "time": "15:00",
+              "end": "16:00",
+              "title": "Storm King→Beacon · 짐 수령",
+              "kind": "TRANSIT",
+              "detail": "예약차량.",
+              "move": "차량",
+              "coords": [
+                41.5048,
+                -73.9845
+              ],
+              "url": "",
+              "reserve": ""
+            },
+            {
+              "time": "16:15",
+              "end": "17:45",
+              "title": "Beacon→Grand Central",
+              "kind": "TRANSIT",
+              "detail": "NYC 호텔 재체크인.",
+              "move": "Metro-North",
+              "coords": [
+                40.7527,
+                -73.9772
+              ],
+              "url": "https://www.mta.info/agency/metro-north-railroad/schedules",
+              "reserve": ""
+            },
+            {
+              "time": "19:00",
+              "end": "20:00",
+              "title": "UWS 가벼운 저녁",
+              "kind": "FOOD",
+              "detail": "Zabar's takeout 또는 soup로 일찍 마무리.",
+              "move": "호텔 반경",
+              "coords": [
+                40.7815,
+                -73.98
+              ],
+              "url": "",
+              "reserve": ""
+            }
+          ],
+          "swap": "9/21은 Yom Kippur라 Russ & Daughters가 휴무입니다. Beacon 식당도 월요일 휴무가 많아 사전확인하세요."
+        },
+        {
+          "date": "9/22 화 · D4",
+          "title": "Central Park + The Met",
+          "subtitle": "이동 없는 회복일",
+          "walk": "예상 3–4km",
+          "rest": "호텔 2시간",
+          "weather": "우천 시 Met만",
+          "photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Metropolitan%20Museum%20of%20Art%20%28The%20Met%29%20-%20Central%20Park%2C%20NYC.jpg?width=1400",
+          "credit": "https://commons.wikimedia.org/wiki/File:Metropolitan_Museum_of_Art_(The_Met)_-_Central_Park,_NYC.jpg",
+          "mapMode": "walking",
+          "stops": [
+            {
+              "time": "09:30",
+              "end": "11:00",
+              "title": "Central Park 서→동",
+              "kind": "NATURE",
+              "detail": "Bow Bridge·Bethesda Terrace.",
+              "move": "도보",
+              "coords": [
+                40.7755,
+                -73.9739
+              ],
+              "url": "https://www.centralparknyc.org/",
+              "reserve": ""
+            },
+            {
+              "time": "11:15",
+              "end": "12:00",
+              "title": "The Met 카페",
+              "kind": "REST",
+              "detail": "관내 점심.",
+              "move": "도보",
+              "coords": [
+                40.7794,
+                -73.9632
+              ],
+              "url": "https://www.metmuseum.org/plan-your-visit",
+              "reserve": ""
+            },
+            {
+              "time": "12:00",
+              "end": "15:15",
+              "title": "The Met",
+              "kind": "CULTURE",
+              "detail": "세 구역만.",
+              "move": "관내",
+              "coords": [
+                40.7794,
+                -73.9632
+              ],
+              "url": "https://www.metmuseum.org/plan-your-visit",
+              "reserve": ""
+            },
+            {
+              "time": "16:00",
+              "end": "18:00",
+              "title": "호텔 휴식",
+              "kind": "REST",
+              "detail": "Hudson Valley 뒤 완전한 회복.",
+              "move": "Crosstown bus/taxi",
+              "coords": [
+                40.7815,
+                -73.98
+              ],
+              "url": "",
+              "reserve": ""
+            },
+            {
+              "time": "18:15",
+              "end": "19:45",
+              "title": "UWS 동네 저녁",
+              "kind": "FOOD",
+              "detail": "Barney Greengrass 또는 Cafe Luxembourg 운영시간 확인.",
+              "move": "도보",
+              "coords": [
+                40.788,
+                -73.9746
+              ],
+              "url": "",
+              "reserve": ""
+            }
+          ],
+          "swap": "화요일 Whitney·Frick 휴관을 피해 The Met을 배치했습니다."
+        },
+        {
+          "date": "9/23 수 · D5",
+          "title": "Whitney + Broadway",
+          "subtitle": "미술관·High Line 후 공연 전 긴 휴식",
+          "walk": "예상 4km",
+          "rest": "호텔 2시간",
+          "weather": "우천 시 High Line 단축",
+          "photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Times%20Square%2C%20NYC%20at%20night%20-%20August%202025.jpg?width=1400",
+          "credit": "https://commons.wikimedia.org/wiki/File:Times_Square,_NYC_at_night_-_August_2025.jpg",
+          "mapMode": "transit",
+          "stops": [
+            {
+              "time": "10:30",
+              "end": "12:40",
+              "title": "Whitney Museum",
+              "kind": "CULTURE",
+              "detail": "미국 현대미술과 terrace.",
+              "move": "1/C/E",
+              "coords": [
+                40.7396,
+                -74.0089
+              ],
+              "url": "https://whitney.org/visit",
+              "reserve": ""
+            },
+            {
+              "time": "12:50",
+              "end": "13:50",
+              "title": "Chelsea Market",
+              "kind": "FOOD",
+              "detail": "Lobster Place 점심.",
+              "move": "도보",
+              "coords": [
+                40.7423,
+                -74.0061
+              ],
+              "url": "https://www.chelseamarket.com/directory-all/the-lobster-place",
+              "reserve": ""
+            },
+            {
+              "time": "14:00",
+              "end": "14:50",
+              "title": "High Line 짧은 구간",
+              "kind": "NATURE",
+              "detail": "14th→23rd St 약 1.2km.",
+              "move": "도보",
+              "coords": [
+                40.745,
+                -74.0057
+              ],
+              "url": "https://www.thehighline.org/visit/",
+              "reserve": ""
+            },
+            {
+              "time": "15:15",
+              "end": "17:00",
+              "title": "호텔 휴식",
+              "kind": "REST",
+              "detail": "공연 준비.",
+              "move": "C/1",
+              "coords": [
+                40.7815,
+                -73.98
+              ],
+              "url": "",
+              "reserve": ""
+            },
+            {
+              "time": "17:15",
+              "end": "18:20",
+              "title": "Gallaghers 이른 저녁",
+              "kind": "FOOD",
+              "detail": "steak 하나 공유.",
+              "move": "1 train",
+              "coords": [
+                40.7627,
+                -73.9836
+              ],
+              "url": "https://www.gallaghersnysteakhouse.com/location/gallaghers-nyc/",
+              "reserve": "예약"
+            },
+            {
+              "time": "19:00",
+              "end": "21:40",
+              "title": "Hamilton",
+              "kind": "SHOW",
+              "detail": "미국 역사 Broadway.",
+              "move": "Richard Rodgers",
+              "coords": [
+                40.7591,
+                -73.986
+              ],
+              "url": "https://www.broadway.org/shows/hamilton",
+              "reserve": "9/23 19:00"
+            }
+          ],
+          "swap": "Maybe Happy Ending은 약 100분이라 체력 부담이 더 낮고 부부 여행 분위기에 잘 맞습니다."
+        },
+        {
+          "date": "9/24 목 · D6",
+          "title": "자유의 여신상과 Brooklyn Heights",
+          "subtitle": "페리·이민사·수변만",
+          "walk": "예상 5km",
+          "rest": "페리 90분",
+          "weather": "강풍이면 9/11 Museum",
+          "photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Statue%20of%20Liberty%20overlooking%20Skyline.jpg?width=1400",
+          "credit": "https://commons.wikimedia.org/wiki/File:Statue_of_Liberty_overlooking_Skyline.jpg",
+          "mapMode": "transit",
+          "stops": [
+            {
+              "time": "08:30",
+              "end": "09:00",
+              "title": "The Battery",
+              "kind": "TRANSIT",
+              "detail": "공식 ferry.",
+              "move": "지하철",
+              "coords": [
+                40.7033,
+                -74.017
+              ],
+              "url": "https://statuecitycruises.com/plan-your-visit-schedule",
+              "reserve": ""
+            },
+            {
+              "time": "09:00",
+              "end": "11:00",
+              "title": "Liberty Island",
+              "kind": "LANDMARK",
+              "detail": "섬·박물관.",
+              "move": "페리",
+              "coords": [
+                40.6892,
+                -74.0445
+              ],
+              "url": "https://www.nps.gov/stli/",
+              "reserve": ""
+            },
+            {
+              "time": "11:15",
+              "end": "13:00",
+              "title": "Ellis Island",
+              "kind": "CULTURE",
+              "detail": "Great Hall 중심.",
+              "move": "페리",
+              "coords": [
+                40.6995,
+                -74.0396
+              ],
+              "url": "https://www.nps.gov/elis/",
+              "reserve": ""
+            },
+            {
+              "time": "14:00",
+              "end": "14:25",
+              "title": "Wall St→Brooklyn Ferry",
+              "kind": "TRANSIT",
+              "detail": "다리 대신 물길.",
+              "move": "NYC Ferry",
+              "coords": [
+                40.6931,
+                -74.0017
+              ],
+              "url": "https://www.ferry.nyc/",
+              "reserve": ""
+            },
+            {
+              "time": "14:30",
+              "end": "16:00",
+              "title": "Brooklyn Heights Promenade",
+              "kind": "VIEW",
+              "detail": "평탄한 수변 전망.",
+              "move": "도보",
+              "coords": [
+                40.696,
+                -73.997
+              ],
+              "url": "https://www.nycgovparks.org/parks/brooklyn-heights-promenade",
+              "reserve": ""
+            },
+            {
+              "time": "16:15",
+              "end": "17:15",
+              "title": "Juliana's early pizza",
+              "kind": "FOOD",
+              "detail": "늦은 점심/이른 저녁.",
+              "move": "택시/도보",
+              "coords": [
+                40.7027,
+                -73.9933
+              ],
+              "url": "https://julianaspizza.com/",
+              "reserve": ""
+            }
+          ],
+          "swap": "피곤하면 Ellis Island 뒤 바로 호텔로 돌아가고 Brooklyn은 생략해도 됩니다."
+        },
+        {
+          "date": "9/25 금 · D7",
+          "title": "MoMA와 Lincoln Center의 마지막 밤",
+          "subtitle": "미술관 하나, 휴식, 선택 공연 하나",
+          "walk": "예상 3km",
+          "rest": "호텔 2시간",
+          "weather": "우천 최적",
+          "photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Times%20Square%2C%20NYC%20at%20night%20-%20August%202025.jpg?width=1400",
+          "credit": "https://commons.wikimedia.org/wiki/File:Times_Square,_NYC_at_night_-_August_2025.jpg",
+          "mapMode": "transit",
+          "stops": [
+            {
+              "time": "10:30",
+              "end": "13:15",
+              "title": "MoMA",
+              "kind": "CULTURE",
+              "detail": "5층·4층만.",
+              "move": "B/D/E 또는 택시",
+              "coords": [
+                40.7614,
+                -73.9776
+              ],
+              "url": "https://www.moma.org/visit/",
+              "reserve": ""
+            },
+            {
+              "time": "13:30",
+              "end": "14:30",
+              "title": "53rd St 점심",
+              "kind": "FOOD",
+              "detail": "가볍게.",
+              "move": "도보",
+              "coords": [
+                40.761,
+                -73.9787
+              ],
+              "url": "",
+              "reserve": ""
+            },
+            {
+              "time": "15:00",
+              "end": "17:00",
+              "title": "호텔 휴식 · 짐 정리",
+              "kind": "REST",
+              "detail": "다음 날 공항 준비.",
+              "move": "1/B/C",
+              "coords": [
+                40.7815,
+                -73.98
+              ],
+              "url": "",
+              "reserve": ""
+            },
+            {
+              "time": "17:15",
+              "end": "18:40",
+              "title": "Tatiana · 이른 저녁",
+              "kind": "FOOD",
+              "detail": "Afro-Caribbean·West African·Bronx가 만나는 뉴욕 음식.",
+              "move": "도보/1 train",
+              "coords": [
+                40.7725,
+                -73.9832
+              ],
+              "url": "https://www.tatiananyc.com/",
+              "reserve": "예약 또는 17:00 walk-in"
+            },
+            {
+              "time": "19:00",
+              "end": "22:00",
+              "title": "Lincoln Center 선택 공연",
+              "kind": "SHOW",
+              "detail": "La Bohème 또는 NY Philharmonic 중 하나. 정확한 시작시간은 티켓에서 확인.",
+              "move": "같은 단지",
+              "coords": [
+                40.7725,
+                -73.9832
+              ],
+              "url": "https://www.metopera.org/season/2026-27-season/la-boheme/",
+              "reserve": "선택 일정"
+            }
+          ],
+          "swap": "이미 D5 Broadway를 봤으므로 피곤하면 공연 대신 Lincoln Center 분수 산책 후 20시에 호텔로 돌아가세요."
+        }
+      ]
+    }
+  ],
+  "sources": {
+    "core": [
+      [
+        "Asiana 2026 New York schedule",
+        "https://flyasiana.com/C/US/EN/event/detail/CM202603090002528474?force=true"
+      ],
+      [
+        "Korean Air ICN–JFK sales calendar",
+        "https://www.koreanair.com/flights/en/flights-from-seoul-to-new-york"
+      ],
+      [
+        "Korean Air JFK–ICN sales calendar",
+        "https://www.koreanair.com/flights/en-us/flights-from-new-york-to-seoul"
+      ],
+      [
+        "UN General Assembly High-level Week 2026",
+        "https://www.un.org/en/high-level-week-2026"
+      ],
+      [
+        "NYC sunset times · September 2026",
+        "https://www.timeanddate.com/sun/usa/new-york?month=9"
+      ],
+      [
+        "MTA 2026 fare change · $3 / $35 cap",
+        "https://www.mta.info/document/186881"
+      ],
+      [
+        "JFK AirTrain · $8.75",
+        "https://www.jfkairport.com/transportation/airtrain"
+      ],
+      [
+        "Buffalo Airport commercial carriers",
+        "https://www.buffaloairport.com/flight-info/air-carriers/commercial"
+      ],
+      [
+        "Amtrak Empire Service timetable",
+        "https://content.amtrak.com/content/timetable/Empire%20Service.pdf"
+      ],
+      [
+        "2026 Mets schedule",
+        "https://www.mlb.com/mets/schedule/2026-09"
+      ],
+      [
+        "Broadway Week Fall 2026",
+        "https://www.business.nyctourism.com/press-media/press-releases/new-york-city-tourism-conventions-announces-ticket-sales-for-nyc-broadway-week-fall-2026"
+      ],
+      [
+        "Lucide icon library",
+        "https://lucide.dev/guide/lucide"
+      ]
+    ],
+    "places": [
+      [
+        "Broadway official performance times",
+        "https://www.broadway.org/performance-times?start=2026-09-18"
+      ],
+      [
+        "Hamilton 9/23 19:00 schedule",
+        "https://www.ticketmaster.com/hamilton-ny-tickets/artist/2095830"
+      ],
+      [
+        "TKTS official live board",
+        "https://www.tdf.org/discount-ticket-programs/tkts-by-tdf/tkts-live/"
+      ],
+      [
+        "The Met hours",
+        "https://www.metmuseum.org/plan-your-visit"
+      ],
+      [
+        "MoMA hours",
+        "https://www.moma.org/visit/"
+      ],
+      [
+        "Whitney hours",
+        "https://whitney.org/visit"
+      ],
+      [
+        "Statue City Cruises schedule",
+        "https://statuecitycruises.com/plan-your-visit-schedule"
+      ],
+      [
+        "9/11 Memorial & Museum",
+        "https://www.911memorial.org/visit/museum"
+      ],
+      [
+        "Dia Beacon hours",
+        "https://www.diaart.org/visit/visit-our-locations-sites/dia-beacon-beacon-united-states/main/beacon"
+      ],
+      [
+        "Storm King 2026 hours, tickets and access",
+        "https://stormking.org/"
+      ],
+      [
+        "Storm King Coach USA package",
+        "https://web.coachusa.com/shortline/booking.asp?TRP=1&action=ProductDetail&productId=1965"
+      ],
+      [
+        "Niagara State Park",
+        "https://www.niagarafallsstatepark.com/"
+      ],
+      [
+        "Maid of the Mist 2026 schedule",
+        "https://www.maidofthemist.com/schedule-pricing/"
+      ],
+      [
+        "Cave of the Winds 2026 hours",
+        "https://www.niagarafallsstatepark.com/attractions/cave-of-the-winds/"
+      ],
+      [
+        "Niagara Scenic Trolley",
+        "https://www.niagarafallsstatepark.com/attractions/trolley/"
+      ],
+      [
+        "Rainbow Bridge pedestrian rules",
+        "https://www.niagarafallsbridges.com/crossing-info/pedestrian-crossing-information"
+      ],
+      [
+        "Canada entry rules by country",
+        "https://www.canada.ca/en/immigration-refugees-citizenship/services/visit-canada/entry-requirements-country.html"
+      ],
+      [
+        "Governors Island ferry",
+        "https://www.govisland.com/plan-your-visit/ferry"
+      ],
+      [
+        "NYC Ferry",
+        "https://www.ferry.nyc/"
+      ],
+      [
+        "Russ & Daughters · 9/21 closure",
+        "https://www.russanddaughterscafe.com/"
+      ],
+      [
+        "Grand Central Oyster Bar weekday hours",
+        "https://grandcentralterminal.com/shop/oyster-bar-restaurant/"
+      ]
+    ],
+    "images": [
+      [
+        "Brooklyn Bridge sunset · SebastianBlumeArt · CC BY-SA 4.0",
+        "https://commons.wikimedia.org/wiki/File:Brooklyn_Bridge_at_sunset_from_Brooklyn_Bridge_Park,_New_York_City.jpg"
+      ],
+      [
+        "Times Square at night · Nielsoncaetanosalmeron · CC BY 4.0",
+        "https://commons.wikimedia.org/wiki/File:Times_Square,_NYC_at_night_-_August_2025.jpg"
+      ],
+      [
+        "Bow Bridge, Central Park · Querent · CC BY 4.0",
+        "https://commons.wikimedia.org/wiki/File:Bow_Bridge,_Central_Park,_in_fall.jpg"
+      ],
+      [
+        "Niagara Falls panorama · MamaGeek · CC BY-SA 3.0",
+        "https://commons.wikimedia.org/wiki/File:NiagaraFallsPanorama.jpg"
+      ],
+      [
+        "Storm King Art Center views · Wikimedia Commons file page",
+        "https://commons.wikimedia.org/wiki/File:Storm_King_Art_Center_views_01.jpg"
+      ],
+      [
+        "Statue of Liberty overlooking skyline · Ladyvet27 · CC BY-SA 4.0",
+        "https://commons.wikimedia.org/wiki/File:Statue_of_Liberty_overlooking_Skyline.jpg"
+      ],
+      [
+        "The Met facade · Hugo Schneider · CC BY-SA 2.0",
+        "https://commons.wikimedia.org/wiki/File:Metropolitan_Museum_of_Art_(The_Met)_-_Central_Park,_NYC.jpg"
+      ],
+      [
+        "Bryant Park with NYPL · Leifern · CC BY-SA 3.0",
+        "https://commons.wikimedia.org/wiki/File:Bryant_Park_with_NYPL.jpg"
+      ],
+      [
+        "Grand Central Terminal main concourse · Charvey90 · CC BY-SA 4.0",
+        "https://commons.wikimedia.org/wiki/File:Grand_Central_Terminal_-_Main_Concourse.jpg"
+      ],
+      [
+        "Top of the Rock at sunset · Wikimedia Commons file page",
+        "https://commons.wikimedia.org/wiki/File:Sunset_at_the_Top_of_the_Rock_(52363829383).jpg"
+      ],
+      [
+        "High Line looking north past 19th Street · Wikimedia Commons file page",
+        "https://commons.wikimedia.org/wiki/File:High_Line_looking_north_past_19th_Street_Manhattan.jpeg"
+      ],
+      [
+        "Little Island, Pier 55 · Adjoajo · CC BY-SA 4.0",
+        "https://commons.wikimedia.org/wiki/File:Little_Island-NYC.jpg"
+      ],
+      [
+        "Brooklyn Bridge from DUMBO · Wikimedia Commons file page",
+        "https://commons.wikimedia.org/wiki/File:BrooklynBridgefromDUMBO.JPG"
+      ],
+      [
+        "MoMA interior · Colin Chia · CC BY 2.5",
+        "https://commons.wikimedia.org/wiki/File:Moma-inside.jpg"
+      ],
+      [
+        "Whitney Museum front · Ajay Suresh · CC BY 2.0",
+        "https://commons.wikimedia.org/wiki/File:Whitney_Museum_of_American_Art_-_Front_(49051572713).jpg"
+      ],
+      [
+        "The Cloisters exterior · public domain",
+        "https://commons.wikimedia.org/wiki/File:The_Cloisters_Exterior.jpg"
+      ],
+      [
+        "9/11 Memorial, Museum and Oculus · Wikimedia Commons file page",
+        "https://commons.wikimedia.org/wiki/File:9_11_Memorial_Pool_and_Museum,_and_%27The_Oculus%27_--_New_York_(NY)_April_2016_(26569824202).jpg"
+      ],
+      [
+        "Dia Beacon · Wikimedia Commons file page",
+        "https://commons.wikimedia.org/wiki/File:Beacon_dia.JPG"
+      ],
+      [
+        "Roosevelt Island Tramway · Wikimedia Commons file page",
+        "https://commons.wikimedia.org/wiki/File:2024-11-18-_Roosevelt_Island_Tramway-0597.jpg"
+      ],
+      [
+        "Governors Island and Lower Manhattan skyline · Wikimedia Commons file page",
+        "https://commons.wikimedia.org/wiki/File:Fort_Jay_Governors_Island_and_Lower_Manhattan_skyline.jpg"
+      ],
+      [
+        "Citi Field · Wikimedia Commons file page",
+        "https://commons.wikimedia.org/wiki/File:Citi_Field.jpg"
+      ],
+      [
+        "Inside Chelsea Market · CC BY-SA 2.0",
+        "https://commons.wikimedia.org/wiki/File:Inside_Chelsea_Market_(2665986353).jpg"
+      ],
+      [
+        "Wave Hill entrance · Anthony22 · public domain",
+        "https://commons.wikimedia.org/wiki/File:Wave_Hill_entrance.jpg"
+      ],
+      [
+        "Keens Steakhouse · Wikimedia Commons file page",
+        "https://commons.wikimedia.org/wiki/File:Keens_Steakhouse_(54821833498).jpg"
+      ],
+      [
+        "Grand Central Oyster Bar interior · Wikimedia Commons file page",
+        "https://commons.wikimedia.org/wiki/File:Oyster_Bar.jpg"
+      ],
+      [
+        "Katz’s Delicatessen interior · CC BY-SA 3.0",
+        "https://commons.wikimedia.org/wiki/File:Katzs.jpg"
+      ],
+      [
+        "Sylvia’s Restaurant, Harlem · CC BY 2.0",
+        "https://commons.wikimedia.org/wiki/File:Harlem_-_Sylvia%27s_Restaurant_(48555310372).jpg"
+      ],
+      [
+        "Peter Luger Steakhouse, Williamsburg · Kidfly182 · CC BY 4.0",
+        "https://commons.wikimedia.org/wiki/File:Peter_Luger_Steakhouse.jpg"
+      ],
+      [
+        "Arthur Avenue Retail Market · Joe Mabel · CC BY-SA 4.0",
+        "https://commons.wikimedia.org/wiki/File:Arthur_Avenue_Retail_Market_02.jpg"
+      ],
+      [
+        "New York pizza slice · CC BY 2.0",
+        "https://commons.wikimedia.org/wiki/File:NYPizzaSlice.jpg"
+      ],
+      [
+        "Lox and bagel · CC BY-SA 2.0",
+        "https://commons.wikimedia.org/wiki/File:Lox-and-bagel-02.jpg"
+      ],
+      [
+        "Dim sum table · CC0",
+        "https://commons.wikimedia.org/wiki/File:Food_at_Dim_Sum_Palace.jpg"
+      ],
+      [
+        "Lobster roll · CC BY 3.0",
+        "https://commons.wikimedia.org/wiki/File:Lobster_roll.jpg"
+      ],
+      [
+        "Rava dosa with coconut chutney · CC BY-SA 4.0",
+        "https://commons.wikimedia.org/wiki/File:Rava_Dosa_with_Coconut_Chutney.jpg"
+      ],
+      [
+        "Colombian arepa with cheese · CC BY-SA 4.0",
+        "https://commons.wikimedia.org/wiki/File:Colombian_Arepas_with_cheese_.jpg"
+      ],
+      [
+        "Buffalo wings · John Tornow · Wikimedia Commons file page",
+        "https://commons.wikimedia.org/wiki/File:Buffalo_wings.jpg"
+      ],
+      [
+        "Fried chicken, biscuit and sides · Sarah Stierch · CC BY 4.0",
+        "https://commons.wikimedia.org/wiki/File:Harland_Sanders_Caf%C3%A9_and_Museum_-_October_2023_-_Sarah_Stierch_06.jpg"
+      ],
+      [
+        "Red Coach Inn restaurant and hotel exterior · official photo",
+        "https://www.redcoach.com/restaurant/restaurant-and-hotel-exterior/"
+      ],
+      [
+        "Lower East Side Tenement Museum · Wikimedia Commons file page",
+        "https://commons.wikimedia.org/wiki/File:Tenement_Museum.jpg"
+      ],
+      [
+        "Flushing Meadows Corona Park Unisphere · Kidfly182 · Wikimedia Commons file page",
+        "https://commons.wikimedia.org/wiki/File:Flushing_Meadows_Corona_Park_Unisphere.jpg"
+      ],
+      [
+        "USDA Prime Porterhouse Steak · TommySteaks82 · CC BY-SA 4.0",
+        "https://commons.wikimedia.org/wiki/File:USDA_Prime_Porterhouse_Steak.jpg"
+      ],
+      [
+        "Madison Square Park · Rsmn · Wikimedia Commons file page",
+        "https://commons.wikimedia.org/wiki/File:Madison_Square_Park.jpg"
+      ],
+      [
+        "New York Stock Exchange, Wall Street · Mike Peel · CC BY-SA 4.0",
+        "https://commons.wikimedia.org/wiki/File:New_York_Stock_Exchange,_Wall_Street.jpg"
+      ],
+      [
+        "Great Smoky Mountains panorama · Tetra09 · CC BY-SA 4.0",
+        "https://commons.wikimedia.org/wiki/File:Great-Smoky-Mountains_Panorama.jpg"
+      ],
+      [
+        "San Jose California skyline · Michael · CC BY 2.0",
+        "https://commons.wikimedia.org/wiki/File:San_Jose_California_Skyline.jpg"
+      ],
+      [
+        "뉴욕 호텔 객실 참고 이미지 · Wikimedia Commons",
+        "https://commons.wikimedia.org/wiki/File:Mandarin_Oriental_New_York_Hudson_River_View_Room.jpg"
+      ],
+      [
+        "Map tiles · OpenStreetMap contributors",
+        "https://www.openstreetmap.org/copyright"
+      ]
+    ]
+  }
+}

@@ -1,0 +1,154 @@
+{
+  "consoleErrors": [],
+  "pageErrors": [],
+  "screens": {
+    "desktopSourceRatio": "/Users/hogun/Documents/ChatGPT/ETC/nyc-couple-trip-v2-01/design/qa/desktop-1440x1024.png",
+    "desktop": "/Users/hogun/Documents/ChatGPT/ETC/nyc-couple-trip-v2-01/design/qa/desktop-1440x900.png",
+    "mobileItinerary": "/Users/hogun/Documents/ChatGPT/ETC/nyc-couple-trip-v2-01/design/qa/mobile-itinerary-390x844.png",
+    "mobileMap": "/Users/hogun/Documents/ChatGPT/ETC/nyc-couple-trip-v2-01/design/qa/mobile-map-390x844.png",
+    "mobileAtlas": "/Users/hogun/Documents/ChatGPT/ETC/nyc-couple-trip-v2-01/design/qa/mobile-atlas-390x844.png",
+    "mobileOverview": "/Users/hogun/Documents/ChatGPT/ETC/nyc-couple-trip-v2-01/design/qa/mobile-overview-390x844.png",
+    "tablet": "/Users/hogun/Documents/ChatGPT/ETC/nyc-couple-trip-v2-01/design/qa/tablet-1024x768.png"
+  },
+  "assertions": {
+    "desktop": {
+      "dayTabs": 7,
+      "stops": 5,
+      "markers": 5,
+      "horizontalOverflow": 0,
+      "viewport": [
+        1440,
+        1024
+      ],
+      "brokenImages": [],
+      "heading": "미드타운에 부드럽게 착륙",
+      "initiallyExpanded": 0,
+      "directionsHref": "https://www.google.com/maps/dir/?api=1&destination=40.7542%2C-73.9854&travelmode=transit",
+      "officialHref": null
+    },
+    "markerSync": {
+      "selectedStop": "Bow Bridge → Bethesda Terrace",
+      "dossier": "Bow Bridge → Bethesda Terrace",
+      "selectedMarker": "2"
+    },
+    "multiExpand": 2,
+    "mobile": {
+      "horizontalOverflow": 0,
+      "viewport": [
+        390,
+        844
+      ],
+      "bottomNavVisible": true,
+      "undersizedVisibleTargets": [],
+      "brokenImages": []
+    },
+    "mobileMap": {
+      "mapVisible": true,
+      "itineraryVisible": false,
+      "selectedDossier": "호텔 체크인 · 샤워 · 낮잠",
+      "loadedTiles": 11,
+      "routeMarkers": 5,
+      "scrollY": 0,
+      "headerChildren": [
+        {
+          "className": "brand-lockup",
+          "display": "flex",
+          "rect": [
+            10,
+            41
+          ]
+        },
+        {
+          "className": "header-divider",
+          "display": "none",
+          "rect": [
+            0,
+            0
+          ]
+        },
+        {
+          "className": "trip-dates",
+          "display": "none",
+          "rect": [
+            0,
+            0
+          ]
+        },
+        {
+          "className": "city-route",
+          "display": "none",
+          "rect": [
+            0,
+            0
+          ]
+        },
+        {
+          "className": "header-spacer",
+          "display": "block",
+          "rect": [
+            56,
+            69
+          ]
+        },
+        {
+          "className": "city-select",
+          "display": "flex",
+          "rect": [
+            130,
+            55
+          ]
+        },
+        {
+          "className": "header-menu-wrap",
+          "display": "block",
+          "rect": [
+            190,
+            92
+          ]
+        },
+        {
+          "className": "header-menu-wrap arrival-wrap",
+          "display": "block",
+          "rect": [
+            287,
+            44
+          ]
+        },
+        {
+          "className": "icon-action ",
+          "display": "flex",
+          "rect": [
+            336,
+            44
+          ]
+        },
+        {
+          "className": "icon-action ",
+          "display": "none",
+          "rect": [
+            0,
+            0
+          ]
+        },
+        {
+          "className": "icon-action ",
+          "display": "none",
+          "rect": [
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "dialog": {
+      "activeLabel": "여행안",
+      "backgroundInert": true,
+      "selectedTab": "여행안"
+    },
+    "tablet": {
+      "horizontalOverflow": 0,
+      "brokenImages": 0,
+      "columns": "552.953px 471.047px"
+    }
+  }
+}
