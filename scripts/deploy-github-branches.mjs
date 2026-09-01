@@ -110,22 +110,37 @@ function getGitHubToken() {
 }
 
 async function githubRequest(owner, repo, suffix = "", options = {}) {
-  const response = await fetch(
-    `https://api.github.com/repos/${encodeURIComponent(owner)}/${encodeURIComponent(repo)}${suffix}`,
-    {
-      method: options.method ?? "GET",
-      signal: AbortSignal.timeout(30_000),
-      headers: {
-        Accept: "application/vnd.github+json",
-        Authorization: `Bearer ${options.token}`,
-        "X-GitHub-Api-Version": "2026-03-10",
-        ...(options.body ? { "Content-Type": "application/json" } : {}),
-      },
-      body: options.body ? JSON.stringify(options.body) : undefined,
-    },
-  );
-
-  const responseText = await response.text();
+  const url = `https://api.github.com/repos/${encodeURIComponent(owner)}/${encodeURIComponent(repo)}${suffix}`;
+  const args = [
+    "-sS",
+    "--connect-timeout",
+    "10",
+    "--max-time",
+    "30",
+    "-X",
+    options.method ?? "GET",
+    "-H",
+    "Accept: application/vnd.github+json",
+    "-H",
+    `Authorization: Bearer ${options.token}`,
+    "-H",
+    "X-GitHub-Api-Version: 2026-03-10",
+    ...(options.body
+      ? ["-H", "Content-Type: application/json", "--data", JSON.stringify(options.body)]
+      : []),
+    "-w",
+    "\n%{http_code}",
+    url,
+  ];
+  let rawResponse;
+  try {
+    rawResponse = run("curl", args, { capture: true, timeout: 40_000 });
+  } catch {
+    throw new Error("GitHub API 연결에 실패했습니다.");
+  }
+  const splitAt = rawResponse.lastIndexOf("\n");
+  const responseText = rawResponse.slice(0, splitAt);
+  const status = Number(rawResponse.slice(splitAt + 1));
   let data = null;
   try {
     data = responseText ? JSON.parse(responseText) : null;
@@ -133,9 +148,9 @@ async function githubRequest(owner, repo, suffix = "", options = {}) {
     data = responseText;
   }
 
-  if (!response.ok) {
+  if (status < 200 || status >= 300) {
     const detail = typeof data === "object" ? data?.message : data;
-    throw new GitHubApiError(response.status, detail || `GitHub API ${response.status}`);
+    throw new GitHubApiError(status, detail || `GitHub API ${status}`);
   }
   return data;
 }
@@ -295,6 +310,44 @@ function createPagesBranch(remoteUrl) {
   }
 }
 
+function triggerPagesBuild(remoteUrl) {
+  const triggerRoot = mkdtempSync(path.join(tmpdir(), "trip-plan-pages-trigger-"));
+  const checkoutRoot = path.join(triggerRoot, "site");
+  try {
+    run(
+      "git",
+      ["clone", "--branch", "gh-pages", "--single-branch", remoteUrl, checkoutRoot],
+      {
+        cwd: triggerRoot,
+        env: { GIT_TERMINAL_PROMPT: "0" },
+        timeout: 180_000,
+        capture: true,
+      },
+    );
+    run(
+      "git",
+      [
+        "-c",
+        "user.name=Codex Build Agent",
+        "-c",
+        "user.email=codex@localhost",
+        "commit",
+        "--allow-empty",
+        "-m",
+        "Trigger GitHub Pages build",
+      ],
+      { cwd: checkoutRoot, capture: true },
+    );
+    run("git", ["push", "origin", "gh-pages"], {
+      cwd: checkoutRoot,
+      env: { GIT_TERMINAL_PROMPT: "0" },
+      timeout: 180_000,
+    });
+  } finally {
+    rmSync(triggerRoot, { recursive: true, force: true });
+  }
+}
+
 async function configurePages(owner, repo, token) {
   const body = {
     build_type: "legacy",
@@ -356,10 +409,19 @@ async function verifyLiveSite(baseUrl) {
 async function main() {
   const remoteUrl = normalizeRemote(process.argv[2] || "");
   const pagesOnly = process.argv.includes("--pages-only");
+  const configureOnly = process.argv.includes("--configure-only");
+  const statusOnly = process.argv.includes("--status-only");
   const { owner, repo } = parseRemote(remoteUrl);
   const token = getGitHubToken();
   if (!token) {
     throw new Error("GitHub 인증을 찾지 못했습니다.");
+  }
+  if (statusOnly) {
+    const pages = await githubRequest(owner, repo, "/pages", { token });
+    process.stdout.write(
+      `${JSON.stringify({ status: pages.status, html_url: pages.html_url, source: pages.source })}\n`,
+    );
+    return;
   }
 
   const isAccountSite = repo.toLowerCase() === `${owner.toLowerCase()}.github.io`;
@@ -386,6 +448,14 @@ async function main() {
   const expectedUrl = isAccountSite
     ? `https://${owner}.github.io/`
     : `https://${owner}.github.io/${repo}/`;
+  if (configureOnly) {
+    process.stdout.write(`GitHub Pages 설정 완료: ${expectedUrl}\n`);
+    return;
+  }
+  if (pagesOnly) {
+    process.stdout.write("GitHub Pages 첫 빌드를 트리거합니다.\n");
+    triggerPagesBuild(remoteUrl);
+  }
   const liveUrl = (await waitForPages(owner, repo, token)) || expectedUrl;
   await verifyLiveSite(liveUrl);
 
