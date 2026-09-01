@@ -20,7 +20,10 @@ function run(command, args, options = {}) {
     cwd: projectRoot,
     encoding: "utf8",
     env: { ...process.env, ...options.env },
-    stdio: options.capture ? ["ignore", "pipe", "pipe"] : "inherit",
+    input: options.input,
+    stdio: options.capture
+      ? [options.input ? "pipe" : "ignore", "pipe", "pipe"]
+      : "inherit",
     timeout: options.timeout ?? 60_000,
   })?.trim();
 }
@@ -81,13 +84,31 @@ function hasGitHubCli() {
 function getGitHubToken() {
   if (process.env.GH_TOKEN) return process.env.GH_TOKEN;
   if (process.env.GITHUB_TOKEN) return process.env.GITHUB_TOKEN;
-  if (!hasGitHubCli()) return "";
+
+  if (hasGitHubCli()) {
+    try {
+      run("gh", ["auth", "status", "--hostname", "github.com"], { capture: true });
+      return run("gh", ["auth", "token", "--hostname", "github.com"], {
+        capture: true,
+      });
+    } catch {
+      // Fall through to Git's configured credential helper.
+    }
+  }
 
   try {
-    run("gh", ["auth", "status", "--hostname", "github.com"], { capture: true });
-    return run("gh", ["auth", "token", "--hostname", "github.com"], {
+    const credential = run("git", ["credential", "fill"], {
       capture: true,
+      input: "protocol=https\nhost=github.com\n\n",
+      env: { GIT_TERMINAL_PROMPT: "0" },
     });
+    const fields = Object.fromEntries(
+      credential
+        .split("\n")
+        .map((line) => line.split(/=(.*)/s))
+        .filter((parts) => parts.length >= 2),
+    );
+    return fields.password || "";
   } catch {
     return "";
   }
