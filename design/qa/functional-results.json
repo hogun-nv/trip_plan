@@ -1,0 +1,307 @@
+{
+  "routeMatrixPass": true,
+  "routeMatrix": [
+    {
+      "plan": "classic",
+      "day": 1,
+      "expected": 5,
+      "actualStops": 5,
+      "actualMarkers": 5,
+      "pass": true
+    },
+    {
+      "plan": "classic",
+      "day": 2,
+      "expected": 5,
+      "actualStops": 5,
+      "actualMarkers": 5,
+      "pass": true
+    },
+    {
+      "plan": "classic",
+      "day": 3,
+      "expected": 6,
+      "actualStops": 6,
+      "actualMarkers": 6,
+      "pass": true
+    },
+    {
+      "plan": "classic",
+      "day": 4,
+      "expected": 6,
+      "actualStops": 6,
+      "actualMarkers": 6,
+      "pass": true
+    },
+    {
+      "plan": "classic",
+      "day": 5,
+      "expected": 6,
+      "actualStops": 6,
+      "actualMarkers": 6,
+      "pass": true
+    },
+    {
+      "plan": "classic",
+      "day": 6,
+      "expected": 6,
+      "actualStops": 6,
+      "actualMarkers": 6,
+      "pass": true
+    },
+    {
+      "plan": "classic",
+      "day": 7,
+      "expected": 6,
+      "actualStops": 6,
+      "actualMarkers": 6,
+      "pass": true
+    },
+    {
+      "plan": "art",
+      "day": 1,
+      "expected": 4,
+      "actualStops": 4,
+      "actualMarkers": 4,
+      "pass": true
+    },
+    {
+      "plan": "art",
+      "day": 2,
+      "expected": 5,
+      "actualStops": 5,
+      "actualMarkers": 5,
+      "pass": true
+    },
+    {
+      "plan": "art",
+      "day": 3,
+      "expected": 6,
+      "actualStops": 6,
+      "actualMarkers": 6,
+      "pass": true
+    },
+    {
+      "plan": "art",
+      "day": 4,
+      "expected": 6,
+      "actualStops": 6,
+      "actualMarkers": 6,
+      "pass": true
+    },
+    {
+      "plan": "art",
+      "day": 5,
+      "expected": 5,
+      "actualStops": 5,
+      "actualMarkers": 5,
+      "pass": true
+    },
+    {
+      "plan": "art",
+      "day": 6,
+      "expected": 7,
+      "actualStops": 7,
+      "actualMarkers": 7,
+      "pass": true
+    },
+    {
+      "plan": "art",
+      "day": 7,
+      "expected": 5,
+      "actualStops": 5,
+      "actualMarkers": 5,
+      "pass": true
+    },
+    {
+      "plan": "niagara",
+      "day": 1,
+      "expected": 4,
+      "actualStops": 4,
+      "actualMarkers": 4,
+      "pass": true
+    },
+    {
+      "plan": "niagara",
+      "day": 2,
+      "expected": 5,
+      "actualStops": 5,
+      "actualMarkers": 5,
+      "pass": true
+    },
+    {
+      "plan": "niagara",
+      "day": 3,
+      "expected": 9,
+      "actualStops": 9,
+      "actualMarkers": 9,
+      "pass": true
+    },
+    {
+      "plan": "niagara",
+      "day": 4,
+      "expected": 7,
+      "actualStops": 7,
+      "actualMarkers": 7,
+      "pass": true
+    },
+    {
+      "plan": "niagara",
+      "day": 5,
+      "expected": 6,
+      "actualStops": 6,
+      "actualMarkers": 6,
+      "pass": true
+    },
+    {
+      "plan": "niagara",
+      "day": 6,
+      "expected": 6,
+      "actualStops": 6,
+      "actualMarkers": 6,
+      "pass": true
+    },
+    {
+      "plan": "niagara",
+      "day": 7,
+      "expected": 5,
+      "actualStops": 5,
+      "actualMarkers": 5,
+      "pass": true
+    },
+    {
+      "plan": "water",
+      "day": 1,
+      "expected": 4,
+      "actualStops": 4,
+      "actualMarkers": 4,
+      "pass": true
+    },
+    {
+      "plan": "water",
+      "day": 2,
+      "expected": 6,
+      "actualStops": 6,
+      "actualMarkers": 6,
+      "pass": true
+    },
+    {
+      "plan": "water",
+      "day": 3,
+      "expected": 5,
+      "actualStops": 5,
+      "actualMarkers": 5,
+      "pass": true
+    },
+    {
+      "plan": "water",
+      "day": 4,
+      "expected": 6,
+      "actualStops": 6,
+      "actualMarkers": 6,
+      "pass": true
+    },
+    {
+      "plan": "water",
+      "day": 5,
+      "expected": 5,
+      "actualStops": 5,
+      "actualMarkers": 5,
+      "pass": true
+    },
+    {
+      "plan": "water",
+      "day": 6,
+      "expected": 6,
+      "actualStops": 6,
+      "actualMarkers": 6,
+      "pass": true
+    },
+    {
+      "plan": "water",
+      "day": 7,
+      "expected": 6,
+      "actualStops": 6,
+      "actualMarkers": 6,
+      "pass": true
+    },
+    {
+      "plan": "slow",
+      "day": 1,
+      "expected": 4,
+      "actualStops": 4,
+      "actualMarkers": 4,
+      "pass": true
+    },
+    {
+      "plan": "slow",
+      "day": 2,
+      "expected": 6,
+      "actualStops": 6,
+      "actualMarkers": 6,
+      "pass": true
+    },
+    {
+      "plan": "slow",
+      "day": 3,
+      "expected": 8,
+      "actualStops": 8,
+      "actualMarkers": 8,
+      "pass": true
+    },
+    {
+      "plan": "slow",
+      "day": 4,
+      "expected": 5,
+      "actualStops": 5,
+      "actualMarkers": 5,
+      "pass": true
+    },
+    {
+      "plan": "slow",
+      "day": 5,
+      "expected": 6,
+      "actualStops": 6,
+      "actualMarkers": 6,
+      "pass": true
+    },
+    {
+      "plan": "slow",
+      "day": 6,
+      "expected": 6,
+      "actualStops": 6,
+      "actualMarkers": 6,
+      "pass": true
+    },
+    {
+      "plan": "slow",
+      "day": 7,
+      "expected": 5,
+      "actualStops": 5,
+      "actualMarkers": 5,
+      "pass": true
+    }
+  ],
+  "lateArrival": {
+    "title": "늦은 도착, 체크인만",
+    "stops": 2
+  },
+  "expandedStops": 2,
+  "favoritePressed": "true",
+  "completePressed": "true",
+  "copyToast": "예약·이동 정보를 복사했습니다.",
+  "tennesseeTitle": "산의 리듬으로 넘어가는 다음 장",
+  "darkTheme": "dark",
+  "atlasTabs": {
+    "여행안": true,
+    "장소": true,
+    "맛": true,
+    "숙소": true,
+    "예약": true,
+    "출처": true
+  },
+  "atlasClosed": true,
+  "narrowOverflow": 0,
+  "consoleErrors": [],
+  "pageErrors": []
+}

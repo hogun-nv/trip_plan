@@ -1,0 +1,27 @@
+{
+  "name": "nyc-couple-trip-v2-01",
+  "version": "1.0.0",
+  "description": "2026 뉴욕 부부 여행을 위한 사진 중심 에디토리얼 플래너 — Version 1",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build && node scripts/prepare-sites-build.mjs",
+    "data:refresh": "node scripts/extract-trip-data.mjs",
+    "github:connect": "node scripts/connect-github.mjs",
+    "preview": "vite preview",
+    "test:sites": "node --test tests/sites-worker.test.mjs"
+  },
+  "dependencies": {
+    "@phosphor-icons/react": "^2.1.10",
+    "@vitejs/plugin-react": "5.0.4",
+    "leaflet": "^1.9.4",
+    "react": "19.2.0",
+    "react-dom": "19.2.0",
+    "react-leaflet": "^5.0.0",
+    "vite": "6.4.2"
+  }
+}
