@@ -11,9 +11,10 @@ const githubPagesBase =
       ? "/"
       : `/${repositoryName}/`
     : "/";
+const deploymentBase = process.env.VITE_BASE_PATH || githubPagesBase;
 
 export default defineConfig({
-  base: githubPagesBase,
+  base: deploymentBase,
   build: {
     outDir: "dist/client",
   },
