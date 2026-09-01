@@ -1,0 +1,680 @@
+{
+  "metadata": {
+    "generatedAt": "2026-09-01T14:54:03.125Z",
+    "url": "http://127.0.0.1:4176",
+    "storageKey": "nyc-couple-trip-v2-03",
+    "outputDir": "/Users/hogun/Documents/ChatGPT/ETC/nyc-couple-trip-v2-03/design/qa",
+    "expectedPlans": [
+      "classic",
+      "art",
+      "niagara",
+      "water",
+      "slow"
+    ],
+    "expectedDays": 35,
+    "referenceConcepts": [
+      "Cinematic City Diary",
+      "Fold-out Map Field Guide"
+    ],
+    "resultPath": "/Users/hogun/Documents/ChatGPT/ETC/nyc-couple-trip-v2-03/design/qa/qa-results.json"
+  },
+  "checks": {
+    "routeMatrix": {
+      "pass": true,
+      "entries": [
+        {
+          "plan": "classic",
+          "day": 1,
+          "expected": 5,
+          "actualStops": 5,
+          "actualMarkers": 5,
+          "stopSelector": ".itinerary-stop",
+          "markerSelector": ".leaflet-marker-icon.route-marker-shell",
+          "error": null,
+          "pass": true
+        },
+        {
+          "plan": "classic",
+          "day": 2,
+          "expected": 5,
+          "actualStops": 5,
+          "actualMarkers": 5,
+          "stopSelector": ".itinerary-stop",
+          "markerSelector": ".leaflet-marker-icon.route-marker-shell",
+          "error": null,
+          "pass": true
+        },
+        {
+          "plan": "classic",
+          "day": 3,
+          "expected": 6,
+          "actualStops": 6,
+          "actualMarkers": 6,
+          "stopSelector": ".itinerary-stop",
+          "markerSelector": ".leaflet-marker-icon.route-marker-shell",
+          "error": null,
+          "pass": true
+        },
+        {
+          "plan": "classic",
+          "day": 4,
+          "expected": 6,
+          "actualStops": 6,
+          "actualMarkers": 6,
+          "stopSelector": ".itinerary-stop",
+          "markerSelector": ".leaflet-marker-icon.route-marker-shell",
+          "error": null,
+          "pass": true
+        },
+        {
+          "plan": "classic",
+          "day": 5,
+          "expected": 6,
+          "actualStops": 6,
+          "actualMarkers": 6,
+          "stopSelector": ".itinerary-stop",
+          "markerSelector": ".leaflet-marker-icon.route-marker-shell",
+          "error": null,
+          "pass": true
+        },
+        {
+          "plan": "classic",
+          "day": 6,
+          "expected": 6,
+          "actualStops": 6,
+          "actualMarkers": 6,
+          "stopSelector": ".itinerary-stop",
+          "markerSelector": ".leaflet-marker-icon.route-marker-shell",
+          "error": null,
+          "pass": true
+        },
+        {
+          "plan": "classic",
+          "day": 7,
+          "expected": 6,
+          "actualStops": 6,
+          "actualMarkers": 6,
+          "stopSelector": ".itinerary-stop",
+          "markerSelector": ".leaflet-marker-icon.route-marker-shell",
+          "error": null,
+          "pass": true
+        },
+        {
+          "plan": "art",
+          "day": 1,
+          "expected": 4,
+          "actualStops": 4,
+          "actualMarkers": 4,
+          "stopSelector": ".itinerary-stop",
+          "markerSelector": ".leaflet-marker-icon.route-marker-shell",
+          "error": null,
+          "pass": true
+        },
+        {
+          "plan": "art",
+          "day": 2,
+          "expected": 5,
+          "actualStops": 5,
+          "actualMarkers": 5,
+          "stopSelector": ".itinerary-stop",
+          "markerSelector": ".leaflet-marker-icon.route-marker-shell",
+          "error": null,
+          "pass": true
+        },
+        {
+          "plan": "art",
+          "day": 3,
+          "expected": 6,
+          "actualStops": 6,
+          "actualMarkers": 6,
+          "stopSelector": ".itinerary-stop",
+          "markerSelector": ".leaflet-marker-icon.route-marker-shell",
+          "error": null,
+          "pass": true
+        },
+        {
+          "plan": "art",
+          "day": 4,
+          "expected": 6,
+          "actualStops": 6,
+          "actualMarkers": 6,
+          "stopSelector": ".itinerary-stop",
+          "markerSelector": ".leaflet-marker-icon.route-marker-shell",
+          "error": null,
+          "pass": true
+        },
+        {
+          "plan": "art",
+          "day": 5,
+          "expected": 5,
+          "actualStops": 5,
+          "actualMarkers": 5,
+          "stopSelector": ".itinerary-stop",
+          "markerSelector": ".leaflet-marker-icon.route-marker-shell",
+          "error": null,
+          "pass": true
+        },
+        {
+          "plan": "art",
+          "day": 6,
+          "expected": 7,
+          "actualStops": 7,
+          "actualMarkers": 7,
+          "stopSelector": ".itinerary-stop",
+          "markerSelector": ".leaflet-marker-icon.route-marker-shell",
+          "error": null,
+          "pass": true
+        },
+        {
+          "plan": "art",
+          "day": 7,
+          "expected": 5,
+          "actualStops": 5,
+          "actualMarkers": 5,
+          "stopSelector": ".itinerary-stop",
+          "markerSelector": ".leaflet-marker-icon.route-marker-shell",
+          "error": null,
+          "pass": true
+        },
+        {
+          "plan": "niagara",
+          "day": 1,
+          "expected": 4,
+          "actualStops": 4,
+          "actualMarkers": 4,
+          "stopSelector": ".itinerary-stop",
+          "markerSelector": ".leaflet-marker-icon.route-marker-shell",
+          "error": null,
+          "pass": true
+        },
+        {
+          "plan": "niagara",
+          "day": 2,
+          "expected": 5,
+          "actualStops": 5,
+          "actualMarkers": 5,
+          "stopSelector": ".itinerary-stop",
+          "markerSelector": ".leaflet-marker-icon.route-marker-shell",
+          "error": null,
+          "pass": true
+        },
+        {
+          "plan": "niagara",
+          "day": 3,
+          "expected": 9,
+          "actualStops": 9,
+          "actualMarkers": 9,
+          "stopSelector": ".itinerary-stop",
+          "markerSelector": ".leaflet-marker-icon.route-marker-shell",
+          "error": null,
+          "pass": true
+        },
+        {
+          "plan": "niagara",
+          "day": 4,
+          "expected": 7,
+          "actualStops": 7,
+          "actualMarkers": 7,
+          "stopSelector": ".itinerary-stop",
+          "markerSelector": ".leaflet-marker-icon.route-marker-shell",
+          "error": null,
+          "pass": true
+        },
+        {
+          "plan": "niagara",
+          "day": 5,
+          "expected": 6,
+          "actualStops": 6,
+          "actualMarkers": 6,
+          "stopSelector": ".itinerary-stop",
+          "markerSelector": ".leaflet-marker-icon.route-marker-shell",
+          "error": null,
+          "pass": true
+        },
+        {
+          "plan": "niagara",
+          "day": 6,
+          "expected": 6,
+          "actualStops": 6,
+          "actualMarkers": 6,
+          "stopSelector": ".itinerary-stop",
+          "markerSelector": ".leaflet-marker-icon.route-marker-shell",
+          "error": null,
+          "pass": true
+        },
+        {
+          "plan": "niagara",
+          "day": 7,
+          "expected": 5,
+          "actualStops": 5,
+          "actualMarkers": 5,
+          "stopSelector": ".itinerary-stop",
+          "markerSelector": ".leaflet-marker-icon.route-marker-shell",
+          "error": null,
+          "pass": true
+        },
+        {
+          "plan": "water",
+          "day": 1,
+          "expected": 4,
+          "actualStops": 4,
+          "actualMarkers": 4,
+          "stopSelector": ".itinerary-stop",
+          "markerSelector": ".leaflet-marker-icon.route-marker-shell",
+          "error": null,
+          "pass": true
+        },
+        {
+          "plan": "water",
+          "day": 2,
+          "expected": 6,
+          "actualStops": 6,
+          "actualMarkers": 6,
+          "stopSelector": ".itinerary-stop",
+          "markerSelector": ".leaflet-marker-icon.route-marker-shell",
+          "error": null,
+          "pass": true
+        },
+        {
+          "plan": "water",
+          "day": 3,
+          "expected": 5,
+          "actualStops": 5,
+          "actualMarkers": 5,
+          "stopSelector": ".itinerary-stop",
+          "markerSelector": ".leaflet-marker-icon.route-marker-shell",
+          "error": null,
+          "pass": true
+        },
+        {
+          "plan": "water",
+          "day": 4,
+          "expected": 6,
+          "actualStops": 6,
+          "actualMarkers": 6,
+          "stopSelector": ".itinerary-stop",
+          "markerSelector": ".leaflet-marker-icon.route-marker-shell",
+          "error": null,
+          "pass": true
+        },
+        {
+          "plan": "water",
+          "day": 5,
+          "expected": 5,
+          "actualStops": 5,
+          "actualMarkers": 5,
+          "stopSelector": ".itinerary-stop",
+          "markerSelector": ".leaflet-marker-icon.route-marker-shell",
+          "error": null,
+          "pass": true
+        },
+        {
+          "plan": "water",
+          "day": 6,
+          "expected": 6,
+          "actualStops": 6,
+          "actualMarkers": 6,
+          "stopSelector": ".itinerary-stop",
+          "markerSelector": ".leaflet-marker-icon.route-marker-shell",
+          "error": null,
+          "pass": true
+        },
+        {
+          "plan": "water",
+          "day": 7,
+          "expected": 6,
+          "actualStops": 6,
+          "actualMarkers": 6,
+          "stopSelector": ".itinerary-stop",
+          "markerSelector": ".leaflet-marker-icon.route-marker-shell",
+          "error": null,
+          "pass": true
+        },
+        {
+          "plan": "slow",
+          "day": 1,
+          "expected": 4,
+          "actualStops": 4,
+          "actualMarkers": 4,
+          "stopSelector": ".itinerary-stop",
+          "markerSelector": ".leaflet-marker-icon.route-marker-shell",
+          "error": null,
+          "pass": true
+        },
+        {
+          "plan": "slow",
+          "day": 2,
+          "expected": 6,
+          "actualStops": 6,
+          "actualMarkers": 6,
+          "stopSelector": ".itinerary-stop",
+          "markerSelector": ".leaflet-marker-icon.route-marker-shell",
+          "error": null,
+          "pass": true
+        },
+        {
+          "plan": "slow",
+          "day": 3,
+          "expected": 8,
+          "actualStops": 8,
+          "actualMarkers": 8,
+          "stopSelector": ".itinerary-stop",
+          "markerSelector": ".leaflet-marker-icon.route-marker-shell",
+          "error": null,
+          "pass": true
+        },
+        {
+          "plan": "slow",
+          "day": 4,
+          "expected": 5,
+          "actualStops": 5,
+          "actualMarkers": 5,
+          "stopSelector": ".itinerary-stop",
+          "markerSelector": ".leaflet-marker-icon.route-marker-shell",
+          "error": null,
+          "pass": true
+        },
+        {
+          "plan": "slow",
+          "day": 5,
+          "expected": 6,
+          "actualStops": 6,
+          "actualMarkers": 6,
+          "stopSelector": ".itinerary-stop",
+          "markerSelector": ".leaflet-marker-icon.route-marker-shell",
+          "error": null,
+          "pass": true
+        },
+        {
+          "plan": "slow",
+          "day": 6,
+          "expected": 6,
+          "actualStops": 6,
+          "actualMarkers": 6,
+          "stopSelector": ".itinerary-stop",
+          "markerSelector": ".leaflet-marker-icon.route-marker-shell",
+          "error": null,
+          "pass": true
+        },
+        {
+          "plan": "slow",
+          "day": 7,
+          "expected": 5,
+          "actualStops": 5,
+          "actualMarkers": 5,
+          "stopSelector": ".itinerary-stop",
+          "markerSelector": ".leaflet-marker-icon.route-marker-shell",
+          "error": null,
+          "pass": true
+        }
+      ]
+    },
+    "lateArrival": {
+      "pass": true,
+      "actualStops": 2,
+      "selector": ".itinerary-stop",
+      "heading": "오늘의 진행"
+    },
+    "selectionSync": {
+      "pass": true,
+      "listIndex": 2,
+      "listStopTitle": "Ellis Island Immigration Museum",
+      "selectedMarkerText": "3",
+      "markerIndex": 1,
+      "markerTargetTitle": "2. 09:00 Liberty Island",
+      "markerStopTitle": "Liberty Island",
+      "dossierSelector": ".place-dossier",
+      "listToMarker": true,
+      "listToDossier": true,
+      "markerToList": true,
+      "markerToDossier": true
+    },
+    "multiExpandAndActions": {
+      "pass": true,
+      "expandedCount": 2,
+      "multiExpand": true,
+      "favoritePass": true,
+      "completePass": true,
+      "copyPass": true,
+      "favoritePressed": "true",
+      "completePressed": "true",
+      "liveText": "예약·이동 정보를 복사했습니다.",
+      "clipboardLength": 148
+    },
+    "atlas": {
+      "pass": true,
+      "expectedTabCount": 6,
+      "actualTabCount": 0,
+      "tabResults": {
+        "여행 개요": {
+          "exists": true,
+          "selected": true,
+          "hasContent": true
+        },
+        "장소": {
+          "exists": true,
+          "selected": true,
+          "hasContent": true
+        },
+        "맛": {
+          "exists": true,
+          "selected": true,
+          "hasContent": true
+        },
+        "숙소": {
+          "exists": true,
+          "selected": true,
+          "hasContent": true
+        },
+        "예약": {
+          "exists": true,
+          "selected": true,
+          "hasContent": true
+        },
+        "출처": {
+          "exists": true,
+          "selected": true,
+          "hasContent": true
+        }
+      },
+      "arrowNavigation": true,
+      "focusContained": true,
+      "escapeClosed": true
+    },
+    "cityEmptyStates": {
+      "pass": true,
+      "tennessee": {
+        "pass": true,
+        "control": "combobox",
+        "text": "TENNESSEE · 출장 구간 사진 출처 TENNESSEE · 출장 구간 산의 리듬으로 넘어가는 다음 장 뉴욕 여행 뒤 이어지는 출장 일정입니다. 정확한 도시와 이동 시간이 확정되면 같은 시간표·지도 구조로 연결됩니다. 확정된 정보만 표시합니다. 뉴욕 일정으로 돌아가기"
+      },
+      "sanJose": {
+        "pass": true,
+        "control": "combobox",
+        "text": "SAN JOSE · 출장 구간 사진 출처 SAN JOSE · 출장 구간 서부의 빛으로 이어지는 마지막 장 산호세 구간은 출장 일정이 확정되기 전까지 장소와 이동 정보를 임의로 채우지 않았습니다. 확정된 정보만 표시합니다. 뉴욕 일정으로 돌아가기"
+      }
+    },
+    "theme": {
+      "pass": true,
+      "state": {
+        "rootTheme": "dark",
+        "bodyTheme": "",
+        "rootClass": "",
+        "bodyClass": "",
+        "savedTheme": "dark"
+      }
+    },
+    "urlState": {
+      "pass": true,
+      "directState": true,
+      "updateState": true,
+      "storagePass": true,
+      "initialUrl": "http://127.0.0.1:4176/?plan=niagara&day=4",
+      "changedUrl": "http://127.0.0.1:4176/?plan=niagara&day=5",
+      "selectedDayText": "D4 9/22 9/22 화 Horseshoe Falls와 뉴욕 복귀 대한민국 여권 육로 eTA 불필요 예상 3–5km",
+      "saved": {
+        "planIndex": 2,
+        "dayIndex": 4,
+        "arrival": "fri-night",
+        "mobileView": "itinerary"
+      }
+    },
+    "responsive": {
+      "pass": true,
+      "viewports": [
+        {
+          "name": "desktop-1440x900",
+          "width": 1440,
+          "height": 900,
+          "viewportWidth": 1440,
+          "documentWidth": 1440,
+          "bodyWidth": 1440,
+          "overflow": 0,
+          "images": {
+            "visible": 38,
+            "loaded": 36,
+            "pending": [
+              "https://commons.wikimedia.org/wiki/Special:FilePath/Statue%20of%20Liberty%20overlooking%20Skyline.jpg?width=1400",
+              "https://commons.wikimedia.org/wiki/Special:FilePath/Metropolitan%20Museum%20of%20Art%20%28The%20Met%29%20-%20Central%20Park%2C%20NYC.jpg?width=1400"
+            ],
+            "broken": []
+          },
+          "touchTargets": null,
+          "screenshotPath": "/Users/hogun/Documents/ChatGPT/ETC/nyc-couple-trip-v2-03/design/qa/desktop-1440x900.png",
+          "pass": true
+        },
+        {
+          "name": "tablet-1024x768",
+          "width": 1024,
+          "height": 768,
+          "viewportWidth": 1024,
+          "documentWidth": 1024,
+          "bodyWidth": 1024,
+          "overflow": 0,
+          "images": {
+            "visible": 25,
+            "loaded": 24,
+            "pending": [
+              "https://commons.wikimedia.org/wiki/Special:FilePath/Sunset%20at%20the%20Top%20of%20the%20Rock%20%2852363829383%29.jpg?width=1000"
+            ],
+            "broken": []
+          },
+          "touchTargets": null,
+          "screenshotPath": "/Users/hogun/Documents/ChatGPT/ETC/nyc-couple-trip-v2-03/design/qa/tablet-1024x768.png",
+          "pass": true
+        },
+        {
+          "name": "mobile-390x844",
+          "width": 390,
+          "height": 844,
+          "viewportWidth": 390,
+          "documentWidth": 390,
+          "bodyWidth": 390,
+          "overflow": 0,
+          "images": {
+            "visible": 5,
+            "loaded": 5,
+            "pending": [],
+            "broken": []
+          },
+          "touchTargets": {
+            "visibleInteractiveCount": 25,
+            "undersizedPrimary": [],
+            "undersizedEditorialLinks": []
+          },
+          "screenshotPath": "/Users/hogun/Documents/ChatGPT/ETC/nyc-couple-trip-v2-03/design/qa/mobile-390x844.png",
+          "pass": true
+        },
+        {
+          "name": "narrow-320x844",
+          "width": 320,
+          "height": 844,
+          "viewportWidth": 320,
+          "documentWidth": 320,
+          "bodyWidth": 320,
+          "overflow": 0,
+          "images": {
+            "visible": 5,
+            "loaded": 2,
+            "pending": [
+              "https://commons.wikimedia.org/wiki/Special:FilePath/Mandarin%20Oriental%20New%20York%20Hudson%20River%20View%20Room.jpg?width=1000",
+              "https://commons.wikimedia.org/wiki/Special:FilePath/Sunset%20at%20the%20Top%20of%20the%20Rock%20%2852363829383%29.jpg?width=1000",
+              "https://commons.wikimedia.org/wiki/Special:FilePath/NYPizzaSlice.jpg?width=900"
+            ],
+            "broken": []
+          },
+          "touchTargets": {
+            "visibleInteractiveCount": 25,
+            "undersizedPrimary": [],
+            "undersizedEditorialLinks": []
+          },
+          "screenshotPath": "/Users/hogun/Documents/ChatGPT/ETC/nyc-couple-trip-v2-03/design/qa/narrow-320x844.png",
+          "pass": true
+        }
+      ]
+    },
+    "mobileViewSwitch": {
+      "pass": true,
+      "itineraryVisible": true,
+      "mapButtonFound": true,
+      "mapVisible": true,
+      "mapSelected": true,
+      "itineraryButtonFound": true,
+      "itineraryVisibleAgain": true,
+      "itinerarySelected": true,
+      "touchTargets": {
+        "map": {
+          "visibleInteractiveCount": 20,
+          "undersizedPrimary": [
+            {
+              "tag": "a",
+              "role": null,
+              "name": "Google Maps",
+              "className": "",
+              "width": 85.4,
+              "height": 34,
+              "isPrimaryAction": true
+            }
+          ],
+          "undersizedEditorialLinks": [
+            {
+              "tag": "a",
+              "role": null,
+              "name": "Leaflet",
+              "className": "",
+              "width": 33.3,
+              "height": 8,
+              "isPrimaryAction": false
+            },
+            {
+              "tag": "a",
+              "role": null,
+              "name": "OpenStreetMap",
+              "className": "",
+              "width": 55.1,
+              "height": 8,
+              "isPrimaryAction": false
+            }
+          ]
+        },
+        "itinerary": {
+          "visibleInteractiveCount": 25,
+          "undersizedPrimary": [],
+          "undersizedEditorialLinks": []
+        }
+      }
+    }
+  },
+  "consoleErrors": [],
+  "pageErrors": [],
+  "runnerErrors": [],
+  "summary": {
+    "passedChecks": 10,
+    "totalChecks": 10,
+    "allChecksPassed": true,
+    "noConsoleErrors": true,
+    "noPageErrors": true,
+    "noRunnerErrors": true,
+    "pass": true
+  }
+}
