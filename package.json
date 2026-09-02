@@ -12,7 +12,7 @@
     "cache:images": "node scripts/cache-images.mjs",
     "check:images": "node scripts/validate-images.mjs",
     "start": "vinext start",
-    "lint": "eslint . --ignore-pattern dist --ignore-pattern dist-github --ignore-pattern .next"
+    "lint": "eslint . --ignore-pattern dist --ignore-pattern dist-github --ignore-pattern '**/dist-audit/**' --ignore-pattern .next"
   },
   "dependencies": {
     "lucide-react": "^0.468.0",
