@@ -15,3 +15,5 @@ Build app UI in `src/`. Keep `.openai/hosting.json`, `worker/index.js`, `scripts
 - The original standalone HTML must remain untouched. This project is a separate GitHub-ready Vite application.
 - Mobile is an on-trip mode: current/next action first, then reachable itinerary/map/atlas navigation. Desktop remains a simultaneous editorial spread.
 - GitHub Pages is the primary requested publishing path; the bundled Sites runtime must also remain intact.
+- The September 2026 production planner is now intentionally New York-only: one shared, editable itinerary replaces the earlier five-plan comparison because the user explicitly selected the classic V1 structure and asked to remove Tennessee and San Jose.
+- Shared links use D1 as the source of truth; browser storage is only an offline draft. Desktop keeps the V1 photography/itinerary/map split, while mobile uses bottom navigation for itinerary, map, candidates, and budget.

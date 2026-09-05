@@ -1,376 +1,387 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import {
-  AirplaneLanding, AirplaneTilt, ArrowRight, ArrowSquareOut, Baseball, Bed,
-  Binoculars, Buildings, CalendarBlank, CaretDown, CaretLeft, CaretRight, Check, Circle, Clock,
-  CloudRain, Copy, ForkKnife, Heart, Images, Info, List, MapPin, MapTrifold,
-  MaskHappy, Moon, NavigationArrow, NotePencil, PaintBrush, PersonSimpleWalk,
-  Printer, RoadHorizon, ShareNetwork, ShoppingBag, Sun, Ticket, Train, Tree, X,
+  AirplaneTilt, ArrowDown, ArrowSquareOut, ArrowUp, Bed, BookOpen, Buildings,
+  CalendarBlank, CaretDown, CaretLeft, CaretRight, Check, CheckCircle, Clock,
+  Coffee, Copy, CurrencyDollar, ForkKnife, Heart, Info, ListBullets, MapPin,
+  MapTrifold, Minus, NavigationArrow, NotePencil, Plus, ShareNetwork, ShoppingBag,
+  Sparkle, Star, Ticket, Train, Trash, Tree, Users, Wallet, Warning, X,
 } from "@phosphor-icons/react";
-import tripData from "./data/trip-data.json";
 import { RouteMap } from "./components/RouteMap.jsx";
 import {
-  ARRIVAL_OPTIONS, buildReservationText, dateParts, formatDuration,
-  getArrivalAdvice, getDayView, getDurationMinutes, getGoogleRouteUrl,
-  getImageCredit, getKindMeta, getMedia, getPlaceMapUrl, nextStopMove,
-  reservationLabel, stripMarkup,
-} from "./lib/trip.js";
+  FX_RATE, HOTELS, MUSICALS, PLACES, PRACTICAL_NOTES, SOURCES, SPECIAL_EVENTS,
+  THEME_PARKS, TOUR_OPTIONS, TRIP_META, TYPE_META, VERIFIED_AT,
+} from "./data/nyc-planner-data.js";
+import { useSharedPlan } from "./hooks/useSharedPlan.js";
 
-const STORAGE_KEY = "nyc-couple-trip-v2-01";
-
-const KIND_ICONS = {
-  REST: Bed, CULTURE: Buildings, VIEW: Binoculars, CITY: RoadHorizon,
-  FOOD: ForkKnife, NATURE: Tree, TRANSIT: Train, LANDMARK: MapPin,
-  MEMORIAL: Info, ARCHITECTURE: Buildings, SHOW: MaskHappy,
-  SHOP: ShoppingBag, SPORT: Baseball, SPORTS: Baseball, "ART & NATURE": PaintBrush,
+const TYPE_ICONS = {
+  flight: AirplaneTilt, hotel: Bed, sight: MapPin, culture: Buildings,
+  food: ForkKnife, cafe: Coffee, shopping: ShoppingBag, transit: Train, event: Sparkle,
 };
-
-const FLIGHT_TIMELINE = [
-  { date: "9/18 금 · KST", time: "21:05", title: "인천 출발", note: "뉴욕행 직항 우선" },
-  { date: "9/18 금 · EDT", time: "23:00", title: "JFK 도착", note: "입국 후 바로 숙소 이동" },
-  { date: "9/26 토 · EDT", time: "11:45", title: "JFK 출발", note: "07:30 전후 호텔 출발" },
-  { date: "9/27 일 · KST", time: "16:30", title: "인천 도착", note: "한국 기준 귀국" },
-];
-
-const ATLAS_ITEMS = [
-  { key: "met", label: "The Met", sub: "교양 · 미술 · 역사" },
-  { key: "times", label: "브로드웨이", sub: "오늘의 무대, 내일의 감동" },
-  { key: "pizza", label: "뉴욕 피자", sub: "접어 먹는 한 조각" },
-  { key: "lobster", label: "해산물", sub: "대서양의 맛" },
-  { key: "porterhouse", label: "클래식 스테이크", sub: "둘이 나누는 저녁" },
-  { key: "hero", label: "브루클린", sub: "물가에서 보는 맨해튼" },
-];
-
-const BOOKING_STEPS = [
-  ["국제선 + 무료취소 호텔", "9/18 저녁 직항과 9/26 낮 직항을 먼저 묶고, UN 본부 동쪽은 피합니다."],
-  ["Broadway 9/23 수 19:00", "Hamilton이 일정상 가장 안정적입니다. 공식 티켓을 우선하고 TKTS를 예비로 둡니다."],
-  ["나이아가라 국내선·1박", "3안 선택 시 9/21–22 또는 9/22–23 왕복. 귀국편과 최소 이틀의 완충 시간을 둡니다."],
-  ["Statue ferry·전망대", "자유의 여신상은 오전 공식 페리, 전망대는 일몰 60–75분 전 입장 슬롯이 좋습니다."],
-  ["Storm King·Dia Beacon", "날씨를 본 뒤 결정. Storm King은 수·목, Dia Beacon은 금–월만 엽니다."],
-  ["스테이크·인기 레스토랑", "Keens 등 저녁 예약 후 피자·델리·시장 음식은 현장 유연성을 남겨둡니다."],
-];
-
-const FIELD_NOTES = [
-  ["하루 한 권역", "오전·점심·오후를 같은 동네에 두고 공연 전에는 90분 호텔 휴식을 확보합니다."],
-  ["OMNY는 각자 한 결제수단", "2026년 지하철·버스 기본요금 $3, 같은 카드나 기기로 7일 $35 자동 상한이 적용됩니다."],
-  ["JFK는 출국 3시간 전", "낮 직항이면 07:30 전후 호텔 출발을 기준으로 잡습니다. AirTrain은 편도 $8.75입니다."],
-  ["우천 교체", "야외 일정과 미술관 일정을 바꿀 수 있도록 입장권 변경 조건을 확인합니다."],
-];
-
-function getInitialState() {
-  const params = new URLSearchParams(window.location.search);
-  let saved = {};
-  try { saved = JSON.parse(window.localStorage.getItem(STORAGE_KEY) || "{}"); } catch { saved = {}; }
-  const urlPlan = tripData.plans.findIndex((plan) => plan.id === params.get("plan"));
-  const urlDay = Number(params.get("day")) - 1;
-  const savedPlanIndex = Number.isInteger(saved.planIndex) ? saved.planIndex : 0;
-  const savedDayIndex = Number.isInteger(saved.dayIndex) ? saved.dayIndex : 0;
-  return {
-    planIndex: urlPlan >= 0 ? urlPlan : Math.max(0, Math.min(savedPlanIndex, tripData.plans.length - 1)),
-    dayIndex: Number.isInteger(urlDay) && urlDay >= 0 && urlDay < 7 ? urlDay : Math.max(0, Math.min(savedDayIndex, 6)),
-    arrival: ARRIVAL_OPTIONS.some((option) => option.id === saved.arrival) ? saved.arrival : "fri-night",
-    selectedIndex: Math.max(0, saved.selectedIndex || 0),
-    favorites: saved.favorites || {}, completed: saved.completed || {}, notes: saved.notes || {},
-    theme: saved.theme === "dark" ? "dark" : "light",
-    city: ["nyc", "tennessee", "sanjose"].includes(saved.city) ? saved.city : "nyc",
-    mobileView: saved.mobileView === "map" ? "map" : "itinerary",
-  };
+const ACCESS_GUIDE = {
+  "jfk-arrival": "공식 taxi 승강장에서 Midtown까지 45–90분·약 $93–110, 또는 AirTrain으로 Jamaica 이동 후 LIRR로 Penn Station까지 55–80분·1인 약 $14입니다.",
+  "midtown-hotel": "42 St–Bryant Park역(B·D·F·M) 또는 Times Sq–42 St역에서 도보로 닿는 W 39–42 St 권역을 권합니다.",
+  "bryant-park": "42 St–Bryant Park역(B·D·F·M) 5th Ave 출구가 가장 가깝습니다.",
+  nypl: "42 St–Bryant Park역 5th Ave 출구에서 도보 약 2분. Fifth Avenue 정문으로 들어갑니다.",
+  "grand-central": "Grand Central–42 St역(4·5·6·7·S)에서 Main Concourse 표지를 따릅니다.",
+  "st-patricks": "5 Av/53 St역(E·M)에서 도보 약 5분, 또는 Rockefeller Center에서 Fifth Avenue를 건넙니다.",
+  rockefeller: "47–50 Sts–Rockefeller Ctr역(B·D·F·M)에서 도보 약 3분입니다.",
+  ellens: "50 St역(1) 또는 49 St역(N·R·W)에서 도보 약 3분. 큰 짐 없이 방문합니다.",
+  "times-square": "Times Sq–42 St역(1·2·3·7·N·Q·R·W·S)에서 Broadway Plaza 표지를 따릅니다.",
+  "statue-liberty": "1선 South Ferry, R·W선 Whitehall St, 4·5선 Bowling Green역에서 Battery Park의 공식 Statue City Cruises 보안검색대로 갑니다.",
+  "wall-street": "2·3선 Wall St역 또는 4·5선 Wall St역에서 NYSE와 Federal Hall까지 도보 약 2–4분입니다.",
+  oculus: "WTC Cortlandt(1), Cortlandt St(R·W), Fulton St 여러 노선이 연결됩니다. Oculus 안에서 표지를 확인합니다.",
+  "brooklyn-bridge": "Manhattan 쪽은 Brooklyn Bridge–City Hall역(4·5·6)에서 보행자 입구까지 도보 약 5분입니다.",
+  "pebble-beach": "F선 York St역에서 도보 약 10분, A·C선 High St역에서 약 12분입니다.",
+  "river-cafe": "Pebble Beach에서 Water Street를 따라 도보 약 8분. 귀가는 A·C선 High St역 또는 taxi를 이용합니다.",
+  "tal-bagels": "4·5·6선 86 St역 Lexington Avenue 출구에서 도보 약 4분입니다.",
+  "central-park": "6선 77 St역에서 Fifth Avenue 79th Street 입구까지 도보 약 10분. 산책은 East 72nd Street 출구에서 마칩니다.",
+  guggenheim: "4·5·6선 86 St역에서 도보 약 12분. Central Park에서 오면 East 72nd Street 출구 기준 도보 18–22분 또는 taxi 8–12분입니다.",
+  "the-met": "4·5·6선 86 St역에서 M1·M2·M3·M4 bus로 갈아타거나 도보 약 15분입니다.",
+  "met-eatery": "The Met 입장 뒤 Ground Floor 식음 안내를 따릅니다. 재입장 동선을 만들지 않는 것이 목적입니다.",
+  moma: "5 Av/53 St역(E·M)에서 도보 약 4분, 47–50 Sts역(B·D·F·M)에서 약 7분입니다.",
+  "moma-lunch": "MoMA 관람 구역 안 2층입니다. 당일 식음 안내와 입장 동선을 따릅니다.",
+  "lincoln-center": "1선 66 St–Lincoln Center역에서 plaza까지 도보 약 2분입니다.",
+  broadway: "Belasco Theatre는 42 St–Bryant Park역에서 도보 약 5분. 공연 30분 전까지 입장합니다.",
+  "union-greenmarket": "14 St–Union Sq역(4·5·6·L·N·Q·R·W)에서 공원 서쪽 Greenmarket로 나옵니다.",
+  "harry-potter": "R·W선 23 St역에서 Broadway를 따라 남쪽으로 도보 약 3분입니다.",
+  "madison-square": "R·W선 23 St역 바로 옆. Harry Potter New York에서 도보 약 5분입니다.",
+  "chelsea-market": "14 St–8 Av역(A·C·E·L)에서 도보 약 5분입니다.",
+  "little-island": "Chelsea Market에서 10th Avenue를 건너 Hudson River 방향으로 도보 약 10분입니다.",
+  "empire-state": "34 St–Herald Sq역(B·D·F·M·N·Q·R·W)에서 도보 약 5분입니다.",
+  keens: "34 St–Herald Sq역에서 도보 약 3분. Empire State Building에서 약 6분입니다.",
+  soho: "Prince St역(N·R·W) 또는 Spring St역(6)에서 cast-iron district로 들어갑니다.",
+  stussy: "Prince St역(N·R·W)에서 Prince Street를 따라 도보 약 4분입니다.",
+  "san-gennaro": "Canal St역(6·N·Q·R·W·J·Z)에서 Mulberry Street 북쪽 방향으로 들어갑니다.",
+  "greenwich-village": "W 4 St–Washington Sq역(A·C·E·B·D·F·M)에서 Washington Square까지 도보 약 3분입니다.",
+  "joes-pizza": "W 4 St–Washington Sq역에서 Carmine Street까지 도보 약 3분입니다.",
+  "jfk-departure": "교통 상황이 평온하면 taxi 45–90분·약 $93–110, 정체가 심하면 Penn Station에서 LIRR+AirTrain 55–80분·1인 약 $14를 권합니다.",
+};
+function money(value) {
+  return `$${Math.round(Number(value) || 0).toLocaleString("en-US")}`;
 }
-
-async function writeClipboard(text) {
-  if (navigator.clipboard?.writeText) {
-    try { await navigator.clipboard.writeText(text); return; } catch { /* Safari·비보안 환경에서는 아래 호환 경로 사용 */ }
+function won(value, rate) {
+  const rounded = Math.round(((Number(value) || 0) * rate) / 1000) * 1000;
+  return `₩${rounded.toLocaleString("ko-KR")}`;
+}
+function itemCost(item, place) {
+  return Number.isFinite(Number(item.costUsd)) ? Number(item.costUsd) : Number(place?.costUsd || 0);
+}
+function writeClipboard(value) {
+  if (navigator.clipboard?.writeText) return navigator.clipboard.writeText(value);
+  const area = document.createElement("textarea");
+  area.value = value; area.style.position = "fixed"; area.style.opacity = "0";
+  document.body.appendChild(area); area.select(); document.execCommand("copy"); area.remove();
+  return Promise.resolve();
+}
+function toRad(value) { return value * Math.PI / 180; }
+function milesBetween(a, b) {
+  if (!a || !b) return 0;
+  const earth = 3958.8; const dLat = toRad(b[0] - a[0]); const dLon = toRad(b[1] - a[1]);
+  const x = Math.sin(dLat / 2) ** 2 + Math.cos(toRad(a[0])) * Math.cos(toRad(b[0])) * Math.sin(dLon / 2) ** 2;
+  return earth * 2 * Math.atan2(Math.sqrt(x), Math.sqrt(1 - x));
+}
+function routeAdvice(from, to) {
+  if (!from || !to) return [];
+  if (from.id === "statue-liberty") return [
+    { icon: Train, name: "공식 ferry", detail: "Battery Park 복귀 · 약 25–45분 · 입장권에 포함" },
+    { icon: NavigationArrow, name: "하선 뒤 도보", detail: "Wall Street까지 약 10–15분 · 무료" },
+  ];
+  const airport = from.id?.startsWith("jfk") || to.id?.startsWith("jfk");
+  if (airport) return [
+    { icon: NavigationArrow, name: "Yellow Taxi", detail: "45–90분 · 2인 $93–110 예상" },
+    { icon: Train, name: "AirTrain + LIRR", detail: "55–80분 · 1인 $14" },
+  ];
+  const miles = milesBetween(from.coords, to.coords);
+  const walk = Math.max(4, Math.round((miles / 2.8) * 60));
+  if (miles < 0.65) return [
+    { icon: NavigationArrow, name: "도보", detail: `${walk}분 · ${miles.toFixed(1)}mi · 무료` },
+    { icon: Train, name: "Taxi", detail: "교통에 따라 8–18분 · $13–22" },
+  ];
+  return [
+    { icon: Train, name: "지하철·버스", detail: `약 ${Math.max(15, Math.round(walk * 0.52))}–${Math.max(22, Math.round(walk * 0.7))}분 · 2인 $6` },
+    { icon: NavigationArrow, name: "Taxi", detail: `약 12–30분 · $15–35` },
+    { icon: NavigationArrow, name: "도보", detail: `약 ${walk}분 · ${miles.toFixed(1)}mi` },
+  ];
+}
+function dayBudget(day, places) {
+  let activity = 0;
+  let transit = 0;
+  day.items.forEach((item) => {
+    const place = places[item.placeId];
+    if (!place) return;
+    const cost = itemCost(item, place);
+    if (place.id === "jfk-departure") transit += cost;
+    else if (!["flight", "hotel", "transit"].includes(place.type)) activity += cost;
+  });
+  for (let index = 0; index < day.items.length - 1; index += 1) {
+    const from = places[day.items[index].placeId];
+    const to = places[day.items[index + 1].placeId];
+    if (!from || !to || from.id === "statue-liberty" || to.id === "jfk-departure") continue;
+    if (from.id === "jfk-arrival") { transit += 100; continue; }
+    if (milesBetween(from.coords, to.coords) >= 0.65) transit += 6;
   }
-  const input = document.createElement("textarea");
-  input.value = text; input.setAttribute("readonly", "");
-  input.style.position = "fixed"; input.style.opacity = "0";
-  document.body.appendChild(input); input.select(); const copied = document.execCommand("copy"); input.remove();
-  if (!copied) throw new Error("clipboard unavailable");
+  return { activity, transit, total: activity + transit };
+}
+function photoSrc(src) {
+  if (!src) return `${import.meta.env.BASE_URL}images/broadway.jpg`;
+  if (/^https?:/.test(src)) return src;
+  return `${import.meta.env.BASE_URL}${src.replace(/^\//, "")}`;
 }
 
-function PhotoFigure({ src, fallback, fallbackCredit, alt, credit, caption, className = "", priority = false }) {
-  const [displayCredit, setDisplayCredit] = useState(credit);
-  useEffect(() => { setDisplayCredit(credit); }, [credit, src]);
-  const handleError = (event) => {
-    if (event.currentTarget.dataset.fallback === "used") {
-      event.currentTarget.closest("figure")?.classList.add("is-broken"); return;
-    }
-    event.currentTarget.dataset.fallback = "used";
-    event.currentTarget.src = fallback || tripData.images.hero;
-    setDisplayCredit(fallbackCredit || tripData.credits.hero);
+function Image({ src, alt = "", className = "", priority = false }) {
+  const fallback = `${import.meta.env.BASE_URL}images/broadway.jpg`;
+  return <img className={className} src={photoSrc(src)} alt={alt} loading={priority ? "eager" : "lazy"} decoding="async" onError={(event) => { if (event.currentTarget.src !== fallback) event.currentTarget.src = fallback; }} />;
+}
+
+function IconButton({ label, children, className = "", ...props }) {
+  return <button type="button" className={`icon-button ${className}`} aria-label={label} title={label} {...props}>{children}</button>;
+}
+
+function getResolvedPlaces(plan) {
+  const musical = MUSICALS.find((entry) => entry.id === plan.selectedMusical) || MUSICALS[0];
+  return {
+    ...PLACES,
+    ...(plan.customPlaces || {}),
+    broadway: {
+      ...PLACES.broadway,
+      name: `Broadway Musical · ${musical.title}`,
+      shortName: `Broadway · ${musical.title}`,
+      costUsd: musical.budgetUsd,
+      costNote: `권장 좌석 2인 예산 · ${musical.prices[0][1]} / ${musical.prices.at(-1)[1]}`,
+      hours: `${musical.schedule} · ${musical.runtime}`,
+      reservation: musical.seat,
+      description: musical.verdict,
+      officialUrl: musical.url,
+    },
   };
-  return (
-    <figure className={`photo-figure ${className}`}>
-      <img src={src} alt={alt} loading={priority ? "eager" : "lazy"} fetchPriority={priority ? "high" : "auto"} decoding="async" onError={handleError} />
-      <figcaption><strong>{caption}</strong>{displayCredit && <a href={displayCredit} target="_blank" rel="noreferrer">사진 출처</a>}</figcaption>
-    </figure>
-  );
 }
 
-function IconAction({ label, children, className = "", ...props }) {
-  return <button className={`icon-action ${className}`} type="button" aria-label={label} title={label} {...props}>{children}</button>;
-}
-
-function CityEmpty({ city, onBack }) {
-  const content = city === "tennessee" ? {
-    eyebrow: "TENNESSEE · 출장 구간", title: "산의 리듬으로 넘어가는 다음 장",
-    text: "뉴욕 여행 뒤 이어지는 출장 일정입니다. 정확한 도시와 이동 시간이 확정되면 같은 시간표·지도 구조로 연결됩니다.",
-    image: tripData.images.tennessee, credit: tripData.credits.tennessee,
-  } : {
-    eyebrow: "SAN JOSE · 출장 구간", title: "서부의 빛으로 이어지는 마지막 장",
-    text: "산호세 구간은 출장 일정이 확정되기 전까지 장소와 이동 정보를 임의로 채우지 않았습니다.",
-    image: tripData.images.sanjose, credit: tripData.credits.sanjose,
-  };
-  return (
-    <main id="primary-content" className="city-empty" tabIndex={-1}>
-      <PhotoFigure src={content.image} alt={content.title} credit={content.credit} caption={content.eyebrow} className="city-empty-photo" />
-      <div className="city-empty-copy"><p className="eyebrow">{content.eyebrow}</p><h1>{content.title}</h1><p>{content.text}</p><div className="data-assurance"><Info size={20} />확정된 정보만 표시합니다.</div><button className="text-button" type="button" onClick={onBack}><ArrowRight size={18} /> 뉴욕 일정으로 돌아가기</button></div>
-    </main>
-  );
-}
-
-function DayRail({ plan, dayIndex, arrival, completed, onChange }) {
+function DayRail({ days, active, onChange }) {
+  const railRef = useRef(null);
   useEffect(() => {
-    if (!window.matchMedia("(max-width: 820px)").matches) return;
-    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    window.requestAnimationFrame(() => document.getElementById(`day-tab-${dayIndex}`)?.scrollIntoView({
-      behavior: reduceMotion ? "auto" : "smooth", block: "nearest", inline: "center",
-    }));
-  }, [dayIndex, plan.id]);
-  const onKeyDown = (event, index) => {
-    if (!["ArrowRight", "ArrowLeft", "Home", "End"].includes(event.key)) return;
-    event.preventDefault(); let next = index;
-    if (event.key === "ArrowRight") next = (index + 1) % plan.days.length;
-    if (event.key === "ArrowLeft") next = (index - 1 + plan.days.length) % plan.days.length;
-    if (event.key === "Home") next = 0; if (event.key === "End") next = plan.days.length - 1;
-    onChange(next); window.requestAnimationFrame(() => document.getElementById(`day-tab-${next}`)?.focus());
-  };
+    railRef.current?.querySelector(`[data-day="${active}"]`)?.scrollIntoView({ block: "nearest", inline: "center", behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+  }, [active]);
   return (
-    <nav className="day-rail" aria-label="7일 여행 날짜">
-      <button className="day-arrow" type="button" aria-label="이전 날짜" onClick={() => onChange((dayIndex - 1 + 7) % 7)}><CaretLeft size={18} /></button>
-      <div className="day-tabs" role="tablist" aria-label="날짜별 일정">
-        {plan.days.map((day, index) => {
-          const parts = dateParts(day.date); const stateKey = `${plan.id}-${index}${arrival === "sat-late" && index === 0 ? "-late" : ""}`; const count = completed[stateKey]?.length || 0;
-          return <button id={`day-tab-${index}`} key={day.date} className="day-tab" type="button" role="tab" aria-selected={index === dayIndex} tabIndex={index === dayIndex ? 0 : -1} onClick={() => onChange(index)} onKeyDown={(event) => onKeyDown(event, index)}><span>{parts.dayCode || `D${index + 1}`} · {parts.dateAndWeekday}</span><strong>{day.title}</strong>{count > 0 && <small>{count}/{day.stops.length} 완료</small>}</button>;
-        })}
+    <nav className="day-rail" aria-label="여행 날짜">
+      <IconButton label="이전 날짜" onClick={() => onChange(Math.max(0, active - 1))}><CaretLeft /></IconButton>
+      <div className="day-strip" ref={railRef} role="tablist">
+        {days.map((day, index) => <button key={day.id} data-day={index} type="button" role="tab" aria-selected={active === index} className="day-tab" onClick={() => onChange(index)}><span>{day.dayCode}</span><strong>{day.dateLabel.replace(/^\d+\//, "SEP ")}</strong><small>{day.title}</small></button>)}
       </div>
-      <button className="day-arrow" type="button" aria-label="다음 날짜" onClick={() => onChange((dayIndex + 1) % 7)}><CaretRight size={18} /></button>
+      <IconButton label="다음 날짜" onClick={() => onChange(Math.min(days.length - 1, active + 1))}><CaretRight /></IconButton>
     </nav>
   );
 }
 
-function TravelNote({ note, onNoteChange }) {
-  const [open, setOpen] = useState(Boolean(note));
+function TransitConnector({ from, to }) {
+  const [open, setOpen] = useState(false); const options = routeAdvice(from, to);
+  if (!to) return null;
   return (
-    <details className="travel-note" open={open} onToggle={(event) => setOpen(event.currentTarget.open)}>
-      <summary><NotePencil size={19} /> 여행 노트 <span>{note ? "저장됨" : "메모 남기기"}</span></summary>
-      <textarea value={note} onChange={(event) => onNoteChange(event.target.value)} placeholder="오늘 기억하고 싶은 장면이나 예약 메모를 적어 두세요." aria-label="선택한 날 여행 노트" />
-    </details>
-  );
-}
-
-function EditorialGallery({ plan, day, dayIndex, note, onNoteChange }) {
-  const candidates = day.stops
-    .map((stop) => ({ ...getMedia(stop.title, tripData, day.photo, day.credit), title: stop.title, kind: stop.kind }))
-    .filter((item) => item.key)
-    .filter((item, index, array) => array.findIndex((other) => other.src === item.src) === index);
-  const main = plan.id === "classic" && dayIndex === 0 ? { src: tripData.images.central, credit: tripData.credits.central, title: "Central Park · The Mall" } : { src: day.photo, credit: day.credit, title: day.title };
-  const available = candidates.filter((item) => item.src !== main.src);
-  const first = available.find((item) => ["SHOW", "VIEW", "CITY", "CULTURE", "NATURE", "LANDMARK"].includes(item.kind)) || available[0] || { src: tripData.images.times, credit: tripData.credits.times, title: "브로드웨이의 밤" };
-  const second = available.find((item) => item.kind === "FOOD" && item.src !== first.src) || available.find((item) => item.src !== first.src) || { src: tripData.images.keens, credit: tripData.credits.keens, title: "Keens Steakhouse" };
-  return (
-    <aside className="editorial-gallery" aria-label="선택한 날의 분위기">
-      <PhotoFigure src={main.src} fallback={tripData.images.hero} fallbackCredit={tripData.credits.hero} alt={`${main.title} 풍경`} credit={main.credit} caption={main.title} className="photo-main" priority />
-      <div className="photo-pair">{[first, second].map((item, index) => <PhotoFigure key={`${item.src}-${index}`} src={item.src} fallback={tripData.images.hero} alt={`${item.title} 분위기`} credit={item.credit} caption={item.title} className="photo-secondary" />)}</div>
-      <TravelNote key={`${plan.id}-${day.date}`} note={note} onNoteChange={onNoteChange} />
-    </aside>
-  );
-}
-
-function Itinerary({ day, dayIndex, selectedIndex, expandedIndices, favorites, completed, advice, itemRefs, onSelect, onToggleFavorite, onToggleComplete, onCopy }) {
-  return (
-    <section className="itinerary-panel" aria-labelledby="day-heading">
-      <header className="day-heading-row"><div><p className="eyebrow">D{dayIndex + 1} · {day.date.split("·")[0].trim()}</p><h1 id="day-heading">{day.title}</h1><p>{day.subtitle}</p></div><div className="day-facts" aria-label="하루 요약"><span><PersonSimpleWalk size={16} />{day.walk}</span><span><Bed size={16} />{day.rest}</span></div></header>
-      {advice && <div className="arrival-advice"><AirplaneLanding size={18} /><span><strong>선택한 도착편 반영</strong>{advice}</span></div>}
-      <ol className="itinerary-list">
-        {day.stops.map((stop, index) => {
-          const meta = getKindMeta(stop.kind); const KindIcon = KIND_ICONS[stop.kind] || Circle;
-          const media = getMedia(stop.title, tripData, day.photo, day.credit); const isSelected = index === selectedIndex;
-          const isExpanded = expandedIndices.includes(index); const isFavorite = favorites.includes(index); const isComplete = completed.includes(index);
-          const duration = formatDuration(getDurationMinutes(stop.time, stop.end));
-          return (
-            <li key={`${stop.time}-${stop.title}`} ref={(node) => { itemRefs.current[index] = node; }} className={`itinerary-stop ${isSelected ? "is-selected" : ""} ${isComplete ? "is-complete" : ""}`} data-tone={meta.tone}>
-              <button className="stop-select" type="button" aria-expanded={isExpanded} aria-current={isSelected ? "step" : undefined} onClick={() => onSelect(index, true)}>
-                <span className="stop-time">{stop.time}<small>{stop.end}</small></span><span className="stop-marker">{index + 1}</span><span className="stop-thumb"><img src={media.src} alt="" loading="lazy" decoding="async" /></span>
-                <span className="stop-copy"><span className="stop-meta"><KindIcon size={15} />{meta.label}{duration && ` · ${duration}`}</span><strong>{stop.title}</strong><small>{stop.move}</small></span>
-                {stop.reserve && <span className="reservation">{reservationLabel(stop.reserve)}</span>}
-              </button>
-              <div className="stop-actions" aria-label={`${stop.title} 동작`}><IconAction label={isFavorite ? "즐겨찾기 해제" : "즐겨찾기"} aria-pressed={isFavorite} onClick={() => onToggleFavorite(index)}><Heart size={20} weight={isFavorite ? "fill" : "regular"} /></IconAction><IconAction label={isComplete ? "완료 취소" : "완료 표시"} aria-pressed={isComplete} onClick={() => onToggleComplete(index)}>{isComplete ? <Check size={20} weight="bold" /> : <Circle size={20} />}</IconAction></div>
-              {isExpanded && <div className="stop-detail"><p>{stop.detail}</p><dl><div><dt>다음 이동</dt><dd>{nextStopMove(day, index)}</dd></div><div><dt>예약</dt><dd>{stop.reserve || "현장 상황에 맞춰 진행"}</dd></div></dl><div className="detail-actions"><button type="button" onClick={() => onCopy(stop)}><Copy size={17} /> 예약 정보 복사</button>{stop.url && <a href={stop.url} target="_blank" rel="noreferrer">공식 정보 <ArrowSquareOut size={16} /></a>}</div></div>}
-              {index < day.stops.length - 1 && <div className="route-connector" aria-hidden="true"><span /><small>{day.stops[index + 1].move || "다음 장소"}</small></div>}
-            </li>
-          );
-        })}
-      </ol>
-      <footer className="day-total"><span><NavigationArrow size={17} /> {day.stops.length}개 장소</span><span><PersonSimpleWalk size={17} /> {day.walk}</span><span><CloudRain size={17} /> {day.weather}</span></footer>
-      <details className="swap-note"><summary><CloudRain size={17} /> 날씨·일정 교체 팁</summary><p>{day.swap}</p></details>
-    </section>
-  );
-}
-
-function ContextPanel({ plan, day, selectedIndex, favorites, completed, onSelect, onToggleFavorite, onToggleComplete, onCopy }) {
-  const stop = day.stops[selectedIndex] || day.stops[0]; const media = getMedia(stop.title, tripData, day.photo, day.credit);
-  const meta = getKindMeta(stop.kind); const KindIcon = KIND_ICONS[stop.kind] || Circle;
-  const photoCaption = media.key === "hotelRoom" ? "뉴욕 호텔 객실 · 분위기 참고" : stop.title;
-  return (
-    <aside className="context-panel" aria-label="지도와 선택 장소 상세">
-      <div className="context-title"><h2>{day.date.split("·")[1]?.trim()} · {day.date.split("·")[0].trim()} 동선</h2><span>{day.stops.length}곳</span></div>
-      <RouteMap day={day} selectedIndex={selectedIndex} onSelect={onSelect} completed={completed} />
-      <div className="map-tools"><span>지도 번호와 일정 번호가 같습니다.</span><a href={getGoogleRouteUrl(day)} target="_blank" rel="noreferrer">전체 동선 <ArrowSquareOut size={14} /></a></div>
-      <div className="mobile-place-command"><span><small>선택 장소</small><strong>{stop.title}</strong></span><a href={getPlaceMapUrl(stop)} target="_blank" rel="noreferrer"><NavigationArrow size={18} /> 길찾기</a></div>
-      <article className="place-dossier"><p className="sr-only" role="status" aria-live="polite">{stop.time} {stop.title} 선택됨</p><div className="place-kicker"><span>{selectedIndex + 1}</span><KindIcon size={16} />{meta.label}</div><div className="place-heading"><div><h3>{stop.title}</h3><p>{stop.time}{stop.end && `–${stop.end}`} · {stop.move}</p></div><span className="place-reserve">{stop.reserve || "유연 일정"}</span></div><PhotoFigure src={media.src} fallback={day.photo} fallbackCredit={day.credit} alt={media.key === "hotelRoom" ? "뉴욕 호텔 객실 분위기 참고 사진" : `${stop.title} 분위기`} credit={media.credit} caption={photoCaption} className="place-photo" /><h4>왜 여기인가</h4><p>{stop.detail}</p><div className="place-stats"><span><Clock size={16} />{formatDuration(getDurationMinutes(stop.time, stop.end)) || "시간 여유"}</span><span><Ticket size={16} />{stop.reserve || "현장 진행"}</span>{stop.url && <a className="official-link" href={stop.url} target="_blank" rel="noreferrer">공식 정보 <ArrowSquareOut size={14} /></a>}</div><div className="place-actions"><a className="primary-action" href={getPlaceMapUrl(stop)} target="_blank" rel="noreferrer"><NavigationArrow size={18} /> 길찾기</a><IconAction label="예약 정보 복사" onClick={() => onCopy(stop)}><Copy size={20} /></IconAction><IconAction label={favorites.includes(selectedIndex) ? "즐겨찾기 해제" : "즐겨찾기"} aria-pressed={favorites.includes(selectedIndex)} onClick={() => onToggleFavorite(selectedIndex)}><Heart size={20} weight={favorites.includes(selectedIndex) ? "fill" : "regular"} /></IconAction><IconAction label={completed.includes(selectedIndex) ? "완료 취소" : "완료 표시"} aria-pressed={completed.includes(selectedIndex)} onClick={() => onToggleComplete(selectedIndex)}>{completed.includes(selectedIndex) ? <Check size={20} /> : <Circle size={20} />}</IconAction></div></article>
-    </aside>
-  );
-}
-
-function AtlasStrip({ onOpen }) {
-  return <section className="atlas-strip" aria-labelledby="atlas-strip-title"><header><h2 id="atlas-strip-title">동네와 맛의 아틀라스</h2><button type="button" onClick={() => onOpen("places")}>모두 보기 <ArrowRight size={17} /></button></header><div className="atlas-cards">{ATLAS_ITEMS.map((item) => <button key={item.key} className="atlas-card" type="button" onClick={() => onOpen(["pizza", "lobster", "porterhouse"].includes(item.key) ? "food" : "places")}><img src={tripData.images[item.key]} alt={`${item.label} 분위기`} loading="lazy" decoding="async" /><span><strong>{item.label}</strong><small>{item.sub}</small></span></button>)}</div></section>;
-}
-
-function PlanOverview({ plan, onJumpToDay, onPrint }) {
-  return (
-    <div className="plan-overview-layout">
-      <section className="plan-editorial-intro">
-        <PhotoFigure src={plan.thumbnail} fallback={plan.days[0].photo} fallbackCredit={plan.days[0].credit} alt={`${plan.short} 대표 풍경`} credit={getImageCredit(plan.thumbnail, tripData, plan.days[0].credit)} caption={`PLAN ${plan.number} · ${plan.short}`} className="plan-cover-photo" priority />
-        <p className="eyebrow">{plan.bestFor}</p>
-        <h3>{plan.title}</h3>
-        <p>{plan.subtitle}</p>
-        <dl className="plan-metrics"><div><dt>강도</dt><dd>{plan.pace}</dd></div><div><dt>자연</dt><dd>{plan.nature}</dd></div><div><dt>숙박 이동</dt><dd>{plan.hotelMoves}</dd></div></dl>
-        <blockquote>{stripMarkup(plan.verdict)}</blockquote>
-        <button className="print-guide-button" type="button" onClick={onPrint}><Printer size={18} /> 7일 가이드 인쇄·PDF 저장</button>
-      </section>
-      <section className="flight-overview" aria-labelledby="flight-overview-title">
-        <p className="eyebrow">9박 10일 · 국제선 기준안</p>
-        <h3 id="flight-overview-title">인천에서 뉴욕, 다시 인천까지</h3>
-        <ol>{FLIGHT_TIMELINE.map((flight) => <li key={`${flight.date}-${flight.time}`}><time>{flight.time}</time><span><small>{flight.date}</small><strong>{flight.title}</strong><em>{flight.note}</em></span></li>)}</ol>
-        <p className="flight-caption">항공 시간은 발권 직전 항공사 화면에서 다시 확인하세요.</p>
-      </section>
-      <section className="seven-day-index" aria-labelledby="seven-day-title">
-        <header><div><p className="eyebrow">9/19–9/25 · NEW YORK</p><h3 id="seven-day-title">7일 전체 흐름</h3></div><span>하루 한 권역 · 충분한 휴식</span></header>
-        <ol>{plan.days.map((day, index) => <li key={day.date}><button type="button" onClick={() => onJumpToDay(index, day.stops[0])}><span>D{index + 1}</span><div><small>{dateParts(day.date).dateAndWeekday}</small><strong>{day.title}</strong><p>{day.subtitle}</p><em><CloudRain size={14} /> {day.swap}</em></div><ArrowRight size={18} /></button></li>)}</ol>
-      </section>
+    <div className="transit-connector">
+      <button type="button" onClick={() => setOpen(!open)} aria-expanded={open}><span className="connector-line" /><Train />{options[0]?.detail}<CaretDown className={open ? "turn" : ""} /></button>
+      {open && <div className="transit-options">{options.map(({ icon: ChoiceIcon, name, detail }) => <div key={name}><ChoiceIcon /><strong>{name}</strong><span>{detail}</span></div>)}</div>}
     </div>
   );
 }
 
-function AtlasOverlay({ plan, activeTab, onTab, onClose, onJumpToDay, onPrint }) {
-  const uniquePlaces = useMemo(() => { const seen = new Set(); return plan.days.flatMap((day, dayIndex) => day.stops.map((stop) => ({ day, dayIndex, stop }))).filter(({ stop }) => { if (seen.has(stop.title)) return false; seen.add(stop.title); return true; }); }, [plan]);
-  const tabs = [["overview", "여행안"], ["places", "장소"], ["food", "맛"], ["stays", "숙소"], ["booking", "예약"], ["sources", "출처"]];
-  const dialogRef = useRef(null); const tabRefs = useRef([]); const closeRef = useRef(onClose);
-  useEffect(() => { closeRef.current = onClose; }, [onClose]);
-  useEffect(() => {
-    const previousFocus = document.activeElement;
-    const siblings = [...document.querySelectorAll(".app-shell > :not(.overlay-backdrop):not(.toast)")];
-    const originalOverflow = document.body.style.overflow;
-    siblings.forEach((node) => { node.inert = true; });
-    document.body.style.overflow = "hidden";
-    window.requestAnimationFrame(() => dialogRef.current?.querySelector(".overlay-header button")?.focus());
-    const trapFocus = (event) => {
-      if (event.key === "Escape") { event.preventDefault(); closeRef.current(); return; }
-      if (event.key !== "Tab") return;
-      const focusable = [...dialogRef.current.querySelectorAll('button:not([disabled]), a[href], input:not([disabled]), textarea:not([disabled]), select:not([disabled]), summary')].filter((node) => node.offsetParent !== null);
-      if (!focusable.length) return;
-      const first = focusable[0], last = focusable[focusable.length - 1];
-      if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
-      else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
-    };
-    document.addEventListener("keydown", trapFocus);
-    return () => {
-      document.removeEventListener("keydown", trapFocus);
-      siblings.forEach((node) => { node.inert = false; });
-      document.body.style.overflow = originalOverflow;
-      previousFocus?.focus?.();
-    };
-  }, []);
-  const onTabKeyDown = (event, index) => {
-    if (!["ArrowRight", "ArrowLeft", "Home", "End"].includes(event.key)) return;
-    event.preventDefault(); let next = index;
-    if (event.key === "ArrowRight") next = (index + 1) % tabs.length;
-    if (event.key === "ArrowLeft") next = (index - 1 + tabs.length) % tabs.length;
-    if (event.key === "Home") next = 0; if (event.key === "End") next = tabs.length - 1;
-    onTab(tabs[next][0]); window.requestAnimationFrame(() => tabRefs.current[next]?.focus());
-  };
+function TimelineItem({ item, place, index, previousTime, nextPlace, selected, expanded, completed, favorite, rate, onSelect, onExpand, onUpdate, onMove, onRemove, onToggleDone, onToggleFavorite, onOpenDetail }) {
+  const MetaIcon = TYPE_ICONS[place.type] || MapPin;
+  const cost = itemCost(item, place);
   return (
-    <div className="overlay-backdrop" role="presentation" onMouseDown={(event) => { if (event.target === event.currentTarget) onClose(); }}>
-      <section ref={dialogRef} className="atlas-overlay" role="dialog" aria-modal="true" aria-labelledby="atlas-title"><header className="overlay-header"><div><p className="eyebrow">PLAN {plan.number} · VISUAL INDEX</p><h2 id="atlas-title">{plan.short} 아틀라스</h2></div><IconAction label="아틀라스 닫기" onClick={onClose}><X size={24} /></IconAction></header><nav className="overlay-tabs" role="tablist" aria-label="아틀라스 범주">{tabs.map(([id, label], index) => <button ref={(node) => { tabRefs.current[index] = node; }} id={`atlas-tab-${id}`} key={id} type="button" role="tab" aria-selected={activeTab === id} aria-controls="atlas-panel" tabIndex={activeTab === id ? 0 : -1} onClick={() => onTab(id)} onKeyDown={(event) => onTabKeyDown(event, index)}>{label}</button>)}</nav>
-        <div id="atlas-panel" className="overlay-content" role="tabpanel" aria-labelledby={`atlas-tab-${activeTab}`}>
-          {activeTab === "overview" && <PlanOverview plan={plan} onJumpToDay={onJumpToDay} onPrint={onPrint} />}
-          {activeTab === "places" && <div className="place-atlas-grid">{uniquePlaces.map(({ day, dayIndex, stop }) => { const media = getMedia(stop.title, tripData, day.photo, day.credit); return <button key={`${dayIndex}-${stop.time}-${stop.title}`} type="button" className="place-atlas-item" onClick={() => onJumpToDay(dayIndex, stop)}><img src={media.src} alt="" loading="lazy" decoding="async" /><span><small>D{dayIndex + 1} · {stop.time}</small><strong>{stop.title}</strong><em>{getKindMeta(stop.kind).label}</em></span></button>; })}</div>}
-          {activeTab === "food" && <div className="editorial-catalog food-catalog">{plan.foods.map((food) => { const media = getMedia(food.name, tripData, tripData.images.pizza, tripData.credits.pizza); return <article key={food.name}><PhotoFigure src={media.src} fallback={tripData.images.pizza} fallbackCredit={tripData.credits.pizza} alt={`${food.name} 음식과 공간`} credit={media.credit} caption={food.name} /><p className="eyebrow">{food.cuisine}</p><h3>{food.name}</h3><p>{food.text}</p><dl><div><dt>추천 메뉴</dt><dd>{food.dish}</dd></div><div><dt>예약 팁</dt><dd>{food.tip}</dd></div></dl><a href={food.site} target="_blank" rel="noreferrer">메뉴·예약 <ArrowSquareOut size={16} /></a></article>; })}</div>}
-          {activeTab === "stays" && <div className="stay-layout"><PhotoFigure src={plan.area.photo} fallback={plan.days[0].photo} fallbackCredit={plan.days[0].credit} alt={`${plan.area.name} 숙박 권역`} credit={getImageCredit(plan.area.photo, tripData, plan.days[0].credit)} caption={plan.area.name} className="stay-area-photo" /><div className="stay-area-copy"><p className="eyebrow">추천 숙박 권역</p><h3>{plan.area.name}</h3><p>{plan.area.text}</p><div className="caution"><Info size={19} />{plan.area.caution}</div></div><div className="editorial-catalog hotel-catalog">{plan.hotels.map((hotel) => <article key={hotel.name}><p className="eyebrow">{hotel.tier}</p><h3>{hotel.name}</h3><p>{hotel.text}</p><ul>{hotel.bullets.map((bullet) => <li key={bullet}>{bullet}</li>)}</ul><div><a href={hotel.site} target="_blank" rel="noreferrer">호텔 보기</a><a href={hotel.map} target="_blank" rel="noreferrer">지도</a></div></article>)}</div></div>}
-          {activeTab === "booking" && <div className="booking-layout"><section><p className="eyebrow">예약 순서</p><h3>지금 먼저 확정할 것</h3><ol className="booking-list">{BOOKING_STEPS.map(([title, text], index) => <li key={title}><span>{index + 1}</span><div><strong>{title}</strong><p>{text}</p></div></li>)}</ol><button className="print-guide-button" type="button" onClick={onPrint}><Printer size={18} /> 전체 가이드 인쇄·PDF 저장</button></section><aside><p className="eyebrow">현장 원칙</p><h3>덜 지치는 여행</h3><dl>{FIELD_NOTES.map(([title, text]) => <div key={title}><dt>{title}</dt><dd>{text}</dd></div>)}</dl><div className="notice-stack"><details open><summary>UN 총회와 정확히 겹칩니다</summary><p>고위급 주간 9/18–28, 일반토의 9/22–26. Midtown East·UN 본부 주변 차량 통제와 호텔 수요가 큽니다. 차보다 지하철을 쓰고 숙소는 Bryant Park 서쪽·NoMad·Chelsea·Downtown을 우선하세요.</p></details><details><summary>귀국 구간은 추석 연휴입니다</summary><p>한국 추석 연휴 9/24–26과 겹쳐 좌석·운임 변동 가능성이 큽니다. 국제선을 먼저 확정하고 발권 직전 항공사 화면에서 시간을 재확인하세요.</p></details><details><summary>해질녘은 18:47–18:58입니다</summary><p>9/19 일몰 18:58, 9/25 일몰 18:47. 전망대·브루클린 수변은 일몰 60–75분 전 예약하면 낮 풍경과 야경을 모두 보기 좋습니다.</p></details></div></aside></div>}
-          {activeTab === "sources" && <div className="sources-layout">{[["core", "항공·행사·교통"], ["places", "관광·공연"], ["images", "사진·라이선스"]].map(([key, label]) => <section key={key}><h3>{label}</h3><ol>{tripData.sources[key].map(([title, url]) => <li key={`${title}-${url}`}><a href={url} target="_blank" rel="noreferrer">{title}<ArrowSquareOut size={14} /></a></li>)}</ol></section>)}</div>}
+    <li className={`timeline-stop ${selected ? "is-selected" : ""} ${completed ? "is-complete" : ""}`} data-tone={TYPE_META[place.type]?.tone || "sight"}>
+      <article>
+        <button type="button" className="stop-lead" onClick={() => { onSelect(); onExpand(); }} aria-expanded={expanded}>
+          <span className="stop-number">{completed ? <Check weight="bold" /> : index + 1}</span>
+          <Image src={place.image} alt="" className="stop-image" />
+          <span className="stop-copy">
+            <span className="stop-kicker"><MetaIcon />{TYPE_META[place.type]?.label} · {place.area}</span>
+            <strong>{place.shortName}</strong>
+            <small>{item.note || place.description}</small>
+          </span>
+          <span className="stop-essential"><b>{item.time}</b><em>{money(cost)} · {won(cost, rate)}</em></span>
+        </button>
+        <div className="stop-tools">
+          <IconButton label={completed ? "완료 취소" : "완료 표시"} aria-pressed={completed} onClick={onToggleDone}><CheckCircle weight={completed ? "fill" : "regular"} /></IconButton>
+          <IconButton label={favorite ? "저장 취소" : "마음에 드는 장소로 저장"} aria-pressed={favorite} onClick={onToggleFavorite}><Heart weight={favorite ? "fill" : "regular"} /></IconButton>
+          <IconButton label="앞으로 이동" disabled={index === 0} onClick={() => onMove(-1)}><ArrowUp /></IconButton>
+          <IconButton label="뒤로 이동" disabled={!nextPlace} onClick={() => onMove(1)}><ArrowDown /></IconButton>
+          <IconButton label="일정에서 빼기" onClick={onRemove}><Trash /></IconButton>
         </div>
-      </section>
-    </div>
+        {expanded && <div className="stop-expanded">
+          <div className="quick-edit"><label><Clock />시각<input type="time" value={item.time} onChange={(event) => onUpdate({ time: event.target.value })} /></label><label><CurrencyDollar />2인 예상<input type="number" min="0" step="1" value={cost} onChange={(event) => onUpdate({ costUsd: Number(event.target.value) })} /></label></div>
+          {previousTime && item.time < previousTime && <p className="time-warning"><Warning /> 앞 일정보다 이른 시각입니다. 시각을 다시 확인해 주세요.</p>}
+          <p>{place.description}</p>
+          <div className="expanded-actions"><button type="button" onClick={onOpenDetail}><BookOpen /> 사진과 상세 정보</button><button type="button" onClick={() => writeClipboard(`${place.name}\n${item.time} · ${place.address}\n${place.reservation || "예약 불필요"}`)}><Copy /> 예약 메모 복사</button></div>
+        </div>}
+      </article>
+      <TransitConnector from={place} to={nextPlace} />
+    </li>
   );
 }
 
-function PrintGuide({ plan }) {
-  return (
-    <article className="print-guide" aria-hidden="true">
-      <header><p>NYC · 둘이서 천천히</p><h1>{plan.number}. {plan.title}</h1><p>2026년 9월 18–27일 · 9박 10일 · {plan.bestFor}</p><p>{plan.subtitle}</p></header>
-      <section><h2>국제선 기준안</h2><ol className="print-flights">{FLIGHT_TIMELINE.map((flight) => <li key={`${flight.date}-${flight.time}`}><strong>{flight.time}</strong> · {flight.date} · {flight.title} — {flight.note}</li>)}</ol></section>
-      <section><h2>플랜 판단</h2><p>{stripMarkup(plan.verdict)}</p><dl><div><dt>강도</dt><dd>{plan.pace}</dd></div><div><dt>자연</dt><dd>{plan.nature}</dd></div><div><dt>숙박 이동</dt><dd>{plan.hotelMoves}</dd></div></dl></section>
-      {plan.days.map((day, dayIndex) => <section className="print-day" key={day.date}><header><p>D{dayIndex + 1} · {day.date}</p><h2>{day.title}</h2><p>{day.subtitle}</p><p>{day.walk} · {day.rest} · {day.weather}</p></header><ol>{day.stops.map((stop) => <li key={`${stop.time}-${stop.title}`}><time>{stop.time}{stop.end && `–${stop.end}`}</time><div><h3>{stop.title}</h3><p>{stop.detail}</p><p><strong>이동</strong> {stop.move || "—"}</p><p><strong>예약</strong> {stop.reserve || "현장 진행"}</p>{stop.url && <p>{stop.url}</p>}</div></li>)}</ol><aside><strong>일정 교체 팁</strong> {day.swap}</aside></section>)}
-      <section><h2>추천 숙박 권역</h2><h3>{plan.area.name}</h3><p>{plan.area.text}</p><p><strong>주의</strong> {plan.area.caution}</p>{plan.hotels.map((hotel) => <article key={hotel.name}><h3>{hotel.name} · {hotel.tier}</h3><p>{hotel.text}</p><ul>{hotel.bullets.map((bullet) => <li key={bullet}>{bullet}</li>)}</ul><p>{hotel.site}</p></article>)}</section>
-      <section><h2>맛의 목록</h2>{plan.foods.map((food) => <article key={food.name}><h3>{food.name} · {food.cuisine}</h3><p>{food.text}</p><p><strong>추천 메뉴</strong> {food.dish}</p><p><strong>예약 팁</strong> {food.tip}</p><p>{food.site}</p></article>)}</section>
-      <section><h2>예약 우선순위</h2><ol>{BOOKING_STEPS.map(([title, text]) => <li key={title}><strong>{title}</strong> — {text}</li>)}</ol><h2>현장 원칙</h2><dl>{FIELD_NOTES.map(([title, text]) => <div key={title}><dt>{title}</dt><dd>{text}</dd></div>)}</dl></section>
-      <section><h2>공식 출처</h2>{Object.values(tripData.sources).flat().map(([title, url]) => <p key={`${title}-${url}`}>{title}: {url}</p>)}</section>
-    </article>
-  );
+function CandidateCard({ place, rate, favorite, onAdd, onDetail, onFavorite }) {
+  return <article className="candidate-card">
+    <button type="button" className="candidate-photo" onClick={onDetail}><Image src={place.image} alt={`${place.shortName} 분위기`} /><span>{place.area}</span></button>
+    <div><button type="button" className="candidate-title" onClick={onDetail}>{place.shortName}</button><p>{place.description}</p><span>{money(place.costUsd)} · {won(place.costUsd, rate)}</span></div>
+    <div className="candidate-actions"><IconButton label={favorite ? "저장 취소" : "저장"} onClick={onFavorite}><Heart weight={favorite ? "fill" : "regular"} /></IconButton><button type="button" onClick={onAdd}><Plus /> 일정에 추가</button></div>
+  </article>;
+}
+
+function DetailSheet({ place, rate, favorite, onFavorite, onClose }) {
+  if (!place) return null;
+  const MetaIcon = TYPE_ICONS[place.type] || MapPin;
+  return <div className="sheet-backdrop" role="presentation" onMouseDown={(event) => { if (event.target === event.currentTarget) onClose(); }}>
+    <section className="detail-sheet" role="dialog" aria-modal="true" aria-labelledby="detail-title">
+      <div className="sheet-handle" aria-hidden="true" />
+      <Image src={place.image} alt={`${place.name} 전경`} className="detail-hero" />
+      <header><div><span className="eyebrow"><MetaIcon />{TYPE_META[place.type]?.label} · {place.area}</span><h2 id="detail-title">{place.name}</h2><p>{place.address}</p></div><IconButton label="닫기" onClick={onClose}><X /></IconButton></header>
+      <div className="detail-body">
+        <div className="detail-facts"><div><Clock /><span>운영 시간<strong>{place.hours}</strong></span></div><div><Wallet /><span>2인 예상 금액<strong>{money(place.costUsd)} · {won(place.costUsd, rate)}</strong><small>{place.costNote}</small></span></div><div><Ticket /><span>예약<strong>{place.reservation || "예약 불필요"}</strong></span></div></div>
+        <p className="detail-description">{place.description}</p>
+        <section className="detail-access"><h3>가는 방법</h3><p><MapPin />{place.access || ACCESS_GUIDE[place.id] || `${place.address}. 일정 항목 사이의 이동 안내를 열면 현재 순서에 맞는 도보·대중교통·택시 예상 시간을 볼 수 있습니다.`}</p></section>
+        {place.gallery?.length > 0 && <section><h3>대표 작품과 공간</h3><div className="media-grid">{place.gallery.map((entry) => <figure key={entry.title}><Image src={entry.image} alt={entry.title} /><figcaption><strong>{entry.title}</strong><span>{entry.caption}</span></figcaption></figure>)}</div></section>}
+        {place.menu?.length > 0 && <section><h3>대표 메뉴</h3><div className="media-grid">{place.menu.map((entry) => <figure key={entry.name}><Image src={entry.image} alt={entry.name} /><figcaption><strong>{entry.name} · {entry.price}</strong><span>{entry.note}</span></figcaption></figure>)}</div></section>}
+        {place.highlights?.length > 0 && <section><h3>이곳에서 볼 것</h3><div className="highlight-list">{place.highlights.map((entry) => <div key={entry.title}><strong>{entry.title}</strong><p>{entry.text}</p></div>)}</div></section>}
+        {place.tips?.length > 0 && <section><h3>여행 팁</h3><ul className="tips-list">{place.tips.map((tip) => <li key={tip}>{tip}</li>)}</ul></section>}
+        {place.google && <section className="review-panel"><div><Star weight="fill" /><strong>{place.google.score}</strong><span>Google · {place.google.volume}</span></div>{place.google.summary.map((text) => <p key={text}>{text}</p>)}<small>{place.google.checked}</small></section>}
+        <div className="sheet-actions"><button type="button" onClick={onFavorite}><Heart weight={favorite ? "fill" : "regular"} />{favorite ? "저장됨" : "마음에 드는 장소로 저장"}</button>{place.officialUrl && <a href={place.officialUrl} target="_blank" rel="noreferrer">공식 정보 확인 <ArrowSquareOut /></a>}</div>
+        {place.imageCredit && <p className="photo-credit">사진: {place.imageCredit}</p>}
+      </div>
+    </section>
+  </div>;
+}
+
+function LibrarySheet({ places, currentIds, rate, favorites, onAdd, onDetail, onFavorite, onClose, onAddCustom }) {
+  const [type, setType] = useState("all");
+  const [customOpen, setCustomOpen] = useState(false);
+  const visible = Object.values(places).filter((place) => !currentIds.includes(place.id) && !["flight", "hotel", "transit"].includes(place.type) && (type === "all" || place.type === type));
+  return <div className="sheet-backdrop"><section className="library-sheet" role="dialog" aria-modal="true" aria-label="장소 후보">
+    <header><div><span className="eyebrow">PLACE LIBRARY</span><h2>오늘 일정에 더할 장소</h2></div><IconButton label="닫기" onClick={onClose}><X /></IconButton></header>
+    <div className="type-tabs" role="tablist">{[["all", "전체"], ["sight", "관광"], ["culture", "문화"], ["food", "맛집"], ["cafe", "카페"], ["shopping", "쇼핑"]].map(([key, label]) => <button type="button" key={key} aria-selected={type === key} onClick={() => setType(key)}>{label}</button>)}</div>
+    <div className="library-grid">{visible.map((place) => <CandidateCard key={place.id} place={place} rate={rate} favorite={favorites.includes(place.id)} onAdd={() => onAdd(place.id)} onDetail={() => onDetail(place.id)} onFavorite={() => onFavorite(place.id)} />)}</div>
+    <button type="button" className="custom-toggle" onClick={() => setCustomOpen(!customOpen)}><Plus /> 목록에 없는 장소 직접 추가</button>
+    {customOpen && <CustomPlaceForm onSubmit={onAddCustom} />}
+  </section></div>;
+}
+
+function CustomPlaceForm({ onSubmit }) {
+  const [form, setForm] = useState({ name: "", area: "", address: "", time: "15:00", cost: 0, type: "sight", lat: "40.754", lng: "-73.984" });
+  const change = (key, value) => setForm((current) => ({ ...current, [key]: value }));
+  return <form className="custom-form" onSubmit={(event) => { event.preventDefault(); if (form.name.trim()) onSubmit(form); }}>
+    <label>장소 이름<input required value={form.name} onChange={(event) => change("name", event.target.value)} /></label><label>동네<input value={form.area} onChange={(event) => change("area", event.target.value)} /></label><label className="wide">주소<input value={form.address} onChange={(event) => change("address", event.target.value)} /></label><label>시간<input type="time" value={form.time} onChange={(event) => change("time", event.target.value)} /></label><label>2인 예상 $<input type="number" min="0" value={form.cost} onChange={(event) => change("cost", event.target.value)} /></label><label>분류<select value={form.type} onChange={(event) => change("type", event.target.value)}><option value="sight">관광</option><option value="culture">문화</option><option value="food">식사</option><option value="cafe">카페</option><option value="shopping">쇼핑</option></select></label><label>위도<input type="number" step="any" value={form.lat} onChange={(event) => change("lat", event.target.value)} /></label><label>경도<input type="number" step="any" value={form.lng} onChange={(event) => change("lng", event.target.value)} /></label><button type="submit"><Plus /> 일정에 추가</button>
+  </form>;
+}
+
+function GuidePanel({ mode, plan, setPlan, rate, dayBudgets, onClose }) {
+  const selectedHotel = HOTELS.find((hotel) => hotel.id === plan.selectedHotel) || HOTELS[0];
+  const hotelRoom = selectedHotel.roomTypes[plan.selectedRoom] || selectedHotel.roomTypes[0];
+  const hotelBase = (((hotelRoom.nightly[0] + hotelRoom.nightly[1]) / 2) + (selectedHotel.mandatoryFeePerNight || 0)) * TRIP_META.nights;
+  const hotelMid = hotelBase * 1.1475 + (3.5 * TRIP_META.nights);
+  const activity = dayBudgets.reduce((sum, value) => sum + value.activity, 0);
+  const transit = dayBudgets.reduce((sum, value) => sum + value.transit, 0);
+  return <div className="sheet-backdrop"><section className="guide-sheet" role="dialog" aria-modal="true" aria-labelledby="guide-title"><header><div><span className="eyebrow">TRIP NOTES</span><h2 id="guide-title">{mode === "hotels" ? "숙소 비교" : mode === "shows" ? "공연과 투어" : mode === "budget" ? "전체 예상 경비" : "여행 기간의 특별한 장면"}</h2></div><IconButton label="닫기" onClick={onClose}><X /></IconButton></header>
+    {mode === "hotels" && <div className="hotel-list">{HOTELS.map((hotel) => <article key={hotel.id} className={plan.selectedHotel === hotel.id ? "selected" : ""}><Image src={hotel.image} alt={`${hotel.name} 주변 분위기`} /><div><span>{hotel.area}</span><h3>{hotel.name}</h3><p>{hotel.why}</p><small>{hotel.note}</small><div className="room-options">{hotel.roomTypes.map((room, index) => <button type="button" key={room.name} className={plan.selectedHotel === hotel.id && plan.selectedRoom === index ? "selected" : ""} onClick={() => setPlan((current) => ({ ...current, selectedHotel: hotel.id, selectedRoom: index }))}><strong>{room.name}</strong><span>{money(room.nightly[0])}–{money(room.nightly[1])} / 박</span><small>{won(room.nightly[0], rate)}–{won(room.nightly[1], rate)}</small></button>)}</div></div></article>)}</div>}
+    {mode === "shows" && <>
+      <section className="show-section">
+        <h3>Broadway 후보 · 9/22 화요일</h3>
+        <div className="show-grid">{MUSICALS.map((show, index) => (
+          <article key={show.id} className={plan.selectedMusical === show.id ? "selected" : ""}>
+            <span>0{index + 1}</span><h4>{show.title}</h4><p>{show.fit}</p>
+            <dl><div><dt>공연</dt><dd>{show.schedule}</dd></div><div><dt>러닝타임</dt><dd>{show.runtime}</dd></div><div><dt>권장 좌석</dt><dd>{show.seat}</dd></div></dl>
+            <div className="price-lines">{show.prices.map(([label, price]) => <div key={label}><span>{label}</span><strong>{price}</strong></div>)}</div>
+            <p>{show.verdict}</p>
+            <button type="button" onClick={() => setPlan((current) => ({
+              ...current,
+              selectedMusical: show.id,
+              days: current.days.map((entry) => ({ ...entry, items: entry.items.map((item) => item.placeId === "broadway" ? { ...item, costUsd: show.budgetUsd } : item) })),
+            }))}>{plan.selectedMusical === show.id ? <Check /> : <Ticket />}{plan.selectedMusical === show.id ? "일정에 선택됨" : "이 공연으로 바꾸기"}</button>
+          </article>
+        ))}</div>
+      </section>
+      <section className="tour-list"><h3>편하게 둘러보는 투어</h3>{TOUR_OPTIONS.map((tour) => <article key={tour.title}><div><h4>{tour.title}</h4><p>{tour.fit}</p></div><strong>{tour.price}</strong><span>{tour.time}</span><small>{tour.caution}</small></article>)}</section>
+    </>}
+    {mode === "budget" && <div className="budget-panel"><div className="fx-edit"><label>적용 환율 · $1 = ₩<input type="number" min="900" max="2000" value={rate} onChange={(event) => setPlan((current) => ({ ...current, fxRate: Number(event.target.value) || FX_RATE }))} /></label><small>2026. 9. 4 종가 부근을 둥글게 적용했습니다.</small></div><div className="budget-total"><span>2인 총 예상 경비</span><strong>{money(activity + transit + hotelMid)}</strong><em>{won(activity + transit + hotelMid, rate)}</em><small>항공권·쇼핑 제외, 선택 객실 중간값·시설 이용료·세금 추정 포함</small></div><div className="budget-table"><div className="head"><span>날짜</span><span>관광·식사</span><span>교통 추정</span><span>합계</span></div>{plan.days.map((day, index) => <div key={day.id}><span>{day.dateLabel}</span><span>{money(dayBudgets[index].activity)}</span><span>{money(dayBudgets[index].transit)}</span><strong>{money(dayBudgets[index].total)}<small>{won(dayBudgets[index].total, rate)}</small></strong></div>)}<div><span>숙소 · 6박</span><span>{selectedHotel.name}<small>{hotelRoom.name}</small></span><span>세금·시설 이용료 추정 포함</span><strong>{money(hotelMid)}<small>{won(hotelMid, rate)}</small></strong></div></div></div>}
+    {mode === "events" && <div className="events-layout"><section><h3>날짜가 맞는 행사</h3>{SPECIAL_EVENTS.map((event) => <article key={`${event.date}-${event.title}`}><time>{event.date}</time><div><h4>{event.title}</h4><span>{event.place}</span><p>{event.note}</p></div><b>{event.status}</b></article>)}</section><section><h3>놀이공원은 어떨까?</h3>{THEME_PARKS.map((park) => <article key={park.name}><div><h4>{park.name}</h4><span>{park.distance}</span><p>{park.verdict}</p></div><strong>{park.price}</strong></article>)}</section><section><h3>출발 전에 다시 확인</h3>{PRACTICAL_NOTES.map((note) => <article key={note.title}><Info /><div><h4>{note.title}</h4><p>{note.text}</p></div></article>)}</section></div>}
+  </section></div>;
 }
 
 export function App() {
-  const initial = useMemo(getInitialState, []);
-  const [planIndex, setPlanIndex] = useState(initial.planIndex), [dayIndex, setDayIndex] = useState(initial.dayIndex), [arrival, setArrival] = useState(initial.arrival), [selectedIndex, setSelectedIndex] = useState(initial.selectedIndex), [expandedIndices, setExpandedIndices] = useState([]);
-  const [favorites, setFavorites] = useState(initial.favorites), [completed, setCompleted] = useState(initial.completed), [notes, setNotes] = useState(initial.notes), [theme, setTheme] = useState(initial.theme);
-  const [city, setCity] = useState(initial.city), [mobileView, setMobileView] = useState(initial.mobileView), [planMenuOpen, setPlanMenuOpen] = useState(false), [arrivalOpen, setArrivalOpen] = useState(false), [atlasOpen, setAtlasOpen] = useState(false), [atlasTab, setAtlasTab] = useState("places"), [toast, setToast] = useState("");
-  const itemRefs = useRef([]); const plan = tripData.plans[planIndex]; const day = useMemo(() => getDayView(plan, dayIndex, arrival), [plan, dayIndex, arrival]);
-  const dayKey = `${plan.id}-${dayIndex}${arrival === "sat-late" && dayIndex === 0 ? "-late" : ""}`;
-  const favoriteList = favorites[dayKey] || [], completedList = completed[dayKey] || [], note = notes[dayKey] || "";
-  const activeIndex = Math.max(0, Math.min(selectedIndex, day.stops.length - 1));
-  const selectedStop = day.stops[activeIndex] || day.stops[0], nextStop = day.stops[activeIndex + 1] || null;
+  const { plan, setPlan, resetPlan, shareId, sync } = useSharedPlan();
+  const params = new URLSearchParams(window.location.search);
+  const [activeDay, setActiveDay] = useState(() => Math.min(6, Math.max(0, Number(params.get("day") || 1) - 1)));
+  const [selectedId, setSelectedId] = useState(null);
+  const [expandedId, setExpandedId] = useState(null);
+  const [detailId, setDetailId] = useState(null);
+  const [guide, setGuide] = useState(null);
+  const [libraryOpen, setLibraryOpen] = useState(false);
+  const [mobileView, setMobileView] = useState("schedule");
+  const [toast, setToast] = useState("");
+  const places = useMemo(() => getResolvedPlaces(plan), [plan.selectedMusical, plan.customPlaces]);
+  const day = plan.days[activeDay] || plan.days[0];
+  const rate = plan.fxRate || FX_RATE;
+  const dayBudgets = useMemo(() => plan.days.map((entry) => dayBudget(entry, places)), [plan.days, places]);
+  const selectedItem = day.items.find((item) => item.id === selectedId) || day.items[0];
+  const selectedPlace = places[selectedItem?.placeId];
+  const candidatePlaces = day.candidateIds.map((id) => places[id]).filter(Boolean).filter((place) => !day.items.some((item) => item.placeId === place.id));
 
-  useEffect(() => { document.documentElement.dataset.theme = theme; }, [theme]);
-  useEffect(() => { if (selectedIndex !== activeIndex) setSelectedIndex(activeIndex); }, [activeIndex, selectedIndex]);
-  useEffect(() => { const payload = { planIndex, dayIndex, arrival, selectedIndex: activeIndex, favorites, completed, notes, theme, city, mobileView }; window.localStorage.setItem(STORAGE_KEY, JSON.stringify(payload)); const params = new URLSearchParams(window.location.search); params.set("plan", plan.id); params.set("day", String(dayIndex + 1)); window.history.replaceState({}, "", `${window.location.pathname}?${params.toString()}`); }, [planIndex, dayIndex, arrival, activeIndex, favorites, completed, notes, theme, city, mobileView, plan.id]);
-  useEffect(() => { if (!toast) return undefined; const timer = window.setTimeout(() => setToast(""), 2200); return () => window.clearTimeout(timer); }, [toast]);
-  useEffect(() => { const onKeyDown = (event) => { if (event.key === "Escape") { setPlanMenuOpen(false); setArrivalOpen(false); setAtlasOpen(false); } }; window.addEventListener("keydown", onKeyDown); return () => window.removeEventListener("keydown", onKeyDown); }, []);
+  useEffect(() => { setSelectedId(day.items[0]?.id || null); setExpandedId(null); const url = new URL(location.href); url.searchParams.set("day", String(activeDay + 1)); history.replaceState({}, "", url); }, [activeDay, day.id]);
+  useEffect(() => { if (!toast) return undefined; const timer = setTimeout(() => setToast(""), 2400); return () => clearTimeout(timer); }, [toast]);
+  useEffect(() => { document.body.style.overflow = detailId || guide || libraryOpen ? "hidden" : ""; return () => { document.body.style.overflow = ""; }; }, [detailId, guide, libraryOpen]);
 
-  const changePlan = (index) => { setPlanIndex(index); setDayIndex(0); setSelectedIndex(0); setExpandedIndices([]); setPlanMenuOpen(false); setMobileView("itinerary"); };
-  const changeDay = (index) => { setDayIndex(index); setSelectedIndex(0); setExpandedIndices([]); setMobileView("itinerary"); };
-  const scrollToStop = (index) => { const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches; window.requestAnimationFrame(() => itemRefs.current[index]?.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "center" })); };
-  const selectStop = (index, toggleExpand = false, scroll = false) => { setSelectedIndex(index); if (toggleExpand) setExpandedIndices((current) => current.includes(index) ? current.filter((item) => item !== index) : [...current, index]); if (scroll && !window.matchMedia("(max-width: 820px)").matches) scrollToStop(index); };
-  const switchMobileView = (view) => { setMobileView(view); if (view === "map") { window.requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: "auto" })); } else { window.requestAnimationFrame(() => scrollToStop(activeIndex)); } };
-  const toggleIndex = (setter, index) => { setter((current) => { const currentList = current[dayKey] || []; const next = currentList.includes(index) ? currentList.filter((item) => item !== index) : [...currentList, index]; return { ...current, [dayKey]: next }; }); };
-  const copyStop = async (stop) => { try { await writeClipboard(buildReservationText(plan, day, stop)); setToast("예약·이동 정보를 복사했습니다."); } catch { setToast("복사하지 못했습니다. 다시 시도해 주세요."); } };
-  const copyShareLink = async () => { try { await writeClipboard(window.location.href); setToast("현재 플랜과 날짜 링크를 복사했습니다."); } catch { setToast("링크를 복사하지 못했습니다."); } };
-  const openAtlas = (tab) => { setAtlasTab(tab); setAtlasOpen(true); };
-  const jumpFromAtlas = (targetDay, stop) => { const targetIndex = plan.days[targetDay].stops.findIndex((item) => item.time === stop.time && item.title === stop.title); const safeTarget = Math.max(0, targetIndex); setDayIndex(targetDay); setSelectedIndex(safeTarget); setExpandedIndices([safeTarget]); setAtlasOpen(false); setMobileView("itinerary"); window.requestAnimationFrame(() => scrollToStop(safeTarget)); };
+  const updateDay = (updater) => setPlan((current) => ({ ...current, days: current.days.map((entry, index) => index === activeDay ? updater(entry) : entry) }));
+  const updateItem = (id, changes) => updateDay((current) => ({ ...current, items: current.items.map((item) => item.id === id ? { ...item, ...changes } : item) }));
+  const moveItem = (index, delta) => updateDay((current) => {
+    const items = [...current.items]; const target = index + delta;
+    if (target < 0 || target >= items.length) return current;
+    const source = items[index]; const destination = items[target];
+    items[index] = { ...destination, time: source.time };
+    items[target] = { ...source, time: destination.time };
+    return { ...current, items };
+  });
+  const removeItem = (item) => updateDay((current) => ({ ...current, items: current.items.filter((entry) => entry.id !== item.id), candidateIds: Array.from(new Set([...current.candidateIds, item.placeId])) }));
+  const addPlace = (placeId, time = "15:00") => {
+    updateDay((current) => ({
+      ...current,
+      items: [...current.items, { id: `${placeId}-${Date.now()}`, placeId, time, costUsd: places[placeId]?.costUsd || 0, note: "" }].sort((a, b) => a.time.localeCompare(b.time)),
+      candidateIds: current.candidateIds.filter((id) => id !== placeId),
+    }));
+    setLibraryOpen(false); setMobileView("schedule"); setToast(`${places[placeId]?.shortName || "장소"}, 일정에 추가했습니다.`);
+  };
+  const addCustom = (form) => {
+    const id = `custom-${Date.now()}`; const place = { id, name: form.name.trim(), shortName: form.name.trim(), type: form.type, area: form.area || "New York", coords: [Number(form.lat), Number(form.lng)], address: form.address || "주소를 확인해 주세요", image: "images/broadway.jpg", imageAlt: "New York 거리", imageCredit: "사용자 추가 장소", description: "직접 추가한 장소입니다. 메모와 예상 비용을 일정에서 수정할 수 있습니다.", durationMin: 60, costUsd: Number(form.cost) || 0, costNote: "직접 입력한 2인 예상", hours: "방문 전 확인", reservation: "방문 전 확인", tips: ["주소와 영업시간을 방문 전에 확인합니다."], highlights: [] };
+    setPlan((current) => ({ ...current, customPlaces: { ...(current.customPlaces || {}), [id]: place }, days: current.days.map((entry, index) => index === activeDay ? { ...entry, items: [...entry.items, { id: `${id}-item`, placeId: id, time: form.time, costUsd: place.costUsd, note: "" }] } : entry) })); setLibraryOpen(false); setMobileView("schedule"); setToast("직접 만든 장소를 추가했습니다.");
+  };
+  const toggleListValue = (key, value) => setPlan((current) => ({ ...current, [key]: current[key]?.includes(value) ? current[key].filter((entry) => entry !== value) : [...(current[key] || []), value] }));
+  const changeDay = (index) => { setActiveDay(index); setMobileView("schedule"); };
+  const share = async () => { await writeClipboard(location.href); setToast("공유 링크를 복사했습니다. 같은 링크를 열면 일정이 함께 바뀝니다."); };
 
-  return (
-    <div className={`app-shell mobile-mode-${mobileView}`}>
-      <a className="skip-link" href="#primary-content">선택한 날 일정으로 건너뛰기</a>
-      <header className="app-header"><div className="brand-lockup"><span>NYC</span><strong>둘이서 천천히</strong></div><span className="header-divider" /><div className="trip-dates"><CalendarBlank size={17} />9박 10일 · 9/18–9/27, 2026</div><div className="city-route"><AirplaneTilt size={16} /> 인천 → 뉴욕 → 테네시 → 산호세</div><div className="header-spacer" />
-        <label className="city-select"><span className="sr-only">도시 선택</span><select value={city} onChange={(event) => setCity(event.target.value)}><option value="nyc">뉴욕</option><option value="tennessee">테네시</option><option value="sanjose">산호세</option></select><CaretDown size={14} /></label>
-        <div className="header-menu-wrap"><button className="header-plan" type="button" aria-haspopup="true" aria-expanded={planMenuOpen} onClick={() => { setPlanMenuOpen((open) => !open); setArrivalOpen(false); }}><span>{plan.number}</span>{plan.short}<CaretDown size={14} /></button>{planMenuOpen && <div className="plan-menu" aria-label="여행 플랜 선택">{tripData.plans.map((item, index) => <button key={item.id} type="button" aria-pressed={index === planIndex} onClick={() => changePlan(index)}><img src={item.thumbnail} alt="" /><span><small>PLAN {item.number} · 강도 {item.pace}</small><strong>{item.short}</strong><em>{item.bestFor} · {item.nature}</em></span>{index === planIndex && <Check size={18} />}</button>)}</div>}</div>
-        <div className="header-menu-wrap arrival-wrap"><IconAction label="뉴욕 도착 시간 선택" aria-expanded={arrivalOpen} onClick={() => { setArrivalOpen((open) => !open); setPlanMenuOpen(false); }}><AirplaneLanding size={20} /><span className="action-label">{ARRIVAL_OPTIONS.find((option) => option.id === arrival)?.short}</span></IconAction>{arrivalOpen && <div className="arrival-menu" role="radiogroup" aria-label="뉴욕 도착 시간">{ARRIVAL_OPTIONS.map((option) => <label key={option.id}><input type="radio" name="arrival" value={option.id} checked={arrival === option.id} onChange={() => { setArrival(option.id); setSelectedIndex(0); setExpandedIndices([]); setArrivalOpen(false); }} /><span>{option.label}</span></label>)}</div>}</div>
-        <IconAction label={theme === "dark" ? "밝은 화면" : "어두운 화면"} onClick={() => setTheme((current) => current === "dark" ? "light" : "dark")}>{theme === "dark" ? <Sun size={20} /> : <Moon size={20} />}</IconAction><IconAction label="현재 일정 링크 복사" onClick={copyShareLink}><ShareNetwork size={20} /></IconAction><IconAction label="인쇄 또는 PDF 저장" onClick={() => window.print()}><Printer size={20} /></IconAction>
-      </header>
-      {city !== "nyc" ? <CityEmpty city={city} onBack={() => setCity("nyc")} /> : <><DayRail plan={plan} dayIndex={dayIndex} arrival={arrival} completed={completed} onChange={changeDay} /><section className="mobile-operational" aria-label="현재 선택과 다음 일정"><div><small>선택</small><strong>{selectedStop.time}</strong></div><div><small>다음</small><strong>{nextStop?.time || "마무리"}</strong></div><div><small>이동</small><strong>{nextStop?.move || "오늘 일정 마무리"}</strong></div></section>
-        <main id="primary-content" tabIndex={-1} className={`primary-grid mobile-view-${mobileView}`}><EditorialGallery plan={plan} day={day} dayIndex={dayIndex} note={note} onNoteChange={(value) => setNotes((current) => ({ ...current, [dayKey]: value }))} /><Itinerary day={day} dayIndex={dayIndex} selectedIndex={activeIndex} expandedIndices={expandedIndices} favorites={favoriteList} completed={completedList} advice={getArrivalAdvice(arrival, dayIndex)} itemRefs={itemRefs} onSelect={selectStop} onToggleFavorite={(index) => toggleIndex(setFavorites, index)} onToggleComplete={(index) => toggleIndex(setCompleted, index)} onCopy={copyStop} /><ContextPanel plan={plan} day={day} selectedIndex={activeIndex} favorites={favoriteList} completed={completedList} onSelect={(index) => selectStop(index, false, true)} onToggleFavorite={(index) => toggleIndex(setFavorites, index)} onToggleComplete={(index) => toggleIndex(setCompleted, index)} onCopy={copyStop} /></main><AtlasStrip onOpen={openAtlas} />
-        <nav className="mobile-bottom-nav" aria-label="현장용 주요 화면"><button type="button" aria-current={mobileView === "itinerary" ? "page" : undefined} onClick={() => switchMobileView("itinerary")}><List size={21} />일정</button><button type="button" aria-current={mobileView === "map" ? "page" : undefined} onClick={() => switchMobileView("map")}><MapTrifold size={21} />지도</button><button type="button" onClick={() => openAtlas("places")}><Images size={21} />아틀라스</button></nav></>}
-      {atlasOpen && <AtlasOverlay plan={plan} activeTab={atlasTab} onTab={setAtlasTab} onClose={() => setAtlasOpen(false)} onJumpToDay={jumpFromAtlas} onPrint={() => window.print()} />}{toast && <div className="toast" role="status" aria-live="polite">{toast}</div>}<PrintGuide plan={plan} />
-    </div>
-  );
+  return <div className="app-shell">
+    <a className="skip-link" href="#itinerary">일정으로 바로가기</a>
+    <header className="topbar"><div className="brand"><span>NYC / 2026</span><strong>{plan.title || TRIP_META.title}</strong></div><div className="trip-route" aria-label="여행 개요"><span><CalendarBlank />SEP 18</span><i /> <span><MapPin />NEW YORK</span><i /> <span><AirplaneTilt />SEP 25</span></div><nav className="utility-nav" aria-label="여행 도구"><button type="button" onClick={() => setGuide("hotels")}><Bed />숙소</button><button type="button" onClick={() => setGuide("shows")}><Ticket />공연·투어</button><button type="button" onClick={() => setGuide("budget")}><Wallet />예산</button><button type="button" onClick={() => setGuide("events")}><Sparkle />기간 한정</button></nav><button type="button" className="share-button" onClick={share}><ShareNetwork />공유<span className={`sync-dot ${sync.state}`} /> <small>{sync.message}</small></button></header>
+    <section className="trip-overview"><div><span>ARRIVAL</span><strong>9/18 금 · 23:00</strong><small>JFK 도착 가정</small></div><div><span>STAY</span><strong>6박 · Midtown</strong><small>Bryant Park 권역</small></div><div><span>DEPARTURE</span><strong>9/25 금 · 01:30</strong><small>9/24 20:30 호텔 출발</small></div><p><Warning /> 9/21–25 UN General Assembly 영향으로 Midtown East 차량 이동에는 30–60분 여유가 필요합니다.</p></section>
+    <DayRail days={plan.days} active={activeDay} onChange={changeDay} />
+    <main className="planner" data-mobile-view={mobileView}>
+      <aside className="day-journal mobile-candidates" aria-label="오늘의 사진과 후보 장소">
+        <figure className="day-hero"><Image src={day.hero} alt={`${day.title} 대표 풍경`} priority /><figcaption><span>{day.dayCode} · {day.dateLabel}</span><h1>{day.title}</h1><p>{day.subtitle}</p></figcaption></figure>
+        <div className="day-metrics"><div><span>2인 예상 경비</span><strong>{money(dayBudgets[activeDay].total)}</strong><small>{won(dayBudgets[activeDay].total, rate)} · 교통 추정 포함</small></div><div><span>페이스</span><strong>{["도착만", "가벼움", "여유", "보통"][day.energy] || "보통"}</strong><small>{day.items.length}개 일정 · {day.area}</small></div></div>
+        <section className="candidate-section"><header><div><span className="eyebrow">NEARBY EDITS</span><h2>이날 함께 보기 좋은 곳</h2></div><button type="button" onClick={() => setLibraryOpen(true)}><Plus /> 전체 후보</button></header>{candidatePlaces.length ? candidatePlaces.map((place) => <CandidateCard key={place.id} place={place} rate={rate} favorite={plan.favorites.includes(place.id)} onAdd={() => addPlace(place.id)} onDetail={() => setDetailId(place.id)} onFavorite={() => toggleListValue("favorites", place.id)} />) : <p className="empty-copy">기본 후보를 모두 일정에 넣었습니다. 전체 후보에서 다른 장소를 고를 수 있습니다.</p>}</section>
+      </aside>
+
+      <section className="itinerary" id="itinerary" aria-labelledby="day-title">
+        <header className="itinerary-heading"><div><span className="eyebrow">{day.dayCode} · {day.dateLabel} · {day.area}</span><h2 id="day-title">{day.title}</h2><p>{day.subtitle}</p></div><button type="button" onClick={() => setLibraryOpen(true)}><Plus /> 장소 추가</button></header>
+        <ol className="timeline">{day.items.map((item, index) => { const place = places[item.placeId]; if (!place) return null; const next = places[day.items[index + 1]?.placeId]; return <TimelineItem key={item.id} item={item} place={place} index={index} previousTime={day.items[index - 1]?.time} nextPlace={next} selected={selectedItem?.id === item.id} expanded={expandedId === item.id} completed={plan.completed.includes(item.id)} favorite={plan.favorites.includes(place.id)} rate={rate} onSelect={() => setSelectedId(item.id)} onExpand={() => setExpandedId(expandedId === item.id ? null : item.id)} onUpdate={(changes) => updateItem(item.id, changes)} onMove={(delta) => moveItem(index, delta)} onRemove={() => removeItem(item)} onToggleDone={() => toggleListValue("completed", item.id)} onToggleFavorite={() => toggleListValue("favorites", place.id)} onOpenDetail={() => setDetailId(place.id)} />; })}</ol>
+        <details className="day-note"><summary><NotePencil /> 이날의 메모</summary><textarea value={plan.notes?.[day.id] || ""} onChange={(event) => setPlan((current) => ({ ...current, notes: { ...(current.notes || {}), [day.id]: event.target.value } }))} placeholder="예약 번호, 꼭 사고 싶은 것, 둘만의 메모를 적어 두세요." /></details>
+      </section>
+
+      <aside className="map-panel mobile-map" aria-label="오늘의 이동 지도"><div className="map-heading"><div><span className="eyebrow">LIVE ROUTE</span><h2>순서를 바꾸면 지도도 바뀝니다</h2></div><span>{day.items.length}곳</span></div><div className="map-frame"><RouteMap items={day.items} places={places} selectedId={selectedItem?.id} completed={plan.completed} onSelect={(id) => { setSelectedId(id); setExpandedId(id); }} /></div>{selectedPlace && <button type="button" className="map-selection" onClick={() => setDetailId(selectedPlace.id)}><Image src={selectedPlace.image} alt="" /><span><small>{selectedItem.time} · {selectedPlace.area}</small><strong>{selectedPlace.shortName}</strong><em>{money(itemCost(selectedItem, selectedPlace))} · 상세 보기</em></span><CaretRight /></button>}<div className="map-legend"><span><i className="must" />필수 장소</span><span><i className="route" />현재 동선</span><small>지도 경로선은 실제 길찾기가 아닌 방문 순서입니다.</small></div></aside>
+    </main>
+
+    <nav className="mobile-nav" aria-label="모바일 화면"><button type="button" aria-current={mobileView === "schedule" ? "page" : undefined} onClick={() => setMobileView("schedule")}><ListBullets />일정</button><button type="button" aria-current={mobileView === "map" ? "page" : undefined} onClick={() => setMobileView("map")}><MapTrifold />지도</button><button type="button" aria-current={mobileView === "candidates" ? "page" : undefined} onClick={() => setMobileView("candidates")}><Sparkle />후보</button><button type="button" onClick={() => setGuide("budget")}><Wallet />예산</button></nav>
+
+    <footer className="site-footer"><div><strong>확인 기준 {VERIFIED_AT}</strong><span>운영시간·가격·평점은 예약 직전 공식 페이지에서 다시 확인하세요.</span></div><details><summary>조사 출처 {SOURCES.length}개</summary><ul>{SOURCES.map(([label, url]) => <li key={url}><a href={url} target="_blank" rel="noreferrer">{label}</a></li>)}</ul></details><button type="button" onClick={() => { if (window.confirm("편집한 내용을 모두 지우고 처음 일정으로 되돌릴까요?")) resetPlan(); }}><Trash />초기 일정으로 되돌리기</button><small>공유 코드 {shareId.slice(-8)}</small></footer>
+
+    {detailId && <DetailSheet place={places[detailId]} rate={rate} favorite={plan.favorites.includes(detailId)} onFavorite={() => toggleListValue("favorites", detailId)} onClose={() => setDetailId(null)} />}
+    {libraryOpen && <LibrarySheet places={places} currentIds={day.items.map((item) => item.placeId)} rate={rate} favorites={plan.favorites} onAdd={addPlace} onDetail={(id) => { setLibraryOpen(false); setDetailId(id); }} onFavorite={(id) => toggleListValue("favorites", id)} onClose={() => setLibraryOpen(false)} onAddCustom={addCustom} />}
+    {guide && <GuidePanel mode={guide} plan={plan} setPlan={setPlan} rate={rate} dayBudgets={dayBudgets} onClose={() => setGuide(null)} />}
+    {toast && <div className="toast" role="status"><Check />{toast}</div>}
+  </div>;
 }
