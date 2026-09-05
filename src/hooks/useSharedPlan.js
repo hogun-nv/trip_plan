@@ -50,6 +50,7 @@ async function readMantlePlan(shareId, minimumRevision = -1) {
   if (!metaResponse.ok) throw new Error(`mantle meta ${metaResponse.status}`);
   const meta = await metaResponse.json();
   const revision = Number(meta.revision || 0);
+  if (revision < 1) return { status: 404, payload: null, revision: 0 };
   if (revision <= minimumRevision) return { status: 200, payload: null, revision };
   const planResponse = await fetch(mantleUrl(`${root}/revisions/${revision}`), { cache: "no-store", headers: { accept: "application/json" } });
   if (planResponse.status === 404) return { status: 202, payload: null, revision };
@@ -59,14 +60,24 @@ async function readMantlePlan(shareId, minimumRevision = -1) {
 
 async function writeMantlePlan(shareId, data, updatedBy) {
   const root = `plans/${encodeURIComponent(shareId)}`;
-  const incrementResponse = await fetch(`${MANTLE_ORIGIN}/v2/increment/${encodeURIComponent(MANTLE_NAMESPACE)}/${root}/meta`, {
+  const increment = () => fetch(`${MANTLE_ORIGIN}/v2/increment/${encodeURIComponent(MANTLE_NAMESPACE)}/${root}/meta`, {
     method: "POST",
     headers: { "content-type": "application/json", accept: "application/json" },
     body: JSON.stringify({ key: "revision", by: 1 }),
   });
+  let incrementResponse = await increment();
+  if (incrementResponse.status === 404) {
+    const initializeResponse = await fetch(mantleUrl(`${root}/meta`), {
+      method: "POST",
+      headers: { "content-type": "application/json", accept: "application/json" },
+      body: JSON.stringify({ revision: 0 }),
+    });
+    if (!initializeResponse.ok) throw new Error(`mantle initialize ${initializeResponse.status}`);
+    incrementResponse = await increment();
+  }
   if (!incrementResponse.ok) throw new Error(`mantle increment ${incrementResponse.status}`);
-  const increment = await incrementResponse.json();
-  const revision = Number(increment.revision);
+  const incrementResult = await incrementResponse.json();
+  const revision = Number(incrementResult.revision);
   if (!Number.isInteger(revision) || revision < 1) throw new Error("mantle invalid revision");
   const payload = { revision, data, updatedBy, updatedAt: new Date().toISOString() };
   const writeResponse = await fetch(mantleUrl(`${root}/revisions/${revision}`), {
