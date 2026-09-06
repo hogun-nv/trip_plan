@@ -1885,7 +1885,7 @@ export const SOURCES = [
 
 export function createInitialPlan() {
   return {
-    version: 2,
+    version: 3,
     title: TRIP_META.title,
     days: structuredClone(INITIAL_DAYS),
     favorites: [],
@@ -1899,5 +1899,34 @@ export function createInitialPlan() {
     selectedMusical: "maybe-happy-ending",
     includeShopping: true,
     updatedAt: new Date().toISOString(),
+  };
+}
+
+export function upgradePlan(savedPlan) {
+  const fresh = createInitialPlan();
+  if (!savedPlan?.days?.length) return fresh;
+  if (Number(savedPlan.version || 0) >= fresh.version) return savedPlan;
+
+  const templates = new Map(fresh.days.map((day) => [day.id, day]));
+  return {
+    ...fresh,
+    ...savedPlan,
+    version: fresh.version,
+    days: savedPlan.days.map((day, index) => {
+      const template = templates.get(day.id) || fresh.days[index];
+      if (!template) return day;
+      return {
+        ...template,
+        ...day,
+        dayCode: template.dayCode,
+        dateLabel: template.dateLabel,
+        title: template.title,
+        subtitle: template.subtitle,
+        area: template.area,
+        hero: template.hero,
+        items: Array.isArray(day.items) ? day.items : template.items,
+        candidateIds: Array.isArray(day.candidateIds) ? day.candidateIds : template.candidateIds,
+      };
+    }),
   };
 }

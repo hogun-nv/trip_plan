@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-import { createInitialPlan } from "../data/nyc-planner-data.js";
+import { createInitialPlan, upgradePlan } from "../data/nyc-planner-data.js";
 
 const API_ORIGIN = (import.meta.env.VITE_SYNC_API_ORIGIN || "").replace(/\/$/, "");
 // The public fallback only runs on GitHub Pages; Sites deployments keep using the D1 API.
@@ -164,7 +164,7 @@ export function useSharedPlan() {
   if (!initialRef.current) {
     try {
       const saved = JSON.parse(localStorage.getItem(storageKey));
-      initialRef.current = saved?.days?.length ? saved : createInitialPlan();
+      initialRef.current = saved?.days?.length ? upgradePlan(saved) : createInitialPlan();
     } catch { initialRef.current = createInitialPlan(); }
   }
   const [plan, setPlanState] = useState(initialRef.current);
@@ -191,21 +191,27 @@ export function useSharedPlan() {
 
   const applyRemote = useCallback((payload) => {
     if (!payload?.data?.days?.length) return;
+    const upgraded = upgradePlan(payload.data);
+    const needsUpgrade = !same(upgraded, payload.data);
     revisionRef.current = payload.revision || revisionRef.current;
     basePlanRef.current = payload.data;
-    planRef.current = payload.data;
-    dirtyRef.current = false;
+    planRef.current = upgraded;
+    dirtyRef.current = needsUpgrade;
+    if (needsUpgrade) changeSequenceRef.current += 1;
     retryCountRef.current = 0;
-    setPlanState(payload.data);
-    localStorage.setItem(storageKey, JSON.stringify(payload.data));
-    setSync({ state: "synced", message: "모든 기기에 저장됨" });
+    setPlanState(upgraded);
+    localStorage.setItem(storageKey, JSON.stringify(upgraded));
+    setSync(needsUpgrade
+      ? { state: "saving", message: "최신 가이드로 업데이트 중" }
+      : { state: "synced", message: "모든 기기에 저장됨" });
   }, [storageKey]);
 
   const reconcileRemote = useCallback((payload) => {
     if (!payload?.data?.days?.length) return;
-    const merged = mergePlans(basePlanRef.current || payload.data, planRef.current, payload.data);
+    const remotePlan = upgradePlan(payload.data);
+    const merged = mergePlans(basePlanRef.current || remotePlan, planRef.current, remotePlan);
     revisionRef.current = payload.revision || revisionRef.current;
-    basePlanRef.current = payload.data;
+    basePlanRef.current = remotePlan;
     planRef.current = merged;
     dirtyRef.current = true;
     changeSequenceRef.current += 1;
