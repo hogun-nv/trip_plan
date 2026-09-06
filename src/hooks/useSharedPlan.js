@@ -49,13 +49,42 @@ async function readMantlePlan(shareId, minimumRevision = -1) {
   if (metaResponse.status === 404) return { status: 404, payload: null };
   if (!metaResponse.ok) throw new Error(`mantle meta ${metaResponse.status}`);
   const meta = await metaResponse.json();
-  const revision = Number(meta.revision || 0);
-  if (revision < 1) return { status: 404, payload: null, revision: 0 };
-  if (revision <= minimumRevision) return { status: 200, payload: null, revision };
-  const planResponse = await fetch(mantleUrl(`${root}/revisions/${revision}`), { cache: "no-store", headers: { accept: "application/json" } });
-  if (planResponse.status === 404) return { status: 202, payload: null, revision };
-  if (!planResponse.ok) throw new Error(`mantle plan ${planResponse.status}`);
-  return { status: 200, payload: await planResponse.json(), revision };
+  const headRevision = Number(meta.revision || 0);
+  if (headRevision < 1) return { status: 404, payload: null, revision: 0 };
+  if (headRevision <= minimumRevision) return { status: 200, payload: null, revision: headRevision };
+
+  const readRevision = (revision) => fetch(mantleUrl(`${root}/revisions/${revision}`), {
+    cache: "no-store",
+    headers: { accept: "application/json" },
+  });
+  let planResponse = await readRevision(headRevision);
+  if (planResponse.status === 404) {
+    // increment와 본문 저장 사이에 탭이 닫히면 meta만 앞선 revision을 가리킬 수
+    // 있습니다. 정상적인 동시 저장에는 잠깐의 여유를 주고, 그래도 비어 있으면
+    // 직전 정상본으로 되돌아가 다음 저장에서 새 revision을 만들도록 합니다.
+    await new Promise((resolve) => window.setTimeout(resolve, 160));
+    planResponse = await readRevision(headRevision);
+  }
+  if (planResponse.ok) {
+    const payload = await planResponse.json();
+    return { status: 200, payload: { ...payload, revision: headRevision }, revision: headRevision };
+  }
+  if (planResponse.status !== 404) throw new Error(`mantle plan ${planResponse.status}`);
+
+  const oldestRevision = Math.max(1, headRevision - 20);
+  for (let revision = headRevision - 1; revision >= oldestRevision; revision -= 1) {
+    const fallbackResponse = await readRevision(revision);
+    if (fallbackResponse.status === 404) continue;
+    if (!fallbackResponse.ok) throw new Error(`mantle plan ${fallbackResponse.status}`);
+    const payload = await fallbackResponse.json();
+    return {
+      status: 200,
+      payload: { ...payload, revision: headRevision, recoveredFromRevision: revision },
+      revision: headRevision,
+      recoveredFrom: revision,
+    };
+  }
+  return { status: 202, payload: null, revision: headRevision };
 }
 
 async function writeMantlePlan(shareId, data, updatedBy) {
@@ -193,16 +222,18 @@ export function useSharedPlan() {
     if (!payload?.data?.days?.length) return;
     const upgraded = upgradePlan(payload.data);
     const needsUpgrade = !same(upgraded, payload.data);
+    const needsRecovery = Number.isInteger(payload.recoveredFromRevision);
+    const shouldSave = needsUpgrade || needsRecovery;
     revisionRef.current = payload.revision || revisionRef.current;
     basePlanRef.current = payload.data;
     planRef.current = upgraded;
-    dirtyRef.current = needsUpgrade;
-    if (needsUpgrade) changeSequenceRef.current += 1;
+    dirtyRef.current = shouldSave;
+    if (shouldSave) changeSequenceRef.current += 1;
     retryCountRef.current = 0;
     setPlanState(upgraded);
     localStorage.setItem(storageKey, JSON.stringify(upgraded));
-    setSync(needsUpgrade
-      ? { state: "saving", message: "최신 가이드로 업데이트 중" }
+    setSync(shouldSave
+      ? { state: "saving", message: needsRecovery ? "공유 일정 복구 중" : "최신 가이드로 업데이트 중" }
       : { state: "synced", message: "모든 기기에 저장됨" });
   }, [storageKey]);
 
